@@ -1,1 +1,22 @@
-<p>filtros works!</p>
+<div >
+  <div>
+    <h2>Filtros</h2>
+    <p-dropdown formControlName="city" placeholder="-- Seleccione un rol --" [options]="provincias"
+                optionLabel="name"></p-dropdown>
+    <label>
+      <span>Fumar</span>
+      <p-inputSwitch formControlName="fumar" inputId="fumar" [(ngModel)]="fumar"></p-inputSwitch>
+    </label>
+
+    <label>
+      <span>Mascota</span>
+      <p-inputSwitch inputId="mascota" [(ngModel)]="mascota"></p-inputSwitch>
+    </label>
+  </div>
+
+  <div>
+    <h2>Tarjetas</h2>
+
+
+  </div>
+</div>

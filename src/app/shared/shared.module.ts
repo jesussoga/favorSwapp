@@ -5,6 +5,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { FiltrosComponent } from './components/filtros/filtros.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {PrimengModule} from "../primeng/primeng.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -19,11 +21,15 @@ import {PrimengModule} from "../primeng/primeng.module";
     NavComponent,
     FooterComponent,
     InicioComponent,
+    FiltrosComponent,
 
   ],
   imports: [
     CommonModule,
-    PrimengModule
+    PrimengModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ]
 })
 export class SharedModule { }
