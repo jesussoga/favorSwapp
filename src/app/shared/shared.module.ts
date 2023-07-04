@@ -4,18 +4,26 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FiltrosComponent } from './components/filtros/filtros.component';
 import { FooterComponent } from './components/footer/footer.component';
+import {PrimengModule} from "../primeng/primeng.module";
 
 
 
 @NgModule({
-  declarations: [
-    InicioComponent,
+    declarations: [
+        InicioComponent,
+        NavComponent,
+        FiltrosComponent,
+        FooterComponent
+    ],
+  exports: [
     NavComponent,
-    FiltrosComponent,
-    FooterComponent
+    FooterComponent,
+    InicioComponent,
+
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PrimengModule
   ]
 })
 export class SharedModule { }

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {ButtonModule} from "primeng/button";
+import {RippleModule} from "primeng/ripple";
 
 
 
@@ -7,6 +9,11 @@ import { CommonModule } from '@angular/common';
   declarations: [],
   imports: [
     CommonModule
+  ],
+  exports: [
+    ButtonModule,
+    RippleModule,
+
   ]
 })
 export class PrimengModule { }
