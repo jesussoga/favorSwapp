@@ -5,6 +5,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { FiltrosComponent } from './components/filtros/filtros.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {PrimengModule} from "../primeng/primeng.module";
+import {InputSwitchModule} from "primeng/inputswitch";
 
 
 
@@ -23,7 +24,8 @@ import {PrimengModule} from "../primeng/primeng.module";
   ],
   imports: [
     CommonModule,
-    PrimengModule
+    PrimengModule,
+    InputSwitchModule
   ]
 })
 export class SharedModule { }
