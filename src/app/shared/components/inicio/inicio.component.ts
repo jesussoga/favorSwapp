@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class InicioComponent {
 
+  verFavores() {
+    console.log("Hemos pulsado en 'ver favor'")
+  }
+
+  agregarFavor() {
+    console.log("Hemos pulsado en 'agregar favor'")
+  }
 }
