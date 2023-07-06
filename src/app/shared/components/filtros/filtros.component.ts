@@ -19,6 +19,7 @@ export class FiltrosComponent implements OnInit{
   public mascota: boolean;
   public climatizacion: boolean;
   public movilidadReducida: boolean;
+  public provinciaElegida: string;
   public provincias: Provincia[];
   public favores: Favor[];
 
@@ -32,6 +33,7 @@ export class FiltrosComponent implements OnInit{
     this.mascota = false;
     this.climatizacion = false;
     this.movilidadReducida = false;
+    this.provinciaElegida = "";
     this.provincias = [];
     this.favores = [];
   }
