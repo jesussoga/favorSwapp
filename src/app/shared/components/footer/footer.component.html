@@ -1,33 +1,44 @@
-<p-footer>
-  <div class="footer-content">
-    <div >
+
+  <!--Boton primero de dirección-->
+  <div class="grid footer">
+    <div class="col">
+      <div class="text-center border-round-sm font-bold">
+      <!--Dirección-->
+      <p-button (click)="ubicacion()" styleClass="p-button-rounded p-button-secondary" label="&copy; FavorSwapp '23"></p-button>
+      </div>
     </div>
-    <div class="flex justify-content-end flex-wrap">
-      <p-button label="PTA C/Marie Curie Ed." styleClass="p-button-rounded p-button-secondary">
-        <i class=" pi pi-building"></i>
-      </p-button>
+    <!---->
+    <div class="col">
+      <div class="text-center border-round-sm font-bold ">
+        <!--Redes Sociales-->
+        <div class="align-content-center">
+          <p-button  styleClass="p-button-rounded p-button-secondary" (click)="facebook()" >
+            <i class="pi pi-facebook"></i>
+          </p-button>
+          <p-button styleClass="p-button-rounded p-button-secondary" (click)="twitter()">
+            <i class="pi pi-twitter"></i>
+          </p-button>
+          <p-button styleClass="p-button-rounded p-button-secondary" (click)="instagram()">
+            <i class="pi pi-instagram"></i>
+          </p-button>
+        </div>
+      </div>
     </div>
-    <div class="flex justify-content-start flex-wrap">
-      <p-button styleClass="p-button-rounded p-button-secondary" label="CopyRight© FavorSwapp '23"></p-button>
+
+    <div class="col">
+      <div class="text-center border-round-sm font-bold ">
+        <div class="flex-1 flex align-items-center justify-content-center font-bold border-round">
+          <!--Botones de atrezzo-->
+          <p-button label="Privacidad" (click)="abrirPoliticaDePrivacidad()"
+                    styleClass="p-button-rounded p-button-secondary"></p-button>
+          <p-button label="Términos" (click)="abrirDialogoTerminosYCondiciones()"
+                    styleClass="p-button-rounded p-button-secondary"></p-button>
+          <p-button label="Cookies" (click)="abrirPoliticaDeCookies()"
+                    styleClass="p-button-rounded p-button-secondary"></p-button>
+        </div>
+      </div>
+      </div>
     </div>
-    <!--Redes Sociales-->
-    <div class="align-content-center">
-      <p-button styleClass="p-button-rounded p-button-secondary" href="#" target="_blank">
-        <i class="pi pi-facebook"></i>
-      </p-button>
-      <p-button styleClass="p-button-rounded p-button-secondary" href="#" target="_blank">
-        <i class="pi pi-twitter"></i>
-      </p-button>
-      <p-button styleClass="p-button-rounded p-button-secondary" href="#" target="_blank">
-        <i class="pi pi-instagram"></i>
-      </p-button>
-      <!--Botones de atrezzo-->
-      <p-button label="Política de privacidad" (click)="abrirPoliticaDePrivacidad()" styleClass="p-button-rounded p-button-secondary"></p-button>
-      <p-button label="Términos y condiciones" (click)="abrirDialogoTerminosYCondiciones()" styleClass="p-button-rounded p-button-secondary"></p-button>
-      <p-button label="Política de cookies" (click)="abrirPoliticaDeCookies()" styleClass="p-button-rounded p-button-secondary"></p-button>
-    </div>
-  </div>
-</p-footer>
 
 
 
@@ -338,6 +349,8 @@
   <p-button styleClass="p-button-rounded p-button-secondary" label="Aceptar" (click)="cerrarDialogoTerminosYCondiciones()"></p-button>
   </ng-template>
 </p-dialog>
+
+
 
 <p-dialog [(visible)]="visibleCookies" [modal]="true" [resizable]="true" [maximizable]="true" header="Política de Cookies">
   <h1>Política de Cookies</h1>

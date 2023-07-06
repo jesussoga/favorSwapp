@@ -14,7 +14,7 @@ import {DialogModule} from "primeng/dialog";
   exports: [
     ButtonModule,
     RippleModule,
-    DialogModule
+    DialogModule,
   ]
 })
 export class PrimengModule { }
