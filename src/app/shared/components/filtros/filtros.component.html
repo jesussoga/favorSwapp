@@ -1,22 +1,63 @@
 <div >
-  <div>
-    <h2>Filtros</h2>
-    <p-dropdown formControlName="city" placeholder="-- Seleccione un rol --" [options]="provincias"
-                optionLabel="name"></p-dropdown>
+  <div style="background-color: burlywood">
+    <label>
+      Provincias
+      <p-dropdown inputId="provincias" placeholder="-- Seleccione una Provincia --" appendTo="body" optionValue="id" [options]="provincias" optionLabel="nombre"></p-dropdown>
+    </label>
+    <br>
     <label>
       <span>Fumar</span>
-      <p-inputSwitch formControlName="fumar" inputId="fumar" [(ngModel)]="fumar"></p-inputSwitch>
+      <p-inputSwitch inputId="fumar" [(ngModel)]="fumar"></p-inputSwitch>
     </label>
-
+    <br>
+    <label>
+      <span>Internet</span>
+      <p-inputSwitch inputId="internet" [(ngModel)]="internet"></p-inputSwitch>
+    </label>
+    <br>
     <label>
       <span>Mascota</span>
       <p-inputSwitch inputId="mascota" [(ngModel)]="mascota"></p-inputSwitch>
     </label>
+    <br>
+    <label>
+      <span>Climatización</span>
+      <p-inputSwitch inputId="climatizacion" [(ngModel)]="climatizacion"></p-inputSwitch>
+    </label>
+    <br>
+    <label>
+      <span>Movilidad Reducida</span>
+      <p-inputSwitch inputId="movilidadReducida" [(ngModel)]="movilidadReducida"></p-inputSwitch>
+    </label>
   </div>
 
+<!--  Aquí tienen que ir las tarjetas de cada favor-->
+
+  <ng-container>
+    <div>
+      <p-card header="Habitación" subheader="Card Subheader" [style]="{ width: '360px' }">
+        <ng-template pTemplate="header">
+          <img alt="Card" src="https://cdn-icons-png.flaticon.com/512/85/85488.png"/>
+        </ng-template>
+
+        <ng-template pTemplate="footer">
+          <p-button label="Contactar"></p-button>
+        </ng-template>
+      </p-card>
+    </div>
+  </ng-container>
+
   <div>
-    <h2>Tarjetas</h2>
+    <div *ngIf="pruebasDesarrolo" style="background-color: darkseagreen">
+      <p>Fumar: {{fumar}}</p>
+      <p>Internet: {{internet}}</p>
+      <p>Mascota: {{mascota}}</p>
+      <p>Climatización: {{climatizacion}}</p>
+      <p>Movilidad Reducida: {{movilidadReducida}}</p>
+      <p>Provincia: {{provincias | json}}</p>
+      <p>Favores: {{favores |json}}</p>
+    </div>
 
-
+<!--  Provincias: {{provincias | json}}-->
   </div>
 </div>

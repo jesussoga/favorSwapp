@@ -8,7 +8,7 @@ import {Provincia} from "../models/provincia.models";
 })
 export class ProvinciasService {
 
-  public url : string = "http://localhost:8080/api/v1/provincias";
+  public url : string = "http://192.168.0.15:8080/api/v1/provincias";
   constructor(private httpClient: HttpClient) { }
 
 
@@ -16,8 +16,8 @@ export class ProvinciasService {
     return this.httpClient.get<Provincia[]>(this.url);
   }
 
-  public obtenerProvinciaPorId(provincia : string): Observable<Provincia[]> {
-    return this.httpClient.get<Provincia[]>(this.url + "/" + provincia);
+  public obtenerProvinciaPorId(idProvincia : string): Observable<Provincia> {
+    return this.httpClient.get<Provincia>(this.url + "/" + idProvincia);
   }
 
 }

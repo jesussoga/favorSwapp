@@ -7,6 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import {PrimengModule} from "../primeng/primeng.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { InsertarFavorComponent } from './components/insertar-favor/insertar-favor.component';
 
 
 
@@ -15,15 +16,17 @@ import {HttpClientModule} from "@angular/common/http";
         InicioComponent,
         NavComponent,
         FiltrosComponent,
-        FooterComponent
+        FooterComponent,
+        InsertarFavorComponent
     ],
-  exports: [
-    NavComponent,
-    FooterComponent,
-    InicioComponent,
-    FiltrosComponent,
+    exports: [
+        NavComponent,
+        FooterComponent,
+        InicioComponent,
+        FiltrosComponent,
+        InsertarFavorComponent,
 
-  ],
+    ],
   imports: [
     CommonModule,
     PrimengModule,

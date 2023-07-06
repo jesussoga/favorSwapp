@@ -1,0 +1,71 @@
+<p-card styleClass="shadow-8 bg-cyan-500" >
+  <div>
+    <h1>Crear un Favor</h1>
+    <form [formGroup]="formFavor" class="mt-4">
+      <input type="hidden" formControlName="id"/>
+      <div class="formgrid grid">
+        <div class="field col-12 md:col-4">
+          <span class="p-float-label m-2">
+            <input pInputText id="nombre" type="text" class="w-full" aria-describedby="nombre-ayuda" formControlName="nombre">
+            <label htmlFor="nombre">Nombre</label>
+<!--          <small style="color: #e24c4c" id="nombre-ayuda">Debe tener entre 2 y 20 caracteres</small>-->
+          </span>
+          <span class="p-float-label m-2">
+            <input pInputText id="primerApellido" type="text" class="w-full" aria-describedby="primerApellido-ayuda" formControlName="primerApellido">
+            <label htmlFor="primerApellido">Primer Apellido</label>
+            <!--          <small style="color: #e24c4c" id="primerApellido-ayuda">Debe tener entre 2 y 20 caracteres</small>-->
+          </span>
+          <span class="p-float-label m-2">
+            <input pInputText id="segundoApellido" type="text" class="w-full" aria-describedby="segundoApellido-ayuda" formControlName="segundoApellido">
+            <label htmlFor="segundoApellido">Segundo Apellido</label>
+            <!--          <small style="color: #e24c4c" id="SegundoApellido-ayuda">Debe tener entre 2 y 20 caracteres</small>-->
+          </span>
+
+        </div>
+        <div class="field col-12 md:col-4">
+          <span class="p-float-label m-2">
+            <input pInputText id="correo" aria-describedby="correo-ayuda" type="text" class="w-full" formControlName="correo">
+            <label htmlFor="correo" >Correo electrónico</label>
+<!--            <small style="color: #e24c4c" id="correo-ayuda">El correo no es válido</small>-->
+          </span>
+          <span class="p-float-label m-2">
+            <input pInputText id="telefono" aria-describedby="telefono-ayuda" type="text" class="w-full" formControlName="telefono">
+            <label htmlFor="telefono" >Teléfono</label>
+            <!--            <small style="color: #e24c4c" id="telefono-ayuda">El correo no es válido</small>-->
+          </span>
+        </div>
+        <div class="field col-12 md:col-4">
+          <div class="flex flex-column gap-2">
+            <label>
+            <p-checkbox formControlName="fumar" value="true" inputId="fumar"></p-checkbox>
+            <span> Fumar</span>
+            </label>
+            <label>
+              <p-checkbox formControlName="internet" value="true" inputId="internet"></p-checkbox>
+              <span> Internet</span>
+            </label>
+            <label>
+              <p-checkbox formControlName="mascota" value="true" inputId="mascota"></p-checkbox>
+              <span> Mascota</span>
+            </label>
+          </div>
+        </div>
+        <div class="flex justify-content-end mb-2 p-3 gap-3">
+          <p-button
+                  icon="pi pi-eye"
+                  label="Verificar"
+          ></p-button>
+          <p-button
+                  icon="pi pi-save"
+                  label="Guardar"
+                  type="submit"
+          ></p-button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <div style="background-color: darkseagreen">
+    <p>{{formFavor.value | json}}</p>
+  </div>
+</p-card>
