@@ -9,7 +9,6 @@ import {InputSwitchModule} from "primeng/inputswitch";
 import {InputTextModule} from "primeng/inputtext";
 import {PasswordModule} from "primeng/password";
 import {RippleModule} from "primeng/ripple";
-import {DialogModule} from "primeng/dialog";
 
 
 
@@ -28,7 +27,7 @@ import {DialogModule} from "primeng/dialog";
     InputTextModule,
     PasswordModule,
     RippleModule,
-    DialogModule,
+    // Por favor añadirlos alfabéticamente
   ]
 })
 export class PrimengModule { }
