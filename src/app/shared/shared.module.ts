@@ -8,6 +8,7 @@ import {PrimengModule} from "../primeng/primeng.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {InsertarFavorComponent} from './components/insertar-favor/insertar-favor.component';
+import {RouterLink} from "@angular/router";
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {InsertarFavorComponent} from './components/insertar-favor/insertar-favor
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterLink,
   ]
 })
 export class SharedModule {

@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
 export class InicioComponent {
 
   verFavores() {
-    console.log("Hemos pulsado en 'ver favor'")
+    console.log("Hemos pulsado en 'ver favor'");
+
   }
 
   agregarFavor() {
