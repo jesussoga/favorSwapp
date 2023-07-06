@@ -22,6 +22,7 @@ export class FiltrosComponent implements OnInit{
   public provinciaElegida: string;
   public provincias: Provincia[];
   public favores: Favor[];
+  public favoresFiltrados: Favor[];
 
   constructor(
     private provinciasService: ProvinciasService,
@@ -36,6 +37,7 @@ export class FiltrosComponent implements OnInit{
     this.provinciaElegida = "";
     this.provincias = [];
     this.favores = [];
+    this.favoresFiltrados = [];
   }
 
   ngOnInit(): void {
@@ -67,6 +69,13 @@ export class FiltrosComponent implements OnInit{
 
 
   }
+
+  // filtrarObjetosPorCampos(objetos: Favor[], campos: string[]): Objeto[] {
+  //   return objetos.filter(objeto => {
+  //     // Verificar si todos los campos especificados están establecidos en verdadero (true)
+  //     return campos.every(campo => objeto[campo]);
+  //   });
+  // }
 
 
 }
