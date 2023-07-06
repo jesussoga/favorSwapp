@@ -5,7 +5,9 @@ import { NavComponent } from './components/nav/nav.component';
 import { FiltrosComponent } from './components/filtros/filtros.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {PrimengModule} from "../primeng/primeng.module";
-import {InputSwitchModule} from "primeng/inputswitch";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import { InsertarFavorComponent } from './components/insertar-favor/insertar-favor.component';
 
 
 
@@ -14,18 +16,23 @@ import {InputSwitchModule} from "primeng/inputswitch";
         InicioComponent,
         NavComponent,
         FiltrosComponent,
-        FooterComponent
+        FooterComponent,
+        InsertarFavorComponent
     ],
-  exports: [
-    NavComponent,
-    FooterComponent,
-    InicioComponent,
+    exports: [
+        NavComponent,
+        FooterComponent,
+        InicioComponent,
+        FiltrosComponent,
+        InsertarFavorComponent,
 
   ],
   imports: [
     CommonModule,
     PrimengModule,
-    InputSwitchModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ]
 })
 export class SharedModule { }
