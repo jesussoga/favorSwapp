@@ -19,17 +19,13 @@ export class InsertarFavorComponent implements OnInit{
   }
 
   public obtenerFormulario(){
-    const regexEmail: string = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
     this.formFavor = this.formBuilder.group({
-      nombre            : ["", [Validators.required]],
-      primerApellido    : ["", [Validators.required]],
-      segundoApellido   : ["", [Validators.required]],
-      correo            : ["", [Validators.required, Validators.pattern(regexEmail)]],
-      telefono          : ["", Validators.required],
+      foto           : ["", [Validators.required]],
       fumar             : [],
       internet          : [],
       mascota           : [],
       climatizacion     : [],
+      adapMovRedu      : []
     });
 
   }
