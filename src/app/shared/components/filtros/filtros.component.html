@@ -1,30 +1,25 @@
 <div >
-  <div style="background-color: burlywood">
+  <div style="background-color: burlywood" class="mb-3">
     <label>
       Provincias
-      <p-dropdown inputId="provincias" placeholder="-- Seleccione una Provincia --" appendTo="body" optionValue="id" [options]="provincias" optionLabel="nombre"></p-dropdown>
+      <p-dropdown inputId="provincias" appendTo="body" optionValue="id" [(ngModel)]="provinciaElegida" [options]="provincias" optionLabel="nombre"></p-dropdown>
     </label>
-    <br>
     <label>
       <span>Fumar</span>
       <p-inputSwitch inputId="fumar" [(ngModel)]="fumar"></p-inputSwitch>
     </label>
-    <br>
     <label>
       <span>Internet</span>
       <p-inputSwitch inputId="internet" [(ngModel)]="internet"></p-inputSwitch>
     </label>
-    <br>
     <label>
       <span>Mascota</span>
       <p-inputSwitch inputId="mascota" [(ngModel)]="mascota"></p-inputSwitch>
     </label>
-    <br>
     <label>
       <span>Climatización</span>
       <p-inputSwitch inputId="climatizacion" [(ngModel)]="climatizacion"></p-inputSwitch>
     </label>
-    <br>
     <label>
       <span>Movilidad Reducida</span>
       <p-inputSwitch inputId="movilidadReducida" [(ngModel)]="movilidadReducida"></p-inputSwitch>
@@ -34,12 +29,21 @@
 <!--  Aquí tienen que ir las tarjetas de cada favor-->
 
   <ng-container>
-    <div>
-      <p-card header="Habitación" subheader="Card Subheader" [style]="{ width: '360px' }">
+    <div *ngIf="favores.length == 0">
+      <div class="shadow-4 m-3 surface-card text-center p-3 border-round-sm flex align-items-center justify-content-center font-semibold">No hay ningún resultado</div>
+    </div>
+    <div *ngIf="favores.length > 0" class="flex justify-content-center flex-wrap">
+      <p-card *ngFor="let favor of favores" header="{{favor.descripcion}}" [style]="{ width: '300px' }" class="m-3 shadow-6">
         <ng-template pTemplate="header">
-          <img alt="Card" src="https://cdn-icons-png.flaticon.com/512/85/85488.png"/>
+          <img class="h-13rem" alt="Card" [src]="favor.foto"/>
         </ng-template>
-
+        <ng-template pTemplate="content">
+            <p-tag *ngIf="favor.fumar" value="Fumar" [rounded]="true"></p-tag>
+            <p-tag *ngIf="favor.internet" value="Internet" [rounded]="true"></p-tag>
+            <p-tag *ngIf="favor.mascota" value="Mascota" [rounded]="true"></p-tag>
+            <p-tag *ngIf="favor.climatizacion" value="Climatización" [rounded]="true"></p-tag>
+            <p-tag *ngIf="favor.adaptadoMovilidadReducida" value="Adaptado" [rounded]="true"></p-tag>
+        </ng-template>
         <ng-template pTemplate="footer">
           <p-button label="Contactar"></p-button>
         </ng-template>
@@ -54,10 +58,10 @@
       <p>Mascota: {{mascota}}</p>
       <p>Climatización: {{climatizacion}}</p>
       <p>Movilidad Reducida: {{movilidadReducida}}</p>
-      <p>Provincia elegida: </p>
+      <p>Provincia elegida: {{provinciaElegida}}</p>
 
-      <p>Provincia: {{provincias | json}}</p>
-      <p>Favores: {{favores |json}}</p>
+      <p>Provincias: {{provincias[1] | json}}</p>
+      <p>Favores: {{favores[1] |json}}</p>
     </div>
 
 <!--  Provincias: {{provincias | json}}-->
