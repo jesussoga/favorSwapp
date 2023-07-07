@@ -30,8 +30,7 @@
 
   <ng-container>
     <div *ngIf="favores.length == 0">
-<!--      TODO (Cambiar abajo el mensaje de NO HAY RESULTADO)-->
-      <div class="shadow-4 m-3 surface-card text-center p-3 border-round-sm flex align-items-center justify-content-center font-semibold">No hay ningún resultado</div>
+      <div class="p-message p-message-error p-3">No hay ningún resultado</div>
     </div>
     <div *ngIf="favores.length > 0" class="flex justify-content-center flex-wrap">
       <p-card *ngFor="let favor of favores" header="{{favor.descripcion}}" [style]="{ width: '300px' }" class="m-3 shadow-4">
