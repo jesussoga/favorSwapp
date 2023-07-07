@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {ButtonModule} from "primeng/button";
-import {RippleModule} from "primeng/ripple";
+import {CardModule} from "primeng/card";
+import {CheckboxModule} from "primeng/checkbox";
+import { CommonModule } from '@angular/common';
 import {DialogModule} from "primeng/dialog";
+import {DropdownModule} from "primeng/dropdown";
+import {InputSwitchModule} from "primeng/inputswitch";
+import {InputTextModule} from "primeng/inputtext";
+import {PasswordModule} from "primeng/password";
+import {RippleModule} from "primeng/ripple";
+import {TagModule} from "primeng/tag";
 
 
 
@@ -13,8 +20,17 @@ import {DialogModule} from "primeng/dialog";
   ],
   exports: [
     ButtonModule,
-    RippleModule,
+    CardModule,
+    CheckboxModule,
     DialogModule,
+    DropdownModule,
+    InputSwitchModule,
+    InputTextModule,
+    PasswordModule,
+    RippleModule,
+    TagModule,
+
+    // Por favor añadirlos alfabéticamente
   ]
 })
 export class PrimengModule { }
