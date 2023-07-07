@@ -11,7 +11,8 @@
   align-items: center;
   font-size: 18px;
 
-
+}
+.color {
   background: #000046; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to left,

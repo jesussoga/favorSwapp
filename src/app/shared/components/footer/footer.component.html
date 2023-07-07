@@ -1,471 +1,470 @@
-
-  <div class="footer">
-    <div >
-      <img class="logo" src="assets/img/logo.png" alt="Imagen de icono del proyecto">
+<div class="footer">
+  <div >
+    <img class="logo" src="assets/img/logo.png" alt="Imagen de icono del proyecto">
+  </div>
+  <!--Boton primero de dirección de la izquierda-->
+  <div class="col">
+    <div class="text-center border-round-sm font-bold">
+      <!--Dirección-->
+      <p-button (click)="ubicacion()" styleClass="p-button-text" label="&copy; RoomSwapp '23"></p-button>
     </div>
-    <!--Boton primero de dirección de la izquierda-->
-    <div class="col">
-      <div class="text-center border-round-sm font-bold">
-        <!--Dirección-->
-        <p-button (click)="ubicacion()" styleClass="p-button-text" label="&copy; RoomSwapp '23"></p-button>
-      </div>
-    </div>
-    <!--Los Tres botones centrales -->
-    <div class="col">
-      <div class="text-center border-round-sm font-bold ">
-        <!--Redes Sociales-->
-        <div class="align-content-center">
-          <p-button styleClass="p-button-text" (click)="facebook()">
-            <i class="pi pi-facebook"></i>
-          </p-button>
-          <p-button styleClass="p-button-text" (click)="twitter()">
-            <i class="pi pi-twitter"></i>
-          </p-button>
-          <p-button styleClass="p-button-text" (click)="instagram()">
-            <i class="pi pi-instagram"></i>
-          </p-button>
-        </div>
-      </div>
-    </div>
-
-    <!--Tres boton de la derecha-->
-    <div class="col">
-      <div class="text-center border-round-sm font-bold ">
-        <div class="flex-1 flex align-items-center justify-content-center font-bold border-round">
-          <!--Botón de Política de privacidad-->
-          <p-button label="Privacidad" (click)="abrirPoliticaDePrivacidad()"
-                    styleClass="p-button-rounded"></p-button>
-          <!--Botón de Condiciones de uso-->
-          <p-button label="Términos" (click)="abrirDialogoTerminosYCondiciones()"
-                    styleClass="p-button-rounded"></p-button>
-          <!--Botón de Política de Cookies-->
-          <p-button label="Cookies" (click)="abrirPoliticaDeCookies()"
-                    styleClass="p-button-rounded"></p-button>
-        </div>
+  </div>
+  <!--Los Tres botones centrales -->
+  <div class="col">
+    <div class="text-center border-round-sm font-bold">
+      <!--Redes Sociales-->
+      <div class="align-content-center">
+        <p-button styleClass="p-button-text" (click)="facebook()">
+          <i class="pi pi-facebook"></i>
+        </p-button>
+        <p-button styleClass="p-button-text" (click)="twitter()">
+          <i class="pi pi-twitter"></i>
+        </p-button>
+        <p-button styleClass="p-button-text" (click)="instagram()">
+          <i class="pi pi-instagram"></i>
+        </p-button>
       </div>
     </div>
   </div>
 
-
-  <p-dialog [(visible)]="visiblePrivacidad" [modal]="true" [resizable]="true" [maximizable]="true"
-            header="Política de Privacidad">
-
-    <h1>Política de Privacidad</h1>
-
-    <p>Esta es la política de privacidad de RoomSwapp. Aquí explicamos cómo recopilamos, utilizamos y protegemos la
-      información personal de nuestros usuarios.</p>
-    <br/>
-    <hr/>
-    <h2>Información que recopilamos</h2>
-
-    <p>En RoomSwapp recopilamos la siguiente información personal de nuestros usuarios:</p>
-
-    <ul>
-      <li>Nombre y apellidos</li>
-      <li>Dirección de correo electrónico</li>
-      <li>Fecha de nacimiento</li>
-      <li>Información de contacto</li>
-      <li>Otra información relevante para el uso de la aplicación</li>
-    </ul>
-
-    <br/>
-    <hr/>
-    <h2>Cómo utilizamos la información</h2>
-
-    <p>Utilizamos la información recopilada para:</p>
-
-    <ul>
-      <li>Proporcionar y personalizar nuestros servicios de acuerdo con las preferencias y necesidades de nuestros
-        usuarios.
-      </li>
-      <li>Mejorar y optimizar la funcionalidad y el rendimiento de la aplicación.</li>
-      <li>Enviar comunicaciones relacionadas con la aplicación, como actualizaciones y notificaciones.</li>
-      <li>Realizar análisis y estadísticas para comprender y mejorar la experiencia de los usuarios.</li>
-    </ul>
-
-    <br/>
-    <hr/>
-    <h2>Protección de la información</h2>
-
-    <p>Nos comprometemos a proteger la información personal de nuestros usuarios y tomamos medidas adecuadas para
-      garantizar la seguridad de los datos.</p>
-
-    <br/>
-    <hr/>
-    <h2>Divulgación de información</h2>
-
-    <p>No compartimos la información personal de nuestros usuarios con terceros, excepto en los siguientes casos:</p>
-
-    <ul>
-      <li>Cuando sea necesario para cumplir con las leyes y regulaciones aplicables.</li>
-      <li>Para proteger y defender nuestros derechos y propiedades.</li>
-      <li>Con el consentimiento expreso del usuario.</li>
-    </ul>
-
-    <br/>
-    <hr/>
-    <h2>Actualizaciones de la política de privacidad</h2>
-
-    <p>Podemos actualizar nuestra política de privacidad de vez en cuando. Te recomendamos revisar esta página
-      periódicamente para estar al tanto de cualquier cambio.</p>
-
-    <p>Si tienes alguna pregunta sobre nuestra política de privacidad, no dudes en contactarnos.</p>
-
-    <ng-template pTemplate="footer">
-      <p-button styleClass="p-button-rounded p-button-secondary" label="Aceptar"
-                (click)="cerrarPoliticaDePrivacidad()"></p-button>
-    </ng-template>
-  </p-dialog>
-
-
-  <p-dialog [(visible)]="visibleTerminos" [modal]="true" [resizable]="true" [maximizable]="true"
-            header="Política de Términos de Uso">
-    <h1>Condiciones de Uso</h1>
-    <br>
-    <hr/>
-    <p>Este documento contiene las Condiciones que regulan el uso de este Sitio Web y el contrato que os vincula a
-      RoomSwapp y a ti. Estas Condiciones establecen los derechos y obligaciones de todos los usuarios y RoomSwapp, en
-      relación con los productos/servicios que ofrecemos a través de este Sitio Web. Te rogamos que leas atentamente las
-      presentes Condiciones y nuestra Política de Privacidad antes de finalizar un pedido. Al utilizar este Sitio Web o
-      hacer un pedido a través del mismo, consientes en quedar vinculado por estas Condiciones y por nuestra Política de
-      Privacidad, por lo que, si no estas de acuerdo con todas las Condiciones y con la Política de Privacidad, no debes
-      hacer ningún pedido. Estas Condiciones podrían ser modificadas, por lo que debes leerlas antes de efectuar cada
-      pedido. Si tienes alguna pregunta relacionada con las condiciones de compra o la política de privacidad puedes
-      consultar nuestro Sitio Web o ponerte en contacto con nosotros, a través de nuestro formulario de contacto.
-    </p>
-    <br/>
-    <hr/>
-    <p>
-    <h3>Edad mínima del Usuario</h3>
-    <p>
-      La presente página Web y los productos ofrecidos en ella están dirigidos únicamente a personas que tengan la edad
-      mínima legal para comprar los productos ofrecidos en España. Por tanto, el Usuario que desee realizar algún pedido
-      a
-      través de la página Web declara que tiene la edad mínima legal requerida para adquirir los productos
-      seleccionados.
-    </p>
-    <br/>
-    <hr>
-    <h3>Disponibilidad del servicio</h3>
-
-    <p>
-      Los artículos que se ofrecen a través de este Sitio Web estarán únicamente disponibles en España Península y
-      Baleares. No hacemos envíos fuera de esas áreas.
-    </p>
-    <br/>
-    <hr/>
-    <h3>Disponibilidad de los productos</h3>
-
-    <p>
-      Todos los pedidos de productos están sujetos a la disponibilidad de los mismos y, en este sentido, si se producen
-      dificultades en cuanto a su suministro, o si no quedan artículos en stock, te facilitaremos información acerca de
-      productos sustitutivos que puedes encargar. Si no deseas esos productos sustitutivos, te reembolsaremos cualquier
-      cantidad que pudieras haber abonado.
-    </p>
-    <br/>
-    <hr/>
-    <h3>Gastos de envío</h3>
-
-    <p>
-      Los envíos se realizan a todo el territorio Nacional Peninsular y a Baleares mediante TNT, CORREOS, SEUR, DHL,
-      CELERIS.
-    </p>
-
-    <p>
-      Los gastos de envío incluyen en todos los casos el Impuesto sobre el Valor Añadido (IVA) pero ningún otro
-      impuesto,
-      tasa, arancel o recargo.
-    </p>
-
-    <p>A. Envíos a España Península:</p>
-
-    <p>Los gastos de envío dependerán de la opción de envío escogida:</p>
-
-    <p>
-      1. Envío mediante las empresas mencionadas anteriormente. El cliente recibirá el pedido en la dirección que nos
-      proporcione.En ese momento el cliente tendrá 5 días para hacer una reclamación o devolución.
-      En todos los casos los gastos de envío a Península son: 5,45 euros
-    </p>
-
-    <br/>
-    <hr/>
-    <h3>Plazos de entrega</h3>
-
-    <p>
-      El plazo de entrega de los pedidos serán notificados antes de hacer el pago.
-    </p>
-
-    <br/>
-    <hr/>
-    <h3>Demoras / errores en la entrega</h3>
-
-    <p>
-      RoomSwapp no se hace responsable de las demoras o problemas ocasionados por la empresa de mensajería. De todos
-      modos
-      te agradecemos que contactes con nosotros si hay un retraso en la entrega, para poder informar a nuestro comercial
-      así
-      como ayudarte a localizar tu envío y conocer la posible causa de demora.
-    </p>
-
-    <p>
-      RoomSwapp se hará responsable de posibles errores ocasionados en la entrega sólo cuando estos sean debidos a un
-      error por nuestra parte. Si un pedido es devuelto por un error nuestro, asumiremos los costes y lo enviaremos de
-      nuevo
-      sin cargo adicional.
-    </p>
-
-    <p>
-      RoomSwapp, no se hará responsable de los errores causados en la entrega cuando falten datos en la dirección de
-      envío
-      o la dirección de entrega introducida por el usuario en el formulario no sea la correcta (es muy importante que no
-      haya errores en el código postal), haciéndose cargo el cliente de los gastos de envío que puedan ocasionar
-      enviarlo de
-      nuevo.
-    </p>
-
-    <p>
-      Si el pedido no es recogido en un plazo de 5 días, por que la empresa no localiza a una persona en la dirección de
-      entrega ,la empresa de envíos nos lo reenviará de vuelta. El cliente deberá abonar de nuevo los gastos de envío si
-      quiere que se lo volvamos a enviar.
-    </p>
-
-    <p>Forma de pago</p>
-
-    <p>RoomSwapp acepta las siguientes formas de pago:</p>
-
-    <p>
-      Tarjeta: a través de nuestra pasarela de pago segura Redsys proporcionada por nuestro banco (TPV Banco Santander).
-      Esta forma de pago no tendrá ningún coste adicional. Durante el pago, seras conducido a la plataforma de Redsys de
-      Banco Santander, el cual se encargará de gestionar el cobro, para después redirigirte de nuevo a nuestra página,
-      confirmando que el pago se ha hecho correctamente. FavorSwapp no conoce en ningún momento, ni registra tus datos
-      bancarios.
-    </p>
-
-    <p>
-      Una vez hayas realizado el pago deberás recibir un email confirmándo tu pedido. Si no recibes el email ponte en
-      contacto con nosotros (pedidos@roomswapps.es)
-      PayPal: Paypal permite hacer pago con tu cuenta de Paypal, o bien como invitado utilizando tu tarjeta de crédito.
-      Si
-      seleccionas esta opción se te aplicará un recargo correspondiente al 0,35€+3,4% de la compra, importe con el que
-      se
-      queda Paypal por el servicio. Esta forma de pago es inmediata, totalmente segura y verificada por VISA.
-    </p>
-
-    <p>
-      Transferencia Bancaria: Las transferencias bancarias pueden tardar de 1 a 2 días por lo que si tu pedido es
-      urgente
-      envíanos el justificante de entrega a info@roomswapp.es con tu número de pedido.
-    </p>
-
-    <br/>
-    <hr/>
-    <h3>Política de cambios / Devoluciones</h3>
-    <p>
-      A partir de la recepción del pedido, tienes un plazo máximo de 5 días para devolver el producto siempre y cuando
-      lo
-      notifiques anteriormente por correo electrónico a pedidos@roomswapp.es. El cliente podrá devolver cualquier
-      artículo
-      que haya comprado en RoomSwapp*, estando este en su embalaje original y en buen estado (Sin utilizar).
-    </p>
-
-    <p>
-      En el momento en que lo recibamos y comprobemos su buen estado, FavorSwapp devolverá el importe correspondiente al
-      coste del producto mediante una transferencia bancaria a la cuenta indicada por el cliente.
-    </p>
-
-    <p>
-      No se devolverán los gastos de envío, excepto si la devolución se debe a un fallo por nuestra parte, y el pedido
-      estaba compuesto únicamente del artículo que quiere devolverse.
-    </p>
-
-    <p>
-      En caso de pagos por Paypal, no se devolverá la comisión que se cobra por el pago por paypal, excepto si la
-      devolución se debe a un fallo por nuestra parte.
-    </p>
-
-    <p>
-      Será el cliente quien corra con los gastos de devolución, excepto si la devolución se debe a un fallo por nuestra
-      parte, en cuyo caso asumiremos a priori los costes de devolución; no obstante debes contactar antes con nosotros
-      para que te lo confirmemos.
-    </p>
-
-    <p>
-      *Quedan exentos de devolución aquellos productos que han sido personalizados o hechos a medida para el cliente,
-      que no se podrán devolver.
-    </p>
-
-    <p>
-      En caso de impresiones erróneas, manchas en impresión o gráfica que no es, se repondrá el producto sin ningún
-      coste
-      para el cliente si hay tiempo suficiente para su entrega o se devolverá el dinero (con la entrega de una foto de
-      producto doblado o cortado al correo pedidos@roomswapp.es).
-    </p>
-
-    <br/>
-    <hr/>
-    <h3>Precios</h3>
-    <p>
-      Los productos se venderán al precio que se indica, siendo vigente el que se recoge en el momento de la
-      confirmación del pedido por parte del cliente.
-      FavorSwapp se reserva el derecho a modificar precios, artículos, ofertas y otras condiciones comerciales sin
-      previo aviso.
-    </p>
-
-    <br/>
-    <hr/>
-    <h3>Transmisión de riesgo y la propiedad</h3>
-    <p>
-      Los riesgos de los Productos serán a tu cargo a partir del momento de su entrega. Adquiridlas la propiedad de los
-      productos cuando recibamos el pago completo de todas las cantidades debidas en relación con los mismos, incluidos
-      los
-      gastos de envío, o bien en el momento de la entrega, si ésta tuviese lugar en un momento posterior.
-    </p>
-
-    <br/>
-    <hr/>
-    <h3>Propiedad Intelectual</h3>
-
-    <p>Reconoces y consientes que todo copyright, marca registrada y demás derechos de propiedad intelectual sobre los
-      materiales o contenidos que se aportan como parte del Sitio Web nos corresponden en todo momento a nosotros o a
-      quienes nos otorgaron licencia para su uso. Podrás hacer uso de dicho material únicamente en la forma en que te lo
-      autoricemos expresamente nosotros o quienes nos otorgaron licencia para su uso.
-      Las fotografías que puedes encontrar en www.favorswapp.es siempre deben aparecer con la marca de agua y hacer
-      mención a la página www.roomswapp.es.
-      Cualquier mal uso puede ser perseguido legalmente.
-    </p>
-
-    <br/>
-    <hr/>
-    <h3>Comunicaciones por escrito</h3>
-    <p>
-      La normativa aplicable exige que parte de la información o comunicaciones que te enviemos sean por escrito. Al
-      usar
-      este Sitio Web, aceptas que la mayor parte de las comunicaciones con nosotros sean electrónicas. Nos pondremos en
-      contacto contigo por correo electrónico o te facilitaremos información subiendo avisos en este Sitio Web. A
-      efectos contractuales, consientes en usar este medio electrónico de comunicación y reconoces que todo contrato,
-      notificación, información y demás comunicaciones que te enviemos de forma electrónica cumplen con los requisitos
-      legales de ser por escrito. Esta condición no afectará a tus derechos reconocidos por ley.
-    </p>
-
-    <br/>
-    <hr/>
-    <h3>Acontecimientos fuera de nuestro control</h3>
-
-    <p>No seremos responsables por ningún incumplimiento o retraso en el cumplimiento de alguna de las obligaciones que
-      asumamos al amparo de un Contrato, cuya causa se deba a acontecimientos que están fuera de nuestro control
-      razonable
-      (“Causa de Fuerza Mayor”). Las Causas de Fuerza Mayor incluirán cualquier acto, acontecimiento, falta de
-      ejercicio,
-      omisión o accidente que esté fuera de nuestro control razonable e incluirán es especial (sin limitación) lo
-      siguiente:
-      Se entenderá que nuestra obligación de cumplimiento en virtud de algún Contrato quedará suspendida durante el
-      período
-      en que la Causa de Fuerza Mayor continúe, y dispondremos de una ampliación en el plazo para cumplir nuestra
-      obligación
-      mientras dure tal período. Pondremos todos los medios razonables para que finalice la Causa de Fuerza Mayor o para
-      encontrar una solución por medio de la cual podamos cumplir nuestras obligaciones en virtud del Contrato a pesar
-      de la
-      Causa de Fuerza Mayor.
-    </p>
-
-    <br/>
-    <hr/>
-    <h3>Renuncia</h3>
-
-    <p>Si durante la vigencia de un Contrato, dejásemos de insistir en el cumplimiento estricto de alguna de las
-      obligaciones asumidas en virtud del mismo o de alguna de las presentes Condiciones, o si dejásemos de ejercitar
-      alguno de los
-      derechos o recursos que estuviésemos facultados a ejercitar o interponer en virtud de dicho Contrato o estas
-      Condiciones, tal hecho no constituirá una renuncia a dichos derechos o recursos ni le exonerará a Usted de cumplir
-      con
-      tales obligaciones. Las renuncias que hagamos a exigir el cumplimiento no constituirán una renuncia por nuestra
-      parte
-      a exigir cumplimientos posteriores. Ninguna renuncia por nuestra parte a alguna de las presentes Condiciones
-      surtirá
-      efecto, a no ser que se estipule de forma expresa que es una renuncia y se te comunique por escrito de conformidad
-      con
-      lo dispuesto en el apartado de Notificaciones anterior.
-    </p>
-
-    <br/>
-    <hr/>
-    <h3>
-      Nuestro derecho a modificar estas condiciones
-    </h3>
-    <p>
-      Tenemos derecho de revisar y modificar los presentes Condiciones en cualquier momento. Estarás sujeto a las
-      políticas y Condiciones vigentes en el momento en que efectúes cada pedido, salvo que por ley o decisión de organismos
-      gubernamentales debamos hacer cambios en dichas políticas, Condiciones o Política de Privacidad, en cuyo caso, los
-      posibles cambios afectarán también a los pedidos que hubieras hecho previamente.
-    </p>
-
-    <br/>
-    <hr/>
-    <h3>Comentarios y sugerencias</h3>
-    <p>
-      Tus comentarios y sugerencias serán bien recibidos. Te rogamos que nos envíen tales comentarios y sugerencias a
-      través de nuestro formulario de contacto o directamente a info@roomswapp.es.
-    </p>
-
-    <p>
-      Para cualquier duda relacionada con las presentes Condiciones, los Usuarios podrán ponerse en contacto con el
-      Propietario mediante comunicación a la dirección de correo electrónico info@roomswapp.es
-    </p>
-
-    <ng-template pTemplate="footer">
-      <p-button styleClass="p-button-rounded p-button-secondary" label="Aceptar"
-                (click)="cerrarDialogoTerminosYCondiciones()"></p-button>
-    </ng-template>
-  </p-dialog>
-
-
-  <p-dialog [(visible)]="visibleCookies" [modal]="true" [resizable]="true" [maximizable]="true"
-            header="Política de Cookies">
-    <h1>Política de Cookies</h1>
-
-    <p>Esta es la política de cookies de RoomSwapp. Aquí explicamos cómo utilizamos las cookies en nuestra
-      aplicación.</p>
-
-    <br/>
-    <hr/>
-    <h2>¿Qué son las cookies?</h2>
-
-    <p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web o
-      utilizas una aplicación. Estas cookies nos permiten recordar cierta información sobre ti y tus preferencias.</p>
-
-    <hr/>
-    <h2>¿Cómo utilizamos las cookies en RoomSwapp?</h2>
-
-    <p>En FavorSwapp utilizamos cookies para:</p>
-
-    <ul>
-      <li>Recordar tus preferencias de idioma y configuración.</li>
-      <li>Realizar análisis y estadísticas sobre el uso de la aplicación.</li>
-      <li>Proporcionar contenido personalizado y anuncios relevantes.</li>
-    </ul>
-    <hr/>
-    <h2>¿Qué tipos de cookies utilizamos?</h2>
-
-    <p>Utilizamos tanto cookies de sesión (que se eliminan cuando cierras el navegador) como cookies persistentes (que
-      permanecen en tu dispositivo durante un período de tiempo determinado).</p>
-
-    <br/>
-    <hr/>
-    <h2>¿Cómo puedes gestionar las cookies?</h2>
-
-    <p>Puedes gestionar las cookies y tus preferencias de privacidad en la configuración de tu navegador. Ten en cuenta
-      que deshabilitar o eliminar ciertas cookies puede afectar la funcionalidad de FavorSwapp.</p>
-
-    <br/>
-    <hr/>
-    <h2>Actualizaciones de la política de cookies</h2>
-
-    <p>Podemos actualizar nuestra política de cookies de vez en cuando. Te recomendamos revisar esta página
-      periódicamente para estar al tanto de cualquier cambio.</p>
-
-    <p>Si tienes alguna pregunta sobre nuestra política de cookies, no dudes en contactarnos.</p>
-    <ng-template pTemplate="footer">
-      <p-button styleClass="p-button-rounded p-button-secondary" label="Aceptar"
-                (click)="cerrarPoliticaDeCookies()"></p-button>
-    </ng-template>
-  </p-dialog>
+  <!--Tres boton de la derecha-->
+  <div class="col">
+    <div class="text-center border-round-sm font-bold">
+      <div class="flex-1 flex align-items-center justify-content-center font-bold border-round">
+        <!--Botón de Política de privacidad-->
+        <p-button label="Privacidad" (click)="abrirPoliticaDePrivacidad()"
+                  styleClass="p-button-rounded"></p-button>
+        <!--Botón de Condiciones de uso-->
+        <p-button label="Términos" (click)="abrirDialogoTerminosYCondiciones()"
+                  styleClass="p-button-rounded"></p-button>
+        <!--Botón de Política de Cookies-->
+        <p-button label="Cookies" (click)="abrirPoliticaDeCookies()"
+                  styleClass="p-button-rounded"></p-button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Texto de los botones de las Cookies, terminos y condiciones de use y privacidad-->
+<p-dialog [(visible)]="visiblePrivacidad" [modal]="true" [resizable]="true" [maximizable]="true"
+          header="Política de Privacidad">
+
+  <h1>Política de Privacidad</h1>
+
+  <p>Esta es la política de privacidad de RoomSwapp. Aquí explicamos cómo recopilamos, utilizamos y protegemos la
+    información personal de nuestros usuarios.</p>
+  <br/>
+  <hr/>
+  <h2>Información que recopilamos</h2>
+
+  <p>En RoomSwapp recopilamos la siguiente información personal de nuestros usuarios:</p>
+
+  <ul>
+    <li>Nombre y apellidos</li>
+    <li>Dirección de correo electrónico</li>
+    <li>Fecha de nacimiento</li>
+    <li>Información de contacto</li>
+    <li>Otra información relevante para el uso de la aplicación</li>
+  </ul>
+
+  <br/>
+  <hr/>
+  <h2>Cómo utilizamos la información</h2>
+
+  <p>Utilizamos la información recopilada para:</p>
+
+  <ul>
+    <li>Proporcionar y personalizar nuestros servicios de acuerdo con las preferencias y necesidades de nuestros
+      usuarios.
+    </li>
+    <li>Mejorar y optimizar la funcionalidad y el rendimiento de la aplicación.</li>
+    <li>Enviar comunicaciones relacionadas con la aplicación, como actualizaciones y notificaciones.</li>
+    <li>Realizar análisis y estadísticas para comprender y mejorar la experiencia de los usuarios.</li>
+  </ul>
+
+  <br/>
+  <hr/>
+  <h2>Protección de la información</h2>
+
+  <p>Nos comprometemos a proteger la información personal de nuestros usuarios y tomamos medidas adecuadas para
+    garantizar la seguridad de los datos.</p>
+
+  <br/>
+  <hr/>
+  <h2>Divulgación de información</h2>
+
+  <p>No compartimos la información personal de nuestros usuarios con terceros, excepto en los siguientes casos:</p>
+
+  <ul>
+    <li>Cuando sea necesario para cumplir con las leyes y regulaciones aplicables.</li>
+    <li>Para proteger y defender nuestros derechos y propiedades.</li>
+    <li>Con el consentimiento expreso del usuario.</li>
+  </ul>
+
+  <br/>
+  <hr/>
+  <h2>Actualizaciones de la política de privacidad</h2>
+
+  <p>Podemos actualizar nuestra política de privacidad de vez en cuando. Te recomendamos revisar esta página
+    periódicamente para estar al tanto de cualquier cambio.</p>
+
+  <p>Si tienes alguna pregunta sobre nuestra política de privacidad, no dudes en contactarnos.</p>
+
+  <ng-template pTemplate="footer">
+    <p-button styleClass="p-button-rounded p-button-secondary" label="Aceptar"
+              (click)="cerrarPoliticaDePrivacidad()"></p-button>
+  </ng-template>
+</p-dialog>
+
+
+<p-dialog [(visible)]="visibleTerminos" [modal]="true" [resizable]="true" [maximizable]="true"
+          header="Política de Términos de Uso">
+  <h1>Condiciones de Uso</h1>
+  <br>
+  <hr/>
+  <p>Este documento contiene las Condiciones que regulan el uso de este Sitio Web y el contrato que os vincula a
+    RoomSwapp y a ti. Estas Condiciones establecen los derechos y obligaciones de todos los usuarios y RoomSwapp, en
+    relación con los productos/servicios que ofrecemos a través de este Sitio Web. Te rogamos que leas atentamente las
+    presentes Condiciones y nuestra Política de Privacidad antes de finalizar un pedido. Al utilizar este Sitio Web o
+    hacer un pedido a través del mismo, consientes en quedar vinculado por estas Condiciones y por nuestra Política de
+    Privacidad, por lo que, si no estas de acuerdo con todas las Condiciones y con la Política de Privacidad, no debes
+    hacer ningún pedido. Estas Condiciones podrían ser modificadas, por lo que debes leerlas antes de efectuar cada
+    pedido. Si tienes alguna pregunta relacionada con las condiciones de compra o la política de privacidad puedes
+    consultar nuestro Sitio Web o ponerte en contacto con nosotros, a través de nuestro formulario de contacto.
+  </p>
+  <br/>
+  <hr/>
+  <p>
+  <h3>Edad mínima del Usuario</h3>
+  <p>
+    La presente página Web y los productos ofrecidos en ella están dirigidos únicamente a personas que tengan la edad
+    mínima legal para comprar los productos ofrecidos en España. Por tanto, el Usuario que desee realizar algún pedido
+    a
+    través de la página Web declara que tiene la edad mínima legal requerida para adquirir los productos
+    seleccionados.
+  </p>
+  <br/>
+  <hr>
+  <h3>Disponibilidad del servicio</h3>
+
+  <p>
+    Los artículos que se ofrecen a través de este Sitio Web estarán únicamente disponibles en España Península y
+    Baleares. No hacemos envíos fuera de esas áreas.
+  </p>
+  <br/>
+  <hr/>
+  <h3>Disponibilidad de los productos</h3>
+
+  <p>
+    Todos los pedidos de productos están sujetos a la disponibilidad de los mismos y, en este sentido, si se producen
+    dificultades en cuanto a su suministro, o si no quedan artículos en stock, te facilitaremos información acerca de
+    productos sustitutivos que puedes encargar. Si no deseas esos productos sustitutivos, te reembolsaremos cualquier
+    cantidad que pudieras haber abonado.
+  </p>
+  <br/>
+  <hr/>
+  <h3>Gastos de envío</h3>
+
+  <p>
+    Los envíos se realizan a todo el territorio Nacional Peninsular y a Baleares mediante TNT, CORREOS, SEUR, DHL,
+    CELERIS.
+  </p>
+
+  <p>
+    Los gastos de envío incluyen en todos los casos el Impuesto sobre el Valor Añadido (IVA) pero ningún otro
+    impuesto,
+    tasa, arancel o recargo.
+  </p>
+
+  <p>A. Envíos a España Península:</p>
+
+  <p>Los gastos de envío dependerán de la opción de envío escogida:</p>
+
+  <p>
+    1. Envío mediante las empresas mencionadas anteriormente. El cliente recibirá el pedido en la dirección que nos
+    proporcione.En ese momento el cliente tendrá 5 días para hacer una reclamación o devolución.
+    En todos los casos los gastos de envío a Península son: 5,45 euros
+  </p>
+
+  <br/>
+  <hr/>
+  <h3>Plazos de entrega</h3>
+
+  <p>
+    El plazo de entrega de los pedidos serán notificados antes de hacer el pago.
+  </p>
+
+  <br/>
+  <hr/>
+  <h3>Demoras / errores en la entrega</h3>
+
+  <p>
+    RoomSwapp no se hace responsable de las demoras o problemas ocasionados por la empresa de mensajería. De todos
+    modos
+    te agradecemos que contactes con nosotros si hay un retraso en la entrega, para poder informar a nuestro comercial
+    así
+    como ayudarte a localizar tu envío y conocer la posible causa de demora.
+  </p>
+
+  <p>
+    RoomSwapp se hará responsable de posibles errores ocasionados en la entrega sólo cuando estos sean debidos a un
+    error por nuestra parte. Si un pedido es devuelto por un error nuestro, asumiremos los costes y lo enviaremos de
+    nuevo
+    sin cargo adicional.
+  </p>
+
+  <p>
+    RoomSwapp, no se hará responsable de los errores causados en la entrega cuando falten datos en la dirección de
+    envío
+    o la dirección de entrega introducida por el usuario en el formulario no sea la correcta (es muy importante que no
+    haya errores en el código postal), haciéndose cargo el cliente de los gastos de envío que puedan ocasionar
+    enviarlo de
+    nuevo.
+  </p>
+
+  <p>
+    Si el pedido no es recogido en un plazo de 5 días, por que la empresa no localiza a una persona en la dirección de
+    entrega ,la empresa de envíos nos lo reenviará de vuelta. El cliente deberá abonar de nuevo los gastos de envío si
+    quiere que se lo volvamos a enviar.
+  </p>
+
+  <p>Forma de pago</p>
+
+  <p>RoomSwapp acepta las siguientes formas de pago:</p>
+
+  <p>
+    Tarjeta: a través de nuestra pasarela de pago segura Redsys proporcionada por nuestro banco (TPV Banco Santander).
+    Esta forma de pago no tendrá ningún coste adicional. Durante el pago, seras conducido a la plataforma de Redsys de
+    Banco Santander, el cual se encargará de gestionar el cobro, para después redirigirte de nuevo a nuestra página,
+    confirmando que el pago se ha hecho correctamente. FavorSwapp no conoce en ningún momento, ni registra tus datos
+    bancarios.
+  </p>
+
+  <p>
+    Una vez hayas realizado el pago deberás recibir un email confirmándo tu pedido. Si no recibes el email ponte en
+    contacto con nosotros (pedidos@roomswapps.es)
+    PayPal: Paypal permite hacer pago con tu cuenta de Paypal, o bien como invitado utilizando tu tarjeta de crédito.
+    Si
+    seleccionas esta opción se te aplicará un recargo correspondiente al 0,35€+3,4% de la compra, importe con el que
+    se
+    queda Paypal por el servicio. Esta forma de pago es inmediata, totalmente segura y verificada por VISA.
+  </p>
+
+  <p>
+    Transferencia Bancaria: Las transferencias bancarias pueden tardar de 1 a 2 días por lo que si tu pedido es
+    urgente
+    envíanos el justificante de entrega a info@roomswapp.es con tu número de pedido.
+  </p>
+
+  <br/>
+  <hr/>
+  <h3>Política de cambios / Devoluciones</h3>
+  <p>
+    A partir de la recepción del pedido, tienes un plazo máximo de 5 días para devolver el producto siempre y cuando
+    lo
+    notifiques anteriormente por correo electrónico a pedidos@roomswapp.es. El cliente podrá devolver cualquier
+    artículo
+    que haya comprado en RoomSwapp*, estando este en su embalaje original y en buen estado (Sin utilizar).
+  </p>
+
+  <p>
+    En el momento en que lo recibamos y comprobemos su buen estado, FavorSwapp devolverá el importe correspondiente al
+    coste del producto mediante una transferencia bancaria a la cuenta indicada por el cliente.
+  </p>
+
+  <p>
+    No se devolverán los gastos de envío, excepto si la devolución se debe a un fallo por nuestra parte, y el pedido
+    estaba compuesto únicamente del artículo que quiere devolverse.
+  </p>
+
+  <p>
+    En caso de pagos por Paypal, no se devolverá la comisión que se cobra por el pago por paypal, excepto si la
+    devolución se debe a un fallo por nuestra parte.
+  </p>
+
+  <p>
+    Será el cliente quien corra con los gastos de devolución, excepto si la devolución se debe a un fallo por nuestra
+    parte, en cuyo caso asumiremos a priori los costes de devolución; no obstante debes contactar antes con nosotros
+    para que te lo confirmemos.
+  </p>
+
+  <p>
+    *Quedan exentos de devolución aquellos productos que han sido personalizados o hechos a medida para el cliente,
+    que no se podrán devolver.
+  </p>
+
+  <p>
+    En caso de impresiones erróneas, manchas en impresión o gráfica que no es, se repondrá el producto sin ningún
+    coste
+    para el cliente si hay tiempo suficiente para su entrega o se devolverá el dinero (con la entrega de una foto de
+    producto doblado o cortado al correo pedidos@roomswapp.es).
+  </p>
+
+  <br/>
+  <hr/>
+  <h3>Precios</h3>
+  <p>
+    Los productos se venderán al precio que se indica, siendo vigente el que se recoge en el momento de la
+    confirmación del pedido por parte del cliente.
+    FavorSwapp se reserva el derecho a modificar precios, artículos, ofertas y otras condiciones comerciales sin
+    previo aviso.
+  </p>
+
+  <br/>
+  <hr/>
+  <h3>Transmisión de riesgo y la propiedad</h3>
+  <p>
+    Los riesgos de los Productos serán a tu cargo a partir del momento de su entrega. Adquiridlas la propiedad de los
+    productos cuando recibamos el pago completo de todas las cantidades debidas en relación con los mismos, incluidos
+    los
+    gastos de envío, o bien en el momento de la entrega, si ésta tuviese lugar en un momento posterior.
+  </p>
+
+  <br/>
+  <hr/>
+  <h3>Propiedad Intelectual</h3>
+
+  <p>Reconoces y consientes que todo copyright, marca registrada y demás derechos de propiedad intelectual sobre los
+    materiales o contenidos que se aportan como parte del Sitio Web nos corresponden en todo momento a nosotros o a
+    quienes nos otorgaron licencia para su uso. Podrás hacer uso de dicho material únicamente en la forma en que te lo
+    autoricemos expresamente nosotros o quienes nos otorgaron licencia para su uso.
+    Las fotografías que puedes encontrar en www.favorswapp.es siempre deben aparecer con la marca de agua y hacer
+    mención a la página www.roomswapp.es.
+    Cualquier mal uso puede ser perseguido legalmente.
+  </p>
+
+  <br/>
+  <hr/>
+  <h3>Comunicaciones por escrito</h3>
+  <p>
+    La normativa aplicable exige que parte de la información o comunicaciones que te enviemos sean por escrito. Al
+    usar
+    este Sitio Web, aceptas que la mayor parte de las comunicaciones con nosotros sean electrónicas. Nos pondremos en
+    contacto contigo por correo electrónico o te facilitaremos información subiendo avisos en este Sitio Web. A
+    efectos contractuales, consientes en usar este medio electrónico de comunicación y reconoces que todo contrato,
+    notificación, información y demás comunicaciones que te enviemos de forma electrónica cumplen con los requisitos
+    legales de ser por escrito. Esta condición no afectará a tus derechos reconocidos por ley.
+  </p>
+
+  <br/>
+  <hr/>
+  <h3>Acontecimientos fuera de nuestro control</h3>
+
+  <p>No seremos responsables por ningún incumplimiento o retraso en el cumplimiento de alguna de las obligaciones que
+    asumamos al amparo de un Contrato, cuya causa se deba a acontecimientos que están fuera de nuestro control
+    razonable
+    (“Causa de Fuerza Mayor”). Las Causas de Fuerza Mayor incluirán cualquier acto, acontecimiento, falta de
+    ejercicio,
+    omisión o accidente que esté fuera de nuestro control razonable e incluirán es especial (sin limitación) lo
+    siguiente:
+    Se entenderá que nuestra obligación de cumplimiento en virtud de algún Contrato quedará suspendida durante el
+    período
+    en que la Causa de Fuerza Mayor continúe, y dispondremos de una ampliación en el plazo para cumplir nuestra
+    obligación
+    mientras dure tal período. Pondremos todos los medios razonables para que finalice la Causa de Fuerza Mayor o para
+    encontrar una solución por medio de la cual podamos cumplir nuestras obligaciones en virtud del Contrato a pesar
+    de la
+    Causa de Fuerza Mayor.
+  </p>
+
+  <br/>
+  <hr/>
+  <h3>Renuncia</h3>
+
+  <p>Si durante la vigencia de un Contrato, dejásemos de insistir en el cumplimiento estricto de alguna de las
+    obligaciones asumidas en virtud del mismo o de alguna de las presentes Condiciones, o si dejásemos de ejercitar
+    alguno de los
+    derechos o recursos que estuviésemos facultados a ejercitar o interponer en virtud de dicho Contrato o estas
+    Condiciones, tal hecho no constituirá una renuncia a dichos derechos o recursos ni le exonerará a Usted de cumplir
+    con
+    tales obligaciones. Las renuncias que hagamos a exigir el cumplimiento no constituirán una renuncia por nuestra
+    parte
+    a exigir cumplimientos posteriores. Ninguna renuncia por nuestra parte a alguna de las presentes Condiciones
+    surtirá
+    efecto, a no ser que se estipule de forma expresa que es una renuncia y se te comunique por escrito de conformidad
+    con
+    lo dispuesto en el apartado de Notificaciones anterior.
+  </p>
+
+  <br/>
+  <hr/>
+  <h3>
+    Nuestro derecho a modificar estas condiciones
+  </h3>
+  <p>
+    Tenemos derecho de revisar y modificar los presentes Condiciones en cualquier momento. Estarás sujeto a las
+    políticas y Condiciones vigentes en el momento en que efectúes cada pedido, salvo que por ley o decisión de organismos
+    gubernamentales debamos hacer cambios en dichas políticas, Condiciones o Política de Privacidad, en cuyo caso, los
+    posibles cambios afectarán también a los pedidos que hubieras hecho previamente.
+  </p>
+
+  <br/>
+  <hr/>
+  <h3>Comentarios y sugerencias</h3>
+  <p>
+    Tus comentarios y sugerencias serán bien recibidos. Te rogamos que nos envíen tales comentarios y sugerencias a
+    través de nuestro formulario de contacto o directamente a info@roomswapp.es.
+  </p>
+
+  <p>
+    Para cualquier duda relacionada con las presentes Condiciones, los Usuarios podrán ponerse en contacto con el
+    Propietario mediante comunicación a la dirección de correo electrónico info@roomswapp.es
+  </p>
+
+  <ng-template pTemplate="footer">
+    <p-button styleClass="p-button-rounded p-button-secondary" label="Aceptar"
+              (click)="cerrarDialogoTerminosYCondiciones()"></p-button>
+  </ng-template>
+</p-dialog>
+
+
+<p-dialog [(visible)]="visibleCookies" [modal]="true" [resizable]="true" [maximizable]="true"
+          header="Política de Cookies">
+  <h1>Política de Cookies</h1>
+
+  <p>Esta es la política de cookies de RoomSwapp. Aquí explicamos cómo utilizamos las cookies en nuestra
+    aplicación.</p>
+
+  <br/>
+  <hr/>
+  <h2>¿Qué son las cookies?</h2>
+
+  <p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web o
+    utilizas una aplicación. Estas cookies nos permiten recordar cierta información sobre ti y tus preferencias.</p>
+
+  <hr/>
+  <h2>¿Cómo utilizamos las cookies en RoomSwapp?</h2>
+
+  <p>En FavorSwapp utilizamos cookies para:</p>
+
+  <ul>
+    <li>Recordar tus preferencias de idioma y configuración.</li>
+    <li>Realizar análisis y estadísticas sobre el uso de la aplicación.</li>
+    <li>Proporcionar contenido personalizado y anuncios relevantes.</li>
+  </ul>
+  <hr/>
+  <h2>¿Qué tipos de cookies utilizamos?</h2>
+
+  <p>Utilizamos tanto cookies de sesión (que se eliminan cuando cierras el navegador) como cookies persistentes (que
+    permanecen en tu dispositivo durante un período de tiempo determinado).</p>
+
+  <br/>
+  <hr/>
+  <h2>¿Cómo puedes gestionar las cookies?</h2>
+
+  <p>Puedes gestionar las cookies y tus preferencias de privacidad en la configuración de tu navegador. Ten en cuenta
+    que deshabilitar o eliminar ciertas cookies puede afectar la funcionalidad de FavorSwapp.</p>
+
+  <br/>
+  <hr/>
+  <h2>Actualizaciones de la política de cookies</h2>
+
+  <p>Podemos actualizar nuestra política de cookies de vez en cuando. Te recomendamos revisar esta página
+    periódicamente para estar al tanto de cualquier cambio.</p>
+
+  <p>Si tienes alguna pregunta sobre nuestra política de cookies, no dudes en contactarnos.</p>
+  <ng-template pTemplate="footer">
+    <p-button styleClass="p-button-rounded p-button-secondary" label="Aceptar"
+              (click)="cerrarPoliticaDeCookies()"></p-button>
+  </ng-template>
+</p-dialog>
