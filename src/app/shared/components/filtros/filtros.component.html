@@ -30,19 +30,23 @@
 
   <ng-container>
     <div *ngIf="favores.length == 0">
+<!--      TODO (Cambiar abajo el mensaje de NO HAY RESULTADO)-->
       <div class="shadow-4 m-3 surface-card text-center p-3 border-round-sm flex align-items-center justify-content-center font-semibold">No hay ningún resultado</div>
     </div>
     <div *ngIf="favores.length > 0" class="flex justify-content-center flex-wrap">
-      <p-card *ngFor="let favor of favores" header="{{favor.descripcion}}" [style]="{ width: '300px' }" class="m-3 shadow-6">
+      <p-card *ngFor="let favor of favores" header="{{favor.descripcion}}" [style]="{ width: '300px' }" class="m-3 shadow-4">
         <ng-template pTemplate="header">
-          <img class="h-13rem" alt="Card" [src]="favor.foto"/>
+          <img *ngIf="favor.foto != null && favor.foto != ''" class="h-13rem" alt="Imágen de {{favor.descripcion}}" [src]="favor.foto"/>
+          <img *ngIf="favor.foto == null || favor.foto == ''" class="h-13rem px-6 mt-2" alt="Imágen de {{favor.descripcion}}" src="https://cdn-icons-png.flaticon.com/512/85/85488.png"/>
         </ng-template>
         <ng-template pTemplate="content">
+          <div>
             <p-tag *ngIf="favor.fumar" value="Fumar" [rounded]="true"></p-tag>
             <p-tag *ngIf="favor.internet" value="Internet" [rounded]="true"></p-tag>
             <p-tag *ngIf="favor.mascota" value="Mascota" [rounded]="true"></p-tag>
             <p-tag *ngIf="favor.climatizacion" value="Climatización" [rounded]="true"></p-tag>
             <p-tag *ngIf="favor.adaptadoMovilidadReducida" value="Adaptado" [rounded]="true"></p-tag>
+          </div>
         </ng-template>
         <ng-template pTemplate="footer">
           <p-button label="Contactar"></p-button>
@@ -61,7 +65,7 @@
       <p>Provincia elegida: {{provinciaElegida}}</p>
 
       <p>Provincias: {{provincias[1] | json}}</p>
-      <p>Favores: {{favores[1] |json}}</p>
+      <p>Favores: {{favores[6] |json}}</p>
     </div>
 
 <!--  Provincias: {{provincias | json}}-->
