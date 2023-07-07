@@ -23,7 +23,10 @@ export class FiltrosComponent implements OnInit{
   public provincias: Provincia[];
   public favores: Favor[];
 
-  constructor(private provinciasService: ProvinciasService, private favorService: FavorSwappService) {
+  constructor(
+    private provinciasService: ProvinciasService,
+    private favorService: FavorSwappService
+  ) {
     this.pruebasDesarrolo = true;
     this.fumar = false;
     this.internet = false;

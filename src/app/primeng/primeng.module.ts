@@ -30,6 +30,7 @@ import {TagModule} from "primeng/tag";
     RippleModule,
     TagModule,
 
+    // Por favor añadirlos alfabéticamente
   ]
 })
 export class PrimengModule { }
