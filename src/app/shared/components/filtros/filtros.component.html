@@ -36,7 +36,7 @@
       <p-card *ngFor="let favor of favores" [header]="favor.descripcion" [style]="{ width: '300px' }" class="m-3">
         <ng-template pTemplate="header">
           <img *ngIf="favor.foto != null && favor.foto != ''" class="h-13rem" alt="Imagen de {{favor.descripcion}}" [src]="favor.foto"/>
-          <img *ngIf="favor.foto == null || favor.foto == ''" class="h-13rem px-6" alt="Imagen de {{favor.descripcion}}" src="https://cdn-icons-png.flaticon.com/512/85/85488.png"/>
+          <img *ngIf="favor.foto == null || favor.foto == ''" class="h-13rem px-6" alt="Imagen de {{favor.descripcion}}" src="assets/img/imagenDefecto.png"/>
         </ng-template>
         <ng-template pTemplate="content">
           <div [style]="{ height: '40px' }">
