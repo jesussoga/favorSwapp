@@ -1,32 +1,15 @@
 <div >
-  <div style="background-color: burlywood" class="mb-3">
-    <label>
-      Provincias
-      <p-dropdown inputId="provincias" appendTo="body" optionValue="id" [(ngModel)]="provinciaElegida" [options]="provincias" optionLabel="nombre"></p-dropdown>
-    </label>
-    <label>
-      <span>Fumar</span>
-      <p-inputSwitch inputId="fumar" [(ngModel)]="fumar"></p-inputSwitch>
-    </label>
-    <label>
-      <span>Internet</span>
-      <p-inputSwitch inputId="internet" [(ngModel)]="internet"></p-inputSwitch>
-    </label>
-    <label>
-      <span>Mascota</span>
-      <p-inputSwitch inputId="mascota" [(ngModel)]="mascota"></p-inputSwitch>
-    </label>
-    <label>
-      <span>Climatización</span>
-      <p-inputSwitch inputId="climatizacion" [(ngModel)]="climatizacion"></p-inputSwitch>
-    </label>
-    <label>
-      <span>Movilidad Reducida</span>
-      <p-inputSwitch inputId="movilidadReducida" [(ngModel)]="movilidadReducida"></p-inputSwitch>
-    </label>
-  </div>
+  <div class="mt-3">
+    <div class="flex justify-content-between flex-wrap">
+      <div>
+        <p-dropdown placeholder="Elija una provincia" inputId="provincias" appendTo="body" optionValue="id" [(ngModel)]="provinciaElegida" [options]="provincias" optionLabel="nombre"></p-dropdown>
+      </div>
+      <div>
+        <p-selectButton [options]="nombreDeFiltros" [(ngModel)]="todosLosFiltros" [multiple]="true" optionLabel="nombre" optionValue="nombre"></p-selectButton>
+      </div>
+    </div>
 
-<!--  Aquí tienen que ir las tarjetas de cada favor-->
+<!--  Tarjetas de cada favor-->
 
   <ng-container>
     <div *ngIf="favores.length == 0">
@@ -64,11 +47,6 @@
 
   <div>
     <div *ngIf="pruebasDesarrollo" style="background-color: darkseagreen">
-      <p>Fumar: {{fumar}}</p>
-      <p>Internet: {{internet}}</p>
-      <p>Mascota: {{mascota}}</p>
-      <p>Climatización: {{climatizacion}}</p>
-      <p>Movilidad Reducida: {{movilidadReducida}}</p>
       <p>Provincia elegidaID: {{provinciaElegida}}</p>
 
       <p>Provincias: {{provincias[1] | json}}</p>
@@ -77,6 +55,5 @@
 
     </div>
 
-<!--  Provincias: {{provincias | json}}-->
   </div>
 </div>

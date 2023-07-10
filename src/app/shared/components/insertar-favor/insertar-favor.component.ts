@@ -25,13 +25,18 @@ export class InsertarFavorComponent implements OnInit{
 
   public obtenerFormulario(){
     this.formFavor = this.formBuilder.group({
-      id                : [0, []],
-      foto              : ["", [Validators.required]],
-      fumar             : [false, []],
-      internet          : [false, []],
-      mascota           : [false, []],
-      climatizacion     : [false, []],
-      adaptacionMovilidadReducida      : [false, []]
+      id                              : [0, []],
+      nombre                          : ["", [Validators.required]],
+      primerAp                        : ["", [Validators.required]],
+      segundoAp                       : ["", []],
+      foto                            : ["", [Validators.required]],
+      telefono                        : ["", [Validators.required]],
+      email                           : ["", [Validators.required]],
+      fumar                           : [false, []],
+      internet                        : [false, []],
+      mascota                         : [false, []],
+      climatizacion                   : [false, []],
+      adaptacionMovilidadReducida     : [false, []]
     });
 
   }

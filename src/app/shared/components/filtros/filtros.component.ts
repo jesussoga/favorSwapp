@@ -15,12 +15,9 @@ export class FiltrosComponent implements OnInit{
 
   public pruebasDesarrollo: boolean;
   public dialogoContactar: boolean;
-  public fumar: boolean;
-  public internet: boolean;
-  public mascota: boolean;
-  public climatizacion: boolean;
-  public movilidadReducida: boolean;
   public provinciaElegida: string;
+  public todosLosFiltros: string[];
+  public nombreDeFiltros: any[];
   public provincias: Provincia[];
   public favores: Favor[];
   public favoresFiltrados: Favor[];
@@ -32,12 +29,15 @@ export class FiltrosComponent implements OnInit{
   ) {
     this.pruebasDesarrollo = false;
     this.dialogoContactar = false;
-    this.fumar = false;
-    this.internet = false;
-    this.mascota = false;
-    this.climatizacion = false;
-    this.movilidadReducida = false;
     this.provinciaElegida = "";
+    this.todosLosFiltros = [];
+    this.nombreDeFiltros = [
+      { nombre: 'Fumar', icon: ''},
+      { nombre: 'Internet', icon: 'pi pi-wifi'},
+      { nombre: 'Mascota', icon: ''},
+      { nombre: 'Climatizacion', icon: 'pi pi-sun'},
+      { nombre: 'Movilidad reducida'}
+    ];
     this.provincias = [];
     this.favores = [];
     this.favoresFiltrados = [];
