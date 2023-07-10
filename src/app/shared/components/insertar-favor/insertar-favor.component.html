@@ -6,19 +6,21 @@
         <div class="field col-12 md:col-4">
           <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="pi pi-user"></i> Datos personales</p>
           <span class="p-float-label m-2">
-            <input pInputText id="nombre" type="text" class="w-full" aria-describedby="nombre-ayuda" formControlName="nombre">
-            <label htmlFor="nombre">Nombre</label>
+            <input (change)="leeUsuario(idUsuario)" pInputText #idUsuario type="text" class="w-full" aria-describedby="nombre-ayuda" formControlName="idusuario">
+            <label htmlFor="idUsuario">IdUsuario</label>
           </span>
           <span class="p-float-label m-2">
-            <input pInputText id="primerAp" type="text" class="w-full" aria-describedby="primerAp-ayuda" formControlName="primerAp">
-            <label htmlFor="primerAp">Primer Apellido</label>
+            <input value="{{usuario.nombre}}" pInputText id="nombre" type="text" class="w-full" aria-describedby="nombre-ayuda" formControlName="nombre">
+
           </span>
           <span class="p-float-label m-2">
-            <input pInputText id="segundoAp" type="text" class="w-full" aria-describedby="segundoAp-ayuda" formControlName="segundoAp">
-            <label htmlFor="segundoAp">Segundo Apellido</label>
+            <input value="{{usuario.apellido1}}" pInputText id="primerAp" type="text" class="w-full" aria-describedby="primerAp-ayuda" formControlName="primerAp">
+          </span>
+          <span class="p-float-label m-2">
+            <input value="{{usuario.apellido2}}" pInputText id="segundoAp" type="text" class="w-full" aria-describedby="segundoAp-ayuda" formControlName="segundoAp">
           </span>
           <div class="m-2">
-            <p-dropdown placeholder="Elija una provincia" inputId="idProvincia"  optionValue="id" formControlName="idProvincia" [options]="provincias" optionLabel="nombre"></p-dropdown>
+            <p-dropdown  placeholder="Elija una provincia" inputId="idProvincia"  optionValue="id" formControlName="idProvincia" [options]="provincias" optionLabel="nombre"></p-dropdown>
           </div>
           <span class="p-float-label m-2">
             <input type="file"  formControlName="foto">
@@ -28,13 +30,11 @@
         <div class="field col-12 md:col-4">
           <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="pi pi-phone"></i> Datos de contactos</p>
           <span class="p-float-label m-2">
-            <input pInputText id="telefono" type="tel" class="w-full" aria-describedby="telefono-ayuda" formControlName="telefono">
-            <label htmlFor="telefono">Teléfono</label>
+            <input value="{{usuario.telefono}}" pInputText id="telefono" type="tel" class="w-full" aria-describedby="telefono-ayuda" formControlName="telefono">
             <!--          <small style="color: #e24c4c" id="nombre-ayuda">Debe tener entre 2 y 20 caracteres</small>-->
           </span>
           <span class="p-float-label m-2">
-            <input pInputText id="email" type="email" class="w-full" aria-describedby="email-ayuda" formControlName="email">
-            <label htmlFor="email">Email</label>
+            <input value="{{usuario.email}}" pInputText id="email" type="email" class="w-full" aria-describedby="email-ayuda" formControlName="email">
             <!--          <small style="color: #e24c4c" id="nombre-ayuda">Debe tener entre 2 y 20 caracteres</small>-->
           </span>
         </div>

@@ -8,7 +8,7 @@ import {Favor} from "../models/favor.models";
 })
 export class FavorSwappService {
 
-  public url : string = "http://192.168.0.15:8080/api/v1/favores";
+  public url : string = "http://192.168.0.172:8080/api/v1/favores";
   constructor(private httpClient: HttpClient) { }
 
   public obtenerTodosLosFavores(): Observable<Favor[]> {
