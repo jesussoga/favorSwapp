@@ -33,13 +33,13 @@
       <div class="p-message p-message-error p-3">No hay ningún resultado</div>
     </div>
     <div *ngIf="favores.length > 0" class="flex justify-content-center flex-wrap">
-      <p-card *ngFor="let favor of favores" header="{{favor.descripcion}}" [style]="{ width: '300px' }" class="m-3 shadow-4">
+      <p-card *ngFor="let favor of favores" [header]="favor.descripcion" [style]="{ width: '300px' }" class="m-3">
         <ng-template pTemplate="header">
-          <img *ngIf="favor.foto != null && favor.foto != ''" class="h-13rem" alt="Imágen de {{favor.descripcion}}" [src]="favor.foto"/>
-          <img *ngIf="favor.foto == null || favor.foto == ''" class="h-13rem px-6 mt-2" alt="Imágen de {{favor.descripcion}}" src="https://cdn-icons-png.flaticon.com/512/85/85488.png"/>
+          <img *ngIf="favor.foto != null && favor.foto != ''" class="h-13rem" alt="Imagen de {{favor.descripcion}}" [src]="favor.foto"/>
+          <img *ngIf="favor.foto == null || favor.foto == ''" class="h-13rem px-6" alt="Imagen de {{favor.descripcion}}" src="https://cdn-icons-png.flaticon.com/512/85/85488.png"/>
         </ng-template>
         <ng-template pTemplate="content">
-          <div>
+          <div [style]="{ height: '40px' }">
             <p-tag *ngIf="favor.fumar" value="Fumar" [rounded]="true"></p-tag>
             <p-tag *ngIf="favor.internet" value="Internet" [rounded]="true"></p-tag>
             <p-tag *ngIf="favor.mascota" value="Mascota" [rounded]="true"></p-tag>
@@ -48,23 +48,33 @@
           </div>
         </ng-template>
         <ng-template pTemplate="footer">
-          <p-button label="Contactar"></p-button>
+          <p-button class="w-1" (click)="abrirDialogoContacto(favor)" label="Contactar"></p-button>
+          <p-dialog header="Datos de contacto" [(visible)]="dialogoContactar" [style]="{width: '50vw'}">
+            <div *ngIf="favorDialogo != null">
+              <p>Nombre: {{favorDialogo.usuario.nombre}}</p>
+              <p>Provincia: {{favorDialogo.usuario.direccion.provincia.nombre}}</p>
+              <p>Email: {{favorDialogo.usuario.email}}</p>
+              <p>Telefono: {{favorDialogo.usuario.telefono}}</p>
+            </div>
+          </p-dialog>
         </ng-template>
       </p-card>
     </div>
   </ng-container>
 
   <div>
-    <div *ngIf="pruebasDesarrolo" style="background-color: darkseagreen">
+    <div *ngIf="pruebasDesarrollo" style="background-color: darkseagreen">
       <p>Fumar: {{fumar}}</p>
       <p>Internet: {{internet}}</p>
       <p>Mascota: {{mascota}}</p>
       <p>Climatización: {{climatizacion}}</p>
       <p>Movilidad Reducida: {{movilidadReducida}}</p>
-      <p>Provincia elegida: {{provinciaElegida}}</p>
+      <p>Provincia elegidaID: {{provinciaElegida}}</p>
 
       <p>Provincias: {{provincias[1] | json}}</p>
-      <p>Favores: {{favores[6] |json}}</p>
+      <p>Favores: {{favores |json}}</p>
+      <p>FavorDialogo: {{favorDialogo |json}}</p>
+
     </div>
 
 <!--  Provincias: {{provincias | json}}-->
