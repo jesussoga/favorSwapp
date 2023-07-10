@@ -10,6 +10,7 @@ import {InputTextModule} from "primeng/inputtext";
 import {PasswordModule} from "primeng/password";
 import {RippleModule} from "primeng/ripple";
 import {TagModule} from "primeng/tag";
+import {MenubarModule} from "primeng/menubar";
 
 
 
@@ -26,6 +27,7 @@ import {TagModule} from "primeng/tag";
     DropdownModule,
     InputSwitchModule,
     InputTextModule,
+    MenubarModule,
     PasswordModule,
     RippleModule,
     TagModule,
