@@ -10,6 +10,7 @@ import {InputTextModule} from "primeng/inputtext";
 import {PasswordModule} from "primeng/password";
 import {RippleModule} from "primeng/ripple";
 import {TagModule} from "primeng/tag";
+import {SelectButtonModule} from "primeng/selectbutton";
 
 
 
@@ -28,6 +29,7 @@ import {TagModule} from "primeng/tag";
     InputTextModule,
     PasswordModule,
     RippleModule,
+    SelectButtonModule,
     TagModule,
 
     // Por favor añadirlos alfabéticamente
