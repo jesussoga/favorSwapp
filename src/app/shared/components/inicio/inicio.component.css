@@ -1,4 +1,15 @@
 @media (max-width: 768px) {
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .grid > div {
+    flex: 0 0 auto;
+    margin: 10px;
+  }
   .flex {
     flex-direction: column;
   }
@@ -11,4 +22,5 @@
     width: 100%;
     max-width: 12rem;
   }
+
 }
