@@ -8,11 +8,10 @@
 >
 
   <div class="formgrid grid">
-    <div class="">
-      <div *ngIf="mensajelesNoValidas" class="p-message p-message-error p-3">
+    <div class="field col-12">
+      <div *ngIf="credencialesNoValidas" class="p-message p-message-error p-3">
         <span>El usuario y/o contraseña no existe</span>
       </div>
-
     </div>
 
     <div class="field col-12 md:col-6">
@@ -31,6 +30,9 @@
     </div>
     <div class="field col-12">
       <p-button [loading]="procesoLogin" (click)="login()" label="Login"></p-button>
+    </div>
+    <div class="field col-12">
+      <p-button [loading]="procesoLogin" (click)="logout()" label="Desconectar"></p-button>
     </div>
   </div>
 </p-dialog>

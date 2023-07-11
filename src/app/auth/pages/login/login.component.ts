@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {HttpErrorResponse} from "@angular/common/http";
@@ -13,7 +13,7 @@ export class LoginComponent {
   public usuarioCorreo: string;
   public usuarioClave: string;
 
-  public mensajelesNoValidas: boolean;
+  public credencialesNoValidas: boolean;
   public procesoLogin: boolean;
 
 
@@ -24,29 +24,35 @@ export class LoginComponent {
   ) {
     this.usuarioCorreo = "";
     this.usuarioClave = "";
-    this.mensajelesNoValidas = false;
+    this.credencialesNoValidas = false;
     this.procesoLogin = false;
   }
   public login() {
     this.procesoLogin = true;
-    this.authService.autorizar(this.usuarioCorreo, this.usuarioClave).subscribe(
-      {
-        next: (datos: Usuario[])=>{
-          this.procesoLogin = false
-          if(datos.length == 0){
-            this.mensajelesNoValidas = true;
-          }else{
-            this.mensajelesNoValidas = false;
-            this.router.navigate(["/usuarios"])
-          }
-        },
-        error: (datos: HttpErrorResponse)=>{
-          this.procesoLogin = false;
-          console.error("Hubo un error al autenticar", datos);
+    this.authService.autorizar(this.usuarioCorreo, this.usuarioClave).subscribe({
+      next: (datos: Usuario)=>{
+        this.procesoLogin = false;
+        console.log("Los datos son: " + datos);
+        if(datos == null){
+          this.credencialesNoValidas = true;
+        }else{
+          this.credencialesNoValidas = false;
+          this.router.navigate(["/"])
         }
+      },
+      error:(error: HttpErrorResponse)=>{
+        this.procesoLogin = false;
+        this.credencialesNoValidas = true;
+        console.error("Hubo un error al autenticar", error);
       }
-    );
+    });
 
     // this.router.navigate(['/usuarios']);
+  }
+
+  logout() {
+    this.authService.logout();
+    this.procesoLogin = false;
+    this.router.navigate(['/'])
   }
 }
