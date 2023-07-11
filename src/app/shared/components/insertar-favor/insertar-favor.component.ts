@@ -1,11 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
-import {Favor, Provincia, Usuario} from "../../models/favor.models";
+import {Favor, Provincia} from "../../models/favor.models";
 import {FavorSwappService} from "../../services/favor-swapp.service";
 import {ProvinciasService} from "../../services/provincias.service";
 import {HttpErrorResponse} from "@angular/common/http";
-import {UsuariosService} from "../../services/usuarios.service";
-import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-insertar-favor',
@@ -17,13 +15,11 @@ export class InsertarFavorComponent implements OnInit{
   public pruebasDesarrolo: boolean;
   public provincias: Provincia[];
   public formFavor!: FormGroup;
-  public usuario!: Usuario;
 
   constructor(
     private formBuilder: FormBuilder,
     private favorService: FavorSwappService,
-    private provinciasService: ProvinciasService,
-    private usuariosService: UsuariosService
+    private provinciasService: ProvinciasService
   ) {
     this.pruebasDesarrolo = true;
     this.provincias = [];
@@ -82,16 +78,5 @@ export class InsertarFavorComponent implements OnInit{
   public borrarFormulario() {
     this.formFavor.reset();
   }
-
-  leeUsuario(idUsuario:HTMLInputElement) {
-    this.usuariosService.obtenerUsuarioPorId(idUsuario.value).subscribe({
-      next: (datos:Usuario) => {
-        this.usuario = datos;
-      },
-      error:(error)=>{
-        console.log(error);
-      }
-    })
-
-  }
 }
+
