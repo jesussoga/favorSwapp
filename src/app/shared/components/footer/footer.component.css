@@ -6,12 +6,11 @@
   position: fixed;
   width: 100%;
   bottom: 0;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  font-size: 18px;
+  background-color: var(--surface-a);
 
+}
 
+.color {
   background: #000046; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to left,
@@ -29,11 +28,9 @@
 }
 
 .logo {
-  width: 120px;
-  height: 70px;
-  padding: 2px;
+  width: 5rem;
+  padding: 3.5rem;
   display: inline-block;
-  font-size: 20px;
   margin-top: 8px;
   margin-left: 1px;
 }
