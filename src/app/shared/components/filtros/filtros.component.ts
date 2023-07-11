@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import { ProvinciasService } from '../../services/provincias.service';
-import { Provincia } from '../../models/provincia.models';
 import { HttpErrorResponse } from '@angular/common/http';
-import { NgForm } from '@angular/forms';
 import {FavorSwappService} from "../../services/favor-swapp.service";
-import {Favor} from "../../models/favor.models";
+import {Favor, Provincia} from "../../models/favor.models";
+import {ProvinciasService} from "../../services/provincias.service";
+
 
 @Component({
   selector: 'app-filtros',
