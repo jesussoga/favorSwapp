@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import { ProvinciasService } from '../../services/provincias.service';
-import { Provincia } from '../../models/provincia.models';
-import { HttpErrorResponse } from '@angular/common/http';
-import { NgForm } from '@angular/forms';
+import {HttpErrorResponse} from '@angular/common/http';
 import {FavorSwappService} from "../../services/favor-swapp.service";
-import {Favor} from "../../models/favor.models";
+import {Favor, Provincia} from "../../models/favor.models";
+import {ProvinciasService} from "../../services/provincias.service";
+
 
 @Component({
   selector: 'app-filtros',
@@ -15,32 +14,33 @@ export class FiltrosComponent implements OnInit{
 
   public pruebasDesarrollo: boolean;
   public dialogoContactar: boolean;
-  public provinciaElegida: string;
-  public todosLosFiltros: string[];
-  public nombreDeFiltros: any[];
+  public idProvinciaElegida: string;
   public provincias: Provincia[];
-  public favores: Favor[];
+  public favoresOriginal: Favor[];
   public favoresFiltrados: Favor[];
+  public filtros: any[];
+  public filtrosSeleccionados: any[];
   public favorDialogo?: Favor | null;
 
   constructor(
     private provinciasService: ProvinciasService,
-    private favorService: FavorSwappService
+    private favoresService: FavorSwappService
   ) {
-    this.pruebasDesarrollo = false;
+    this.pruebasDesarrollo = true;
     this.dialogoContactar = false;
-    this.provinciaElegida = "";
-    this.todosLosFiltros = [];
-    this.nombreDeFiltros = [
-      { nombre: 'Fumar', icon: ''},
-      { nombre: 'Internet', icon: 'pi pi-wifi'},
-      { nombre: 'Mascota', icon: ''},
-      { nombre: 'Climatizacion', icon: 'pi pi-sun'},
-      { nombre: 'Movilidad reducida'}
-    ];
-    this.provincias = [];
-    this.favores = [];
+    this.idProvinciaElegida = "";
+    this.favoresOriginal = [];
     this.favoresFiltrados = [];
+    this.filtros = [
+      { nombre: 'Provincia', valor: false, funcion: this.filtroProvincia},
+      { nombre: 'Fumar', icon: '', valor: false, funcion: this.filtroFumar},
+      { nombre: 'Internet', icon: 'pi pi-wifi', valor: false, funcion: this.filtroInternet},
+      { nombre: 'Mascota', icon: '', valor: false, funcion: this.filtroMascota},
+      { nombre: 'Climatizacion', icon: 'pi pi-sun', valor: false, funcion: this.filtroClimatizado},
+      { nombre: 'Movilidad reducida', valor: false, funcion: this.filtroAdaptadoMovilidadReducida},
+    ];
+    this.filtrosSeleccionados = [];
+    this.provincias = [];
     this.favorDialogo = null;
   }
 
@@ -58,32 +58,70 @@ export class FiltrosComponent implements OnInit{
     );
 
     // Aquí obtenemos todos los favores
-    this.favorService.obtenerTodosLosFavores().subscribe(
+    this.favoresService.obtenerTodosLosFavores().subscribe(
       {
         next: (datos: Favor[]) => {
-          this.favores = datos;
+          this.favoresOriginal = datos;
+          this.favoresFiltrados = datos;
         },
         error: (error: HttpErrorResponse) => {
           console.error(error);
         }
       }
     );
-
-
-
-
   }
-
-  // public filtrarObjetosPorCampos(objetos: Favor[], campos: string[]): Objeto[] {
-  //   return objetos.filter(objeto => {
-  //     // Verificar si todos los campos especificados están establecidos en verdadero (true)
-  //     return campos.every(campo => objeto[campo]);
-  //   });
-  // }
 
 
   public abrirDialogoContacto(favor: Favor) {
     this.favorDialogo = favor;
     this.dialogoContactar = true;
   }
+
+  public aplicarFiltros() {
+    this.favoresFiltrados = [...this.favoresOriginal]; // Hacemos una copia del array original
+
+    // Recorremos los filtros seleccionados, aplicando la función definida. Al final tendremos en arrayFiltrado el resultado de filtrar todos los filtros seleccionados
+    for (let filtro of this.filtrosSeleccionados) {
+      this.favoresFiltrados = this.favoresFiltrados.filter(elemento => filtro.funcion(elemento, this.idProvinciaElegida));
+    }
+
+    console.log("ArrayFiltrado: ", this.favoresFiltrados); // Array filtrado
+    // this.favoresOriginal = this.favoresFiltrados; // Ya lo podemos machacar
+  }
+
+  public filtroAdaptadoMovilidadReducida(favor: Favor): boolean {
+    return favor.adaptadoMovilidadReducida;
+  }
+
+  //region Funciones para filtrar
+  public filtroFumar(favor: Favor): boolean {
+    return favor.fumar;
+  }
+
+  public filtroClimatizado(favor: Favor): boolean {
+    return favor.climatizacion;
+  }
+
+  public filtroInternet(favor: Favor): boolean {
+    return favor.internet;
+  }
+
+  public filtroMascota(favor: Favor): boolean {
+    return favor.mascota;
+  }
+
+  public filtroProvincia(favor: Favor, idProvincia: string): boolean {
+    return idProvincia === favor.usuario.direccion.provincia.id;
+  }
+  //endregion
+
+  public cambiarProvincia() {
+    this.filtrosSeleccionados = [];
+    if (this.idProvinciaElegida){
+      this.filtrosSeleccionados.push( { nombre: 'Provincia', valor: false, funcion: this.filtroProvincia});
+      this.aplicarFiltros();
+    }
+  }
 }
+
+
