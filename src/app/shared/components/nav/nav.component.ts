@@ -26,7 +26,7 @@ export class NavComponent implements OnInit{
       {label: 'Inicio', icon: PrimeIcons.HOME, routerLink: "/"},
       {label: 'Publicar Favor', icon: PrimeIcons.SEND, routerLink: "insertar-favor"},
       {label: 'Buscar Favor', icon: PrimeIcons.SEARCH, routerLink: "filtros"},
-      {label: 'Login', icon: PrimeIcons.USER}
+      {label: 'Login', icon: PrimeIcons.USER, routerLink: "auth/login"}
     ];
   }
 

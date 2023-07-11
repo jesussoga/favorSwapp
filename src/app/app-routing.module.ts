@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: "", component: InicioComponent, pathMatch: "full"},
   {path: "filtros", component: FiltrosComponent},
   {path: "insertar-favor", component: InsertarFavorComponent},
+  { path: 'auth/login', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
   {path: "**", redirectTo: ""}
 ];
 
