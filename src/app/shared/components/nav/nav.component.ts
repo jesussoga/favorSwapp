@@ -24,8 +24,8 @@ export class NavComponent implements OnInit{
   ngOnInit() {
     this.items = [
       {label: 'Inicio', icon: PrimeIcons.HOME, routerLink: "/"},
-      {label: 'Publicar Favor', icon: PrimeIcons.SEND, routerLink: "#"},
-      {label: 'Buscar Favor', icon: PrimeIcons.SEARCH, routerLink: "#"},
+      {label: 'Publicar Favor', icon: PrimeIcons.SEND, routerLink: "insertar-favor"},
+      {label: 'Buscar Favor', icon: PrimeIcons.SEARCH, routerLink: "filtros"},
       {label: 'Login', icon: PrimeIcons.USER}
     ];
   }
