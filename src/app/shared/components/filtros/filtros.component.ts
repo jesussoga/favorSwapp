@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import { ProvinciasService } from '../../services/provincias.service';
-import { Provincia } from '../../models/provincia.models';
 import { HttpErrorResponse } from '@angular/common/http';
-import { NgForm } from '@angular/forms';
 import {FavorSwappService} from "../../services/favor-swapp.service";
-import {Favor} from "../../models/favor.models";
+import {Favor, Provincia} from "../../models/favor.models";
+import {ProvinciasService} from "../../services/provincias.service";
+
 
 @Component({
   selector: 'app-filtros',
@@ -13,29 +12,35 @@ import {Favor} from "../../models/favor.models";
 })
 export class FiltrosComponent implements OnInit{
 
-  public pruebasDesarrolo: boolean;
-  public fumar: boolean;
-  public internet: boolean;
-  public mascota: boolean;
-  public climatizacion: boolean;
-  public movilidadReducida: boolean;
+  public pruebasDesarrollo: boolean;
+  public dialogoContactar: boolean;
   public provinciaElegida: string;
+  public todosLosFiltros: string[];
+  public nombreDeFiltros: any[];
   public provincias: Provincia[];
   public favores: Favor[];
+  public favoresFiltrados: Favor[];
+  public favorDialogo?: Favor | null;
 
   constructor(
     private provinciasService: ProvinciasService,
     private favorService: FavorSwappService
   ) {
-    this.pruebasDesarrolo = true;
-    this.fumar = false;
-    this.internet = false;
-    this.mascota = false;
-    this.climatizacion = false;
-    this.movilidadReducida = false;
+    this.pruebasDesarrollo = false;
+    this.dialogoContactar = false;
     this.provinciaElegida = "";
+    this.todosLosFiltros = [];
+    this.nombreDeFiltros = [
+      { nombre: 'Fumar', icon: ''},
+      { nombre: 'Internet', icon: 'pi pi-wifi'},
+      { nombre: 'Mascota', icon: ''},
+      { nombre: 'Climatizacion', icon: 'pi pi-sun'},
+      { nombre: 'Movilidad reducida'}
+    ];
     this.provincias = [];
     this.favores = [];
+    this.favoresFiltrados = [];
+    this.favorDialogo = null;
   }
 
   ngOnInit(): void {
@@ -68,5 +73,16 @@ export class FiltrosComponent implements OnInit{
 
   }
 
+  // public filtrarObjetosPorCampos(objetos: Favor[], campos: string[]): Objeto[] {
+  //   return objetos.filter(objeto => {
+  //     // Verificar si todos los campos especificados están establecidos en verdadero (true)
+  //     return campos.every(campo => objeto[campo]);
+  //   });
+  // }
 
+
+  public abrirDialogoContacto(favor: Favor) {
+    this.favorDialogo = favor;
+    this.dialogoContactar = true;
+  }
 }

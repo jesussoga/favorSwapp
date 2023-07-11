@@ -6,27 +6,28 @@ import {MenuItem, PrimeIcons} from "primeng/api";
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent{
+export class NavComponent implements OnInit{
 
-  //   public items: MenuItem[];
-  //   public activeItem: MenuItem;
-  //
-  // constructor() {
-  //   this.items = [];
-  //   this.activeItem = {};
-  // }
-  //
-  //
-  //
-  //
-  //
-  // ngOnInit() {
-  //   this.items = [
-  //     {label: 'Inicio', icon: PrimeIcons.HOME},
-  //     {label: 'Publicar Favor', icon: PrimeIcons.SEND},
-  //     {label: 'Buscar Favor', icon: PrimeIcons.SEARCH},
-  //     {label: 'Login', icon: PrimeIcons.USER}
-  //   ];
-  // }
+    public items: MenuItem[];
+    public activeItem: MenuItem;
+
+  constructor() {
+    this.items = [];
+    this.activeItem = {};
+  }
+
+
+
+
+
+
+  ngOnInit() {
+    this.items = [
+      {label: 'Inicio', icon: PrimeIcons.HOME, routerLink: "/"},
+      {label: 'Publicar Favor', icon: PrimeIcons.SEND, routerLink: "#"},
+      {label: 'Buscar Favor', icon: PrimeIcons.SEARCH, routerLink: "#"},
+      {label: 'Login', icon: PrimeIcons.USER}
+    ];
+  }
 
 }

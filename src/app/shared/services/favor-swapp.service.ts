@@ -14,4 +14,8 @@ export class FavorSwappService {
   public obtenerTodosLosFavores(): Observable<Favor[]> {
     return this.httpClient.get<Favor[]>(this.url);
   }
+
+  public guardarFavor(favor: Favor): Observable<Favor> {
+    return this.httpClient.post<Favor>(this.url , favor);
+  }
 }
