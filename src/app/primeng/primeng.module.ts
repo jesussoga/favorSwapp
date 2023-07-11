@@ -7,10 +7,11 @@ import {DialogModule} from "primeng/dialog";
 import {DropdownModule} from "primeng/dropdown";
 import {InputSwitchModule} from "primeng/inputswitch";
 import {InputTextModule} from "primeng/inputtext";
+import {MenubarModule} from "primeng/menubar";
 import {PasswordModule} from "primeng/password";
 import {RippleModule} from "primeng/ripple";
+import {SelectButtonModule} from "primeng/selectbutton";
 import {TagModule} from "primeng/tag";
-import {MenubarModule} from "primeng/menubar";
 
 
 
@@ -30,6 +31,7 @@ import {MenubarModule} from "primeng/menubar";
     MenubarModule,
     PasswordModule,
     RippleModule,
+    SelectButtonModule,
     TagModule,
 
     // Por favor añadirlos alfabéticamente
