@@ -3,7 +3,10 @@
     <img src="./assets/img/logo.png" class="logo md:pr-8" alt="Logotipo de RoomSwapp"  />
   </ng-template>
   <ng-template pTemplate="end">
-    <p>{{this.usuarioActivo.usuarioActivo?.email}}</p>
+<!--    <p>{{this.usuarioActivo.usuarioActivo?.email}}</p>-->
+    <div *ngIf="usuarioActivo.usuarioActivo?.nombre != '' && usuarioActivo.usuarioActivo?.nombre != undefined">
+      <p-tag styleClass="p-2" [rounded]="true">{{"Bienvenido, " + this.usuarioActivo.usuarioActivo?.nombre}}</p-tag>
+    </div>
 <!--
     <img src="./assets/img/usuario.png" class="logo" alt="Avatar de usuario"  />
 -->

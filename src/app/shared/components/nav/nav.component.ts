@@ -30,8 +30,8 @@ export class NavComponent implements OnInit{
       {label: 'Inicio', icon: PrimeIcons.HOME, routerLink: "/"},
       {label: 'Buscar Favor', icon: PrimeIcons.SEARCH, routerLink: "filtros"},
       {label: 'Publicar Favor', icon: PrimeIcons.SEND, routerLink: "insertar-favor"},
-      {label: 'Login', icon: PrimeIcons.USER, routerLink: "auth/login"},
-      {label: 'Logout', icon: PrimeIcons.USER, command: ()=>{this.logout()}}
+      {label: 'Iniciar Sesión', icon: PrimeIcons.USER, routerLink: "auth/login"},
+      {label: 'Cerrar Sesión', icon: PrimeIcons.USER, command: ()=>{this.logout()}}
     ];
   }
 
