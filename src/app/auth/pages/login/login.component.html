@@ -1,6 +1,8 @@
 <p-dialog
-  [visible]="true"
-  [closable]="false"
+  [(visible)]="cerrarDialogoLogin"
+  [closable]="true"
+  [closeOnEscape]="true"
+  (onHide)="cerrarDialogo()"
   [modal]="true"
   [maximizable]="true"
   header="Accede con tu cuenta"
@@ -17,22 +19,23 @@
     <div class="field col-12 md:col-6">
       <div class="p-input-icon-left">
         <i class="pi pi-user"></i>
-        <input pInputText type="text" placeholder="Correo"
+        <input (keyup.enter)="login()" pInputText type="text" placeholder="Correo"
                [(ngModel)]="usuarioCorreo"/>
       </div>
     </div>
     <div class="field col-12 md:col-6">
       <div class="p-input-icon-left">
-        <i class="pi pi-key"></i>
-        <input pPassword [feedback]="false" type="password"
-               placeholder="Contraseña" [(ngModel)]="usuarioClave"/>
+<!--        <i class="pi pi-key"></i>-->
+<!--        <input (keyup.enter)="login()" pPassword [feedback]="false" type="password" placeholder="Contraseña" [(ngModel)]="usuarioClave"/>-->
+        <p-password placeholder="Contraseña" (keyup.enter)="login()" [feedback]="false" [(ngModel)]="usuarioClave" [toggleMask]="true"></p-password>
       </div>
     </div>
-    <div class="field col-12">
-      <p-button [loading]="procesoLogin" (click)="login()" label="Login"></p-button>
+    <div class="field col-6">
+      <p-button [loading]="procesoLogin" (click)="login()" label="Iniciar Sesión"></p-button>
     </div>
-    <div class="field col-12">
-      <p-button [loading]="procesoLogin" (click)="logout()" label="Desconectar"></p-button>
+    <div class="field col-6">
+      <p-button (click)="cerrarDialogo()" label="Salir"></p-button>
     </div>
+      <span>¿No tienes una cuenta? <a href=""> Regístrate</a></span>
   </div>
 </p-dialog>
