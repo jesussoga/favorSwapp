@@ -1,42 +1,32 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
-import {Favor, Provincia} from "../../models/favor.models";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Favor} from "../../models/favor.models";
 import {FavorSwappService} from "../../services/favor-swapp.service";
-import {ProvinciasService} from "../../services/provincias.service";
-import {HttpErrorResponse} from "@angular/common/http";
+import {AuthService} from "../../../auth/services/auth.service";
+import {MessageService} from "primeng/api";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-insertar-favor',
   templateUrl: './insertar-favor.component.html',
-  styleUrls: ['./insertar-favor.component.css']
+  styleUrls: ['./insertar-favor.component.css'],
+  providers: [MessageService],
 })
 export class InsertarFavorComponent implements OnInit{
 
-  public pruebasDesarrolo: boolean;
-  public provincias: Provincia[];
+  public pruebasDesarrollo: boolean;
   public formFavor!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private favorService: FavorSwappService,
-    private provinciasService: ProvinciasService
+    private _authService: AuthService,
+    private messageService: MessageService,
+    private router: Router,
   ) {
-    this.pruebasDesarrolo = true;
-    this.provincias = [];
+    this.pruebasDesarrollo = false;
   }
   ngOnInit(): void {
-    // Aquí obtnemos todas las provincias
-    this.provinciasService.obtenerTodasProvincias().subscribe(
-      {
-        next: (datos: Provincia[]) => {
-          this.provincias = datos;
-        },
-        error: (error: HttpErrorResponse) => {
-          console.error(error);
-        }
-      }
-    );
-
     this.obtenerFormulario();
   }
 
@@ -45,13 +35,13 @@ export class InsertarFavorComponent implements OnInit{
       id                              : [0, []],
       foto                            : ["", [Validators.required]],
       descripcion                     : ["", [Validators.required]],
-      idProvincia                      : [""],
-
-      nombre                          : ["", [Validators.required]],
-      primerAp                        : ["", [Validators.required]],
-      segundoAp                       : ["", []],
-      telefono                        : ["", [Validators.required]],
-      email                           : ["", [Validators.required]],
+      provincia                       : [this.usuarioActivo.usuarioActivo?.direccion.provincia.nombre],
+      usuario                         : [this.usuarioActivo.usuarioActivo],
+      nombre                          : [this.usuarioActivo.usuarioActivo?.nombre],
+      primerAp                        : [this.usuarioActivo.usuarioActivo?.apellido1],
+      segundoAp                       : [this.usuarioActivo.usuarioActivo?.apellido2],
+      telefono                        : [this.usuarioActivo.usuarioActivo?.telefono, [Validators.required]],
+      email                           : [this.usuarioActivo.usuarioActivo?.email],
       fumar                           : [false, []],
       internet                        : [false, []],
       mascota                         : [false, []],
@@ -67,16 +57,29 @@ export class InsertarFavorComponent implements OnInit{
   }
 
   public guardaFavor(favor: Favor) {
-    // TODO
-    console.log(favor);
+    // console.log(favor);
     this.favorService.guardarFavor(favor).subscribe({
       next : () => {},
       error : () => {}
     });
+    this.borrarFormulario();
   }
 
   public borrarFormulario() {
     this.formFavor.reset();
+    this.obtenerFormulario();
+  }
+
+  get usuarioActivo(): AuthService{
+    return this._authService;
+  }
+
+  public mensajeGuardado() {
+    this.messageService.add({ severity: 'success', summary: 'Favor guardado correctamente' });
+  }
+
+  public salir() {
+    this.router.navigate(["/"])
   }
 }
 
