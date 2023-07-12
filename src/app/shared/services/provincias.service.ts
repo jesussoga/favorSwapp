@@ -8,7 +8,7 @@ import {Provincia} from "../models/provincia.models";
 })
 export class ProvinciasService {
 
-  public url : string = "http://192.168.0.15:8080/api/v1/provincias";
+  public url : string = "http://192.168.0.172:8080/api/v1/provincias";
   constructor(private httpClient: HttpClient) { }
 
 
