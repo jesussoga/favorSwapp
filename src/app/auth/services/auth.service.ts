@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   public autorizar(correo: string, clave: string): Observable<Usuario>{
-    const peticion: string =`http://localhost:8080/api/v1/usuarios/${correo}/${clave}` ;
+    const peticion: string =`http://192.168.0.15:8080/api/v1/usuarios/${correo}/${clave}` ;
     return this.httpClient.get<Usuario>(peticion)
       .pipe(
         tap((datos: Usuario)=>{
@@ -33,7 +33,7 @@ export class AuthService {
   }
   public autorizarPorId(id: number): Observable<Usuario>
   {
-    const peticion: string =`http://localhost:8080/api/v1/usuarios/${id}` ;
+    const peticion: string =`http://192.168.0.15:8080/api/v1/usuarios/${id}` ;
 
     return this.httpClient.get<Usuario>(peticion);
   }
