@@ -2,7 +2,7 @@ export interface Favor {
   id:                        number;
   foto:                      string;
   descripcion:               string;
-  direccion:                 string;
+  telefono:                  string;
   usuario:                   Usuario;
   fumar:                     boolean;
   internet:                  boolean;
