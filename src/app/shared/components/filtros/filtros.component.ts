@@ -3,7 +3,6 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {FavorSwappService} from "../../services/favor-swapp.service";
 import {Favor, Provincia} from "../../models/favor.models";
 import {ProvinciasService} from "../../services/provincias.service";
-import {PrimeIcons} from "primeng/api";
 
 
 @Component({
@@ -112,12 +111,16 @@ export class FiltrosComponent implements OnInit{
   }
 
   public filtroProvincia(favor: Favor, idProvincia: string): boolean {
-    return idProvincia === favor.usuario.direccion.provincia.id;
+    if (idProvincia =="00"){
+      return true;
+    }else {
+      return idProvincia === favor.usuario.direccion.provincia.id;
+    }
   }
   //endregion
 
   public cambiarProvincia() {
-    this.filtrosSeleccionados = [];
+    //this.filtrosSeleccionados = [];
     if (this.idProvinciaElegida){
       this.filtrosSeleccionados.push( { nombre: 'Provincia', valor: false, funcion: this.filtroProvincia});
       this.aplicarFiltros();
