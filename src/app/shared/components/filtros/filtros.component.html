@@ -41,7 +41,7 @@
             </div>
           </ng-template>
           <ng-template pTemplate="footer">
-            <p-button class="w-1" (click)="abrirDialogoContacto(favor)" label="Contactar"></p-button>
+            <p-button class="w-1" styleClass="mt-2 p-button-sm p-button-raised" (click)="abrirDialogoContacto(favor)" label="Contactar"></p-button>
             <p-dialog [header]="favorDialogo?.descripcion" [maximizable]="true" [(visible)]="dialogoContactar" [style]="{width: '50vw'}" >
               <div *ngIf="favorDialogo != null">
                 <p>Nombre: {{favorDialogo.usuario.nombre}}</p>
