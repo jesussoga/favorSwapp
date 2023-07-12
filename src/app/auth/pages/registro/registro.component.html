@@ -1,1 +1,58 @@
-<p>registro works!</p>
+<!--Botón de atrezzo para prueba-->
+<p-button label="Darse de alta" (click)="abrirDialogo()"
+          styleClass="p-button-text"></p-button>
+<p-dialog [(visible)]="registro" [modal]="true" [resizable]="true" [maximizable]="true"
+          header="Registrarse Usuario en RoomSwapp">
+<p>registro prueba</p>
+  <div class="formgrid">
+    <div class="col">
+      <label for="nombre">Nombre:</label>
+      <br/>
+      <input id="nombre" type="text"/>
+    </div>
+    <div class="col">
+      <label for="apellidos1">Apellidos 1:</label>
+      <br/>
+      <input id="apellidos1" type="text"/>
+    </div>
+    <div class="col">
+      <label for="apellidos2">Apellidos 2:</label>
+      <br/>
+      <input id="apellidos2" type="text"/>
+    </div>
+    <div class="col">
+      <label for="telefono">Teléfono:</label>
+      <br/>
+      <input id="telefono" type="text"/>
+    </div>
+    <div class="col">
+      <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+      <br/>
+      <input id="fechaNacimiento" type="date"/>
+    </div>
+    <div class="col">
+      <label for="direccion">Dirección:</label>
+      <br/>
+      <input id="direccion" type="text"/>
+    </div>
+    <div class="col">
+      <div class="card flex justify-content-center">
+        <p-dropdown [options]="provincias" optionLabel="nombre" optionValue="id"></p-dropdown>
+      </div>
+    </div>
+    <div class="col">
+      <label for="email">Email:</label>
+      <br/>
+      <input id="email" type="email"/>
+    </div>
+    <div class="col">
+      <label for="clave">Clave:</label>
+      <br/>
+      <input id="clave" type="password"/>
+    </div>
+  </div>
+    <div class="col">
+    <p-button (click)="cerrarDialogo()" label="Aceptar"></p-button>
+  </div>
+</p-dialog>
+

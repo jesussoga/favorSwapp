@@ -45,7 +45,7 @@ export class FiltrosComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    // Aquí obtnemos todas las provincias
+    // Aquí obtemos todas las provincias
     this.provinciasService.obtenerTodasProvincias().subscribe(
       {
         next: (datos: Provincia[]) => {
