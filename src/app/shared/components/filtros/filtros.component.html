@@ -26,9 +26,9 @@
       <div *ngIf="favoresOriginal.length > 0" class="flex justify-content-center flex-wrap">
         <p-card *ngFor="let favor of favoresFiltrados" [header]="favor.descripcion" [style]="{ width: '300px' }" class="m-3">
           <ng-template pTemplate="header">
-            <img *ngIf="favor.foto != null && favor.foto != ''" class="h-13rem" alt="Imagen de {{favor.descripcion}}"
+            <img *ngIf="favor.foto != null && favor.foto != ''" class="h-13rem p-2 shadow-1" alt="Imagen de {{favor.descripcion}}"
                  [src]="favor.foto"/>
-            <img *ngIf="favor.foto == null || favor.foto == ''" class="h-13rem px-6"
+            <img *ngIf="favor.foto == null || favor.foto == ''" class="h-13rem p-2 px-6 shadow-1"
                  alt="Imagen de {{favor.descripcion}}" src="assets/img/imagenDefecto.png"/>
           </ng-template>
           <ng-template pTemplate="content">
