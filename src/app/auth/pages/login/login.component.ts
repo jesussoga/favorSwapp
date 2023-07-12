@@ -15,6 +15,7 @@ export class LoginComponent {
 
   public credencialesNoValidas: boolean;
   public procesoLogin: boolean;
+  public cerrarDialogoLogin: boolean;
 
 
   constructor(
@@ -26,6 +27,7 @@ export class LoginComponent {
     this.usuarioClave = "";
     this.credencialesNoValidas = false;
     this.procesoLogin = false;
+    this.cerrarDialogoLogin = true;
   }
   public login() {
     this.procesoLogin = true;
@@ -46,13 +48,17 @@ export class LoginComponent {
         console.error("Hubo un error al autenticar", error);
       }
     });
-
     // this.router.navigate(['/usuarios']);
   }
 
   logout() {
     this.authService.logout();
     this.procesoLogin = false;
+    this.router.navigate(['/'])
+  }
+
+  public cerrarDialogo(){
+    this.cerrarDialogoLogin = false;
     this.router.navigate(['/'])
   }
 }
