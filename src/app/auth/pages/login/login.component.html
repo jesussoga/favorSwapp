@@ -1,6 +1,8 @@
 <p-dialog
   [(visible)]="cerrarDialogoLogin"
   [closable]="true"
+  [closeOnEscape]="true"
+  (onHide)="cerrarDialogo()"
   [modal]="true"
   [maximizable]="true"
   header="Accede con tu cuenta"
