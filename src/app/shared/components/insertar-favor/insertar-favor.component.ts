@@ -79,3 +79,4 @@ export class InsertarFavorComponent implements OnInit{
     this.formFavor.reset();
   }
 }
+

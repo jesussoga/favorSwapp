@@ -1,87 +1,87 @@
 <p-card class="m-3">
-    <h2>Crear un Favor</h2>
-    <form [formGroup]="formFavor" (ngSubmit)="validarFavor()" class="mt-4">
-      <input type="hidden" formControlName="id"/>
-      <div class="formgrid grid">
-        <div class="field col-12 md:col-4">
-          <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="pi pi-user"></i> Datos personales</p>
-          <span class="p-float-label m-2">
+  <h2>Crear un Favor</h2>
+  <form [formGroup]="formFavor" (ngSubmit)="validarFavor()" class="mt-4">
+    <input type="hidden" formControlName="id"/>
+    <div class="formgrid grid">
+      <div class="field col-12 md:col-4">
+        <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="pi pi-user"></i> Datos personales</p>
+        <span class="p-float-label m-2">
             <input pInputText id="nombre" type="text" class="w-full" aria-describedby="nombre-ayuda" formControlName="nombre">
             <label htmlFor="nombre">Nombre</label>
           </span>
-          <span class="p-float-label m-2">
+        <span class="p-float-label m-2">
             <input pInputText id="primerAp" type="text" class="w-full" aria-describedby="primerAp-ayuda" formControlName="primerAp">
             <label htmlFor="primerAp">Primer Apellido</label>
           </span>
-          <span class="p-float-label m-2">
+        <span class="p-float-label m-2">
             <input pInputText id="segundoAp" type="text" class="w-full" aria-describedby="segundoAp-ayuda" formControlName="segundoAp">
             <label htmlFor="segundoAp">Segundo Apellido</label>
           </span>
-          <div class="m-2">
-            <p-dropdown placeholder="Elija una provincia" inputId="idProvincia"  optionValue="id" formControlName="idProvincia" [options]="provincias" optionLabel="nombre"></p-dropdown>
-          </div>
-          <span class="p-float-label m-2">
+        <div class="m-2">
+          <p-dropdown placeholder="Elija una provincia" inputId="idProvincia"  optionValue="id" formControlName="idProvincia" [options]="provincias" optionLabel="nombre"></p-dropdown>
+        </div>
+        <span class="p-float-label m-2">
             <input type="file"  formControlName="foto">
           </span>
-        </div>
+      </div>
 
-        <div class="field col-12 md:col-4">
-          <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="pi pi-phone"></i> Datos de contactos</p>
-          <span class="p-float-label m-2">
+      <div class="field col-12 md:col-4">
+        <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="pi pi-phone"></i> Datos de contactos</p>
+        <span class="p-float-label m-2">
             <input pInputText id="telefono" type="tel" class="w-full" aria-describedby="telefono-ayuda" formControlName="telefono">
             <label htmlFor="telefono">Teléfono</label>
-            <!--          <small style="color: #e24c4c" id="nombre-ayuda">Debe tener entre 2 y 20 caracteres</small>-->
+          <!--          <small style="color: #e24c4c" id="nombre-ayuda">Debe tener entre 2 y 20 caracteres</small>-->
           </span>
-          <span class="p-float-label m-2">
+        <span class="p-float-label m-2">
             <input pInputText id="email" type="email" class="w-full" aria-describedby="email-ayuda" formControlName="email">
             <label htmlFor="email">Email</label>
-            <!--          <small style="color: #e24c4c" id="nombre-ayuda">Debe tener entre 2 y 20 caracteres</small>-->
+          <!--          <small style="color: #e24c4c" id="nombre-ayuda">Debe tener entre 2 y 20 caracteres</small>-->
           </span>
-        </div>
+      </div>
 
-        <div class="field col-12 md:col-4">
-          <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="pi pi-filter"></i> Opciones</p>
-          <div class="flex flex-column gap-2">
+      <div class="field col-12 md:col-4">
+        <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="pi pi-filter"></i> Opciones</p>
+        <div class="flex flex-column gap-2">
             <span class="p-float-label m-2">
             <input pInputText id="descripcion" type="text" class="w-full" aria-describedby="descripcion-ayuda" formControlName="descripcion">
             <label htmlFor="descripcion">Descripción</label>
             </span>
-            <label>
-              <p-checkbox formControlName="fumar" [binary]="true" inputId="fumar"></p-checkbox>
-              <span> Fumar</span>
-            </label>
-            <label>
-              <p-checkbox formControlName="internet" [binary]="true" inputId="internet"></p-checkbox>
-              <span> Internet</span>
-            </label>
-            <label>
-              <p-checkbox formControlName="mascota" [binary]="true" inputId="mascota"></p-checkbox>
-              <span> Mascota</span>
-            </label>
-            <label>
-              <p-checkbox formControlName="climatizacion" [binary]="true" inputId="climatizacion"></p-checkbox>
-              <span> Climatización</span>
-            </label>
-            <label>
-              <p-checkbox formControlName="adaptadoMovilidadReducida" [binary]="true" inputId="adaptadoMovilidadReducida"></p-checkbox>
-              <span> Adaptación movilidad reducida</span>
-            </label>
-          </div>
-        </div>
-        <div class="flex justify-content-end mb-2 p-3 gap-3">
-          <p-button
-            (click)="borrarFormulario()"
-            icon="pi pi-trash"
-            label="Borrar"
-          ></p-button>
-          <p-button
-            icon="pi pi-save"
-            label="Guardar"
-            type="submit"
-          ></p-button>
+          <label>
+            <p-checkbox formControlName="fumar" [binary]="true" inputId="fumar"></p-checkbox>
+            <span> Fumar</span>
+          </label>
+          <label>
+            <p-checkbox formControlName="internet" [binary]="true" inputId="internet"></p-checkbox>
+            <span> Internet</span>
+          </label>
+          <label>
+            <p-checkbox formControlName="mascota" [binary]="true" inputId="mascota"></p-checkbox>
+            <span> Mascota</span>
+          </label>
+          <label>
+            <p-checkbox formControlName="climatizacion" [binary]="true" inputId="climatizacion"></p-checkbox>
+            <span> Climatización</span>
+          </label>
+          <label>
+            <p-checkbox formControlName="adaptadoMovilidadReducida" [binary]="true" inputId="adaptadoMovilidadReducida"></p-checkbox>
+            <span> Adaptación movilidad reducida</span>
+          </label>
         </div>
       </div>
-    </form>
+      <div class="flex justify-content-end mb-2 p-3 gap-3">
+        <p-button
+          (click)="borrarFormulario()"
+          icon="pi pi-trash"
+          label="Borrar"
+        ></p-button>
+        <p-button
+          icon="pi pi-save"
+          label="Guardar"
+          type="submit"
+        ></p-button>
+      </div>
+    </div>
+  </form>
 
   <div style="background-color: darkseagreen">
     <p>{{formFavor.value | json}}</p>

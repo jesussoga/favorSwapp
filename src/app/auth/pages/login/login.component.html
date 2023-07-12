@@ -1,0 +1,38 @@
+<p-dialog
+  [visible]="true"
+  [closable]="false"
+  [modal]="true"
+  [maximizable]="true"
+  header="Accede con tu cuenta"
+  class="p-fluid"
+>
+
+  <div class="formgrid grid">
+    <div class="field col-12">
+      <div *ngIf="credencialesNoValidas" class="p-message p-message-error p-3">
+        <span>El usuario y/o contraseña no existe</span>
+      </div>
+    </div>
+
+    <div class="field col-12 md:col-6">
+      <div class="p-input-icon-left">
+        <i class="pi pi-user"></i>
+        <input pInputText type="text" placeholder="Correo"
+               [(ngModel)]="usuarioCorreo"/>
+      </div>
+    </div>
+    <div class="field col-12 md:col-6">
+      <div class="p-input-icon-left">
+        <i class="pi pi-key"></i>
+        <input pPassword [feedback]="false" type="password"
+               placeholder="Contraseña" [(ngModel)]="usuarioClave"/>
+      </div>
+    </div>
+    <div class="field col-12">
+      <p-button [loading]="procesoLogin" (click)="login()" label="Login"></p-button>
+    </div>
+    <div class="field col-12">
+      <p-button [loading]="procesoLogin" (click)="logout()" label="Desconectar"></p-button>
+    </div>
+  </div>
+</p-dialog>
