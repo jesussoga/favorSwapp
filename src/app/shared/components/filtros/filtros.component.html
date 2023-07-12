@@ -24,24 +24,24 @@
         <div class="p-message p-message-error p-3">No hay ningún resultado</div>
       </div>
       <div *ngIf="favoresOriginal.length > 0" class="flex justify-content-center flex-wrap">
-        <p-card *ngFor="let favor of favoresFiltrados" [header]="favor.descripcion" [style]="{ width: '300px' }" class="m-3">
+        <p-card *ngFor="let favor of favoresFiltrados" [header]="favor.descripcion" [style]="{ width: '300px' }" class="m-3 shadow-7">
           <ng-template pTemplate="header">
-            <img *ngIf="favor.foto != null && favor.foto != ''" class="h-13rem" alt="Imagen de {{favor.descripcion}}"
+            <img *ngIf="favor.foto != null && favor.foto != ''" class="h-13rem p-2 shadow-1" alt="Imagen de {{favor.descripcion}}"
                  [src]="favor.foto"/>
-            <img *ngIf="favor.foto == null || favor.foto == ''" class="h-13rem px-6"
+            <img *ngIf="favor.foto == null || favor.foto == ''" class="h-13rem p-2 px-6 shadow-1"
                  alt="Imagen de {{favor.descripcion}}" src="assets/img/imagenDefecto.png"/>
           </ng-template>
           <ng-template pTemplate="content">
-            <div [style]="{ height: '40px' }">
-              <p-tag class="m-1" *ngIf="favor.fumar" value="Fumar" [rounded]="true"></p-tag>
-              <p-tag class="m-1" *ngIf="favor.internet" value="Internet" [rounded]="true"></p-tag>
-              <p-tag class="m-1" *ngIf="favor.mascota" value="Mascota" [rounded]="true"></p-tag>
-              <p-tag class="m-1" *ngIf="favor.climatizacion" value="Climatización" [rounded]="true"></p-tag>
-              <p-tag class="m-1" *ngIf="favor.adaptadoMovilidadReducida" value="Adaptado" [rounded]="true"></p-tag>
+            <div [style]="{ height: '40px'}">
+              <p-tag styleClass="m-1" *ngIf="favor.fumar" value="Fumar" [rounded]="true"></p-tag>
+              <p-tag styleClass="m-1" *ngIf="favor.internet" value="Internet" [rounded]="true"></p-tag>
+              <p-tag styleClass="m-1" *ngIf="favor.mascota" value="Mascota" [rounded]="true"></p-tag>
+              <p-tag styleClass="m-1" *ngIf="favor.climatizacion" value="Climatización" [rounded]="true"></p-tag>
+              <p-tag styleClass="m-1" *ngIf="favor.adaptadoMovilidadReducida" value="Adaptado" [rounded]="true"></p-tag>
             </div>
           </ng-template>
           <ng-template pTemplate="footer">
-            <p-button class="w-1" (click)="abrirDialogoContacto(favor)" label="Contactar"></p-button>
+            <p-button class="w-1" styleClass="mt-2 p-button-sm p-button-raised" (click)="abrirDialogoContacto(favor)" label="Contactar"></p-button>
             <p-dialog [header]="favorDialogo?.descripcion" [maximizable]="true" [(visible)]="dialogoContactar" [style]="{width: '50vw'}" >
               <div *ngIf="favorDialogo != null">
                 <p>Nombre: {{favorDialogo.usuario.nombre}}</p>
@@ -57,3 +57,4 @@
     </ng-container>
   </div>
 </div>
+
