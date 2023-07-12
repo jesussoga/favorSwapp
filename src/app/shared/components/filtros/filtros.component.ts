@@ -3,6 +3,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {FavorSwappService} from "../../services/favor-swapp.service";
 import {Favor, Provincia} from "../../models/favor.models";
 import {ProvinciasService} from "../../services/provincias.service";
+import {PrimeIcons} from "primeng/api";
 
 
 @Component({
@@ -32,12 +33,12 @@ export class FiltrosComponent implements OnInit{
     this.favoresOriginal = [];
     this.favoresFiltrados = [];
     this.filtros = [
-      { nombre: 'Provincia', valor: false, funcion: this.filtroProvincia},
-      { nombre: 'Fumar', icon: '', valor: false, funcion: this.filtroFumar},
+      { nombre: 'Provincia',icon: 'fa-solid fa-location-dot', valor: false, funcion: this.filtroProvincia},
+      { nombre: 'Fumar', icon: 'fa-solid fa-smoking', valor: false, funcion: this.filtroFumar},
       { nombre: 'Internet', icon: 'pi pi-wifi', valor: false, funcion: this.filtroInternet},
-      { nombre: 'Mascota', icon: '', valor: false, funcion: this.filtroMascota},
-      { nombre: 'Climatizacion', icon: 'pi pi-sun', valor: false, funcion: this.filtroClimatizado},
-      { nombre: 'Movilidad reducida', valor: false, funcion: this.filtroAdaptadoMovilidadReducida},
+      { nombre: 'Mascota', icon: 'fa-solid fa-paw', valor: false, funcion: this.filtroMascota},
+      { nombre: 'Climatización', icon: 'fa-solid fa-temperature-low', valor: false, funcion: this.filtroClimatizado},
+      { nombre: 'Movilidad reducida',icon: 'fa-solid fa-wheelchair', valor: false, funcion: this.filtroAdaptadoMovilidadReducida},
     ];
     this.filtrosSeleccionados = [];
     this.provincias = [];

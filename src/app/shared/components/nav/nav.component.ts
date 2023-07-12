@@ -27,11 +27,11 @@ export class NavComponent implements OnInit{
 
   ngOnInit() {
     this.items = [
-      {label: 'Inicio', icon: PrimeIcons.HOME, routerLink: "/"},
-      {label: 'Buscar Favor', icon: PrimeIcons.SEARCH, routerLink: "filtros"},
-      {label: 'Publicar Favor', icon: PrimeIcons.SEND, routerLink: "insertar-favor"},
-      {label: 'Login', icon: PrimeIcons.USER, routerLink: "auth/login"},
-      {label: 'Logout', icon: PrimeIcons.USER, command: ()=>{this.logout()}}
+      {label: 'Inicio', icon: 'fa-solid fa-home', routerLink: "/"},
+      {label: 'Buscar Favor', icon: 'fa-solid fa-search', routerLink: "filtros"},
+      {label: 'Publicar Favor', icon: 'fa-regular fa-paper-plane', routerLink: "insertar-favor"},
+      {label: 'Login', icon: 'fa-solid fa-user', routerLink: "auth/login"},
+      {label: 'Logout', icon: 'fa-regular fa-user', command: ()=>{this.logout()}}
     ];
   }
 
