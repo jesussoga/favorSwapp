@@ -13,6 +13,7 @@ import {RippleModule} from "primeng/ripple";
 import {SelectButtonModule} from "primeng/selectbutton";
 import {TagModule} from "primeng/tag";
 import {ToastModule} from "primeng/toast";
+import {TooltipModule} from "primeng/tooltip";
 
 
 
@@ -35,6 +36,7 @@ import {ToastModule} from "primeng/toast";
     SelectButtonModule,
     TagModule,
     ToastModule,
+    TooltipModule,
 
     // Por favor añadirlos alfabéticamente
   ]
