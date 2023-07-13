@@ -13,6 +13,7 @@ export class RegistroComponent implements OnInit{
 
   public provincias!: Provincia[];
   public registro: boolean = false;
+  public value!: String;
 
   constructor(private provinciasService: ProvinciasService) {
   }
@@ -38,4 +39,6 @@ export class RegistroComponent implements OnInit{
       }
     );
   }
+
+
 }

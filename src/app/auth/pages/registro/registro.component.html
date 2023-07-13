@@ -3,56 +3,49 @@
           styleClass="p-button-text"></p-button>
 <p-dialog [(visible)]="registro" [modal]="true" [resizable]="true" [maximizable]="true"
           header="Registrarse Usuario en RoomSwapp">
-<p>registro prueba</p>
-  <div class="formgrid">
-    <div class="col">
+  <div class="formgrid grid">
+    <div class="field col-12 md:col-6">
       <label for="nombre">Nombre:</label>
-      <br/>
-      <input id="nombre" type="text"/>
+      <input id="nombre" placeholder="Nombre" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
     </div>
-    <div class="col">
-      <label for="apellidos1">Apellidos 1:</label>
-      <br/>
-      <input id="apellidos1" type="text"/>
+    <div class="field col-12 md:col-6">
+      <label for="apellidos1">Apellido 1:</label>
+      <input id="apellidos1" placeholder="Apellido primero" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
     </div>
-    <div class="col">
-      <label for="apellidos2">Apellidos 2:</label>
-      <br/>
-      <input id="apellidos2" type="text"/>
+    <div class="field col-12 md:col-6">
+      <label for="apellidos2">Apellido 2:</label>
+      <input id="apellidos2" placeholder="Apellido segundo" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
     </div>
-    <div class="col">
+    <div class="field col-12 md:col-6">
       <label for="telefono">Teléfono:</label>
-      <br/>
-      <input id="telefono" type="text"/>
+      <input id="telefono" placeholder="Número Tlfn" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
     </div>
-    <div class="col">
+    <div class="field col-12 md:col-6">
       <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-      <br/>
-      <input id="fechaNacimiento" type="date"/>
+      <input id="fechaNacimiento" placeholder="Nombre" type="datetime-local" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
     </div>
-    <div class="col">
-      <label for="direccion">Dirección:</label>
-      <br/>
-      <input id="direccion" type="text"/>
+    <div class="field col-12">
+      <label for="address">Dirección:</label>
+      <textarea id="address" placeholder="Calle" type="text" rows="4" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"></textarea>
     </div>
-    <div class="col">
-      <div class="card flex justify-content-center">
-        <p-dropdown [options]="provincias" optionLabel="nombre" optionValue="id"></p-dropdown>
-      </div>
+    <div class="field col-12 md:col-6">
+          <label>Provincia:</label>
+          <p-dropdown [options]="provincias" optionLabel="nombre" optionValue="id"></p-dropdown>
     </div>
-    <div class="col">
+    <div class="field col-12 md:col-6">
       <label for="email">Email:</label>
-      <br/>
-      <input id="email" type="email"/>
+      <input id="email" placeholder="Correo electrónico" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
     </div>
-    <div class="col">
-      <label for="clave">Clave:</label>
+    <div class="field col-12 md:col-6">
+      <label>Clave:</label>
+        <p-password [(ngModel)]="value" [toggleMask]="true"></p-password>
       <br/>
-      <input id="clave" type="password"/>
+      <small id="clave-help">Debe tener al menos 8 caracteres, una mayúscula y un símbolo.</small>
     </div>
+
   </div>
-    <div class="col">
-    <p-button (click)="cerrarDialogo()" label="Aceptar"></p-button>
-  </div>
+      <div class="">
+      <p-button class="px-3 py-2 text-base cursor-pointer transition-all transition-duration-200" (click)="cerrarDialogo()" label="Aceptar"></p-button>
+    </div>
 </p-dialog>
 
