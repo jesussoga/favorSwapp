@@ -1,1 +1,70 @@
-<p>registro works!</p>
+<p-card class="m-3">
+    <div *ngIf="pruebasDesarrollo" style="background-color: darkseagreen">
+      <h2>Aquí van las pruebas</h2>
+<!--      <p>{{formRegistro.value.name }}</p>-->
+    </div>
+  <h2>Registrar Usuario</h2>
+  <form [formGroup]="formRegistro"  (ngSubmit)="validarRegistro()" class="mt-4">
+    <input type="hidden" formControlName="id"/>
+    <div class="formgrid grid">
+      <div class="field col-12 md:col-4">
+        <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="pi pi-user"></i> Datos personales</p>
+        <span class="p-float-label mt-4">
+          <input pInputText id="nombre" type="text" class="w-7" aria-describedby="nombre-ayuda"
+                 formControlName="nombre">
+          <label htmlFor="nombre">Nombre</label>
+        </span>
+        <span class="p-float-label mt-4">
+          <input pInputText id="primerAp" class="w-7" aria-describedby="primerAp-ayuda"/>
+          <label htmlFor="primerAp">Primer Apellido</label>
+        </span>
+        <span class="p-float-label mt-4">
+           <input pInputText id="segundoAp"  class="w-7" aria-describedby="segundoAp-ayuda">
+           <label htmlFor="segundoAp">Segundo Apellido</label>
+        </span>
+      </div>
+
+<!--      <div class="field col-12 md:col-4">-->
+<!--        <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="pi pi-phone"></i> Datos de contactos</p>-->
+<!--        <span class="p-float-label m-2">-->
+<!--            <input pInputText id="provincia" type="text" class="w-full" aria-describedby="provincia-ayuda"-->
+<!--                   formControlName="provincia">-->
+<!--            <label htmlFor="provincia">Provincia</label>-->
+<!--          </span>-->
+<!--        <span class="p-float-label m-2">-->
+<!--            <input pInputText id="email" type="email" class="w-full" aria-describedby="email-ayuda"-->
+<!--                   formControlName="email">-->
+<!--            <label htmlFor="email">Email</label>-->
+<!--          </span>-->
+<!--        <span class="p-float-label m-2">-->
+<!--            <input pInputText id="telefono" type="tel" class="w-full" aria-describedby="telefono-ayuda"-->
+<!--                   formControlName="telefono">-->
+<!--            <label htmlFor="telefono">Teléfono de contacto</label>-->
+<!--        </span>-->
+<!--      </div>-->
+
+      <div class="field col-12 md:col-4">
+      </div>
+
+      <div class="flex justify-content-end mb-2 p-3 gap-2">
+        <p-toast position="top-center"></p-toast>
+        <p-button
+
+          icon="pi pi-sign-out"
+          label="Salir"
+        ></p-button>
+        <p-button
+
+          icon="pi pi-trash"
+          label="Borrar"
+        ></p-button>
+        <p-button
+
+          icon="pi pi-save"
+          label="Guardar"
+          type="submit"
+        ></p-button>
+      </div>
+    </div>
+  </form>
+</p-card>
