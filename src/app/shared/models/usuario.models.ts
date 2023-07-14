@@ -1,5 +1,3 @@
-import {Direccion} from "./favor.models";
-
 export interface Usuario {
   id:              number;
   nombre:          string;
@@ -10,4 +8,15 @@ export interface Usuario {
   direccion:       Direccion;
   email:           string;
   clave:           string;
+}
+
+export interface Direccion {
+  id:        number;
+  direccion: string;
+  provincia: Provincia;
+}
+
+export interface Provincia {
+  id:     string;
+  nombre: string;
 }

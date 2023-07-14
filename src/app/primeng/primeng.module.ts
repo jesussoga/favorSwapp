@@ -14,6 +14,7 @@ import {SelectButtonModule} from "primeng/selectbutton";
 import {TagModule} from "primeng/tag";
 import {ToastModule} from "primeng/toast";
 import {TooltipModule} from "primeng/tooltip";
+import {CalendarModule} from "primeng/calendar";
 
 
 
@@ -24,6 +25,7 @@ import {TooltipModule} from "primeng/tooltip";
   ],
   exports: [
     ButtonModule,
+    CalendarModule,
     CardModule,
     CheckboxModule,
     DialogModule,
