@@ -28,14 +28,14 @@ export class InsertarFavorComponent implements OnInit{
     this.pruebasDesarrollo = false;
   }
   ngOnInit(): void {
-    this.obtenerFormulario();
+    this.inicializarFormulario();
   }
 
-  public obtenerFormulario(){
+  public inicializarFormulario(){
     this.formFavor = this.formBuilder.group({
       id                              : [0, []],
-      foto                            : ["", [Validators.required]],
-      descripcion                     : ["", [Validators.required]],
+      foto                            : ["", [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
+      descripcion                     : ["", [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
       provincia                       : [this.usuarioActivo.usuarioActivo?.direccion.provincia.nombre],
       usuario                         : [this.usuarioActivo.usuarioActivo],
       nombre                          : [this.usuarioActivo.usuarioActivo?.nombre],
@@ -72,7 +72,7 @@ export class InsertarFavorComponent implements OnInit{
 
   public borrarFormulario() {
     this.formFavor.reset();
-    this.obtenerFormulario();
+    this.inicializarFormulario();
   }
 
   get usuarioActivo(): AuthService{
@@ -80,8 +80,17 @@ export class InsertarFavorComponent implements OnInit{
   }
 
 
-  public salir() {
-    this.router.navigate(["/"])
+  // public salir() {
+  //   this.router.navigate(["/"])
+  // }
+
+  public esCampoInvalido(campo: string) : boolean {
+    return this.formFavor.controls[campo].invalid && this.formFavor.controls[campo].touched;
+  }
+
+  public marcarTodosLosCampos() {
+    //Al ponerlos todos como marcados, me mostrará directamente todos los errores
+    this.formFavor.markAllAsTouched();
   }
 }
 
