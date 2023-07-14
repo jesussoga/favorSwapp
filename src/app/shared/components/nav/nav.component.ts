@@ -37,11 +37,11 @@ export class NavComponent implements OnInit{
             items: [
               {
                 label: 'Oscuro',
-                icon: 'fa-solid fa-eye'
+                icon: 'fa-solid fa-moon'
               },
               {
                 label: 'Claro',
-                icon: 'fa-regular fa-eye'
+                icon: 'fa-regular fa-sun'
               },
             ]
           },
