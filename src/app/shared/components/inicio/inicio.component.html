@@ -1,17 +1,24 @@
-<div class="flex align-items-center justify-content-center mt-8">
-<!--Imagen de ver-->
-  <div routerLink="filtros" class="flex text-center p-4">
-    <div pRipple class="shadow-5 border-round surface-ground p-7">
-      <img class="w-12rem" src="assets/img/ver.png" alt="Imagen para acceder a ver favores">
-      <p class="block text-3xl">Pulsa aquí para ver favor/es</p>
+<div class="grid py-4 px-8">
+
+  <!--Imagen de ver-->
+    <div routerLink="filtros" class="col-12 sm:col-6">
+      <div pRipple class="shadow-5 border-round py-5 px-4 text-center color">
+        <img class="w-5rem md:w-10rem lg:w-15rem" src="assets/img/ver.png" alt="Imagen para acceder a ver favores">
+        <span class="block text-xl md:text-2xl lg:text-4xl text-overflow-clip mt-4" title="Pulse aquí para ver favores">
+          <strong>Ver</strong> favores
+        </span>
+      </div>
     </div>
-  </div>
 
   <!--Imagen de agregar-->
-  <div routerLink="insertar-favor" class="flex text-center p-4">
-    <div pRipple class="shadow-5 border-round surface-ground p-7">
-      <img class="w-12rem" src="assets/img/agregar.png" alt="Imagen para acceder a agregar favor" >
-      <p class="block text-3xl">Pulsa aquí para publicar favor/es</p>
-    </div>
+    <div routerLink="insertar-favor" class="col-12 sm:col-6">
+      <div pRipple class="shadow-5 border-round py-5 px-4 text-center color">
+        <img class="w-5rem md:w-10rem lg:w-15rem" src="assets/img/agregar.png"
+             alt="Imagen para acceder a agregar favor">
+        <span class="block text-xl md:text-2xl lg:text-4xl text-overflow-clip mt-4"
+              title="Pulse aquí para publicar favores">
+          <strong>Publicar</strong> favores
+        </span>
+      </div>
   </div>
 </div>
