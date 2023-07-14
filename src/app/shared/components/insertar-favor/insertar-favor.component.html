@@ -1,4 +1,4 @@
-<p-card class="m-3">
+<p-card styleClass="mt-4">
   <div *ngIf="pruebasDesarrollo" style="background-color: darkseagreen">
     <p>{{formFavor.value | json}}</p>
   </div>
@@ -8,15 +8,15 @@
     <div class="formgrid grid">
       <div class="field col-12 md:col-4">
         <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="fa-solid fa-user"></i> Datos personales</p>
-        <span class="p-float-label m-2">
+        <span class="p-float-label mt-4">
             <input pInputText id="nombre" type="text" [readonly]="true" class="w-full" aria-describedby="nombre-ayuda" formControlName="nombre">
             <label htmlFor="nombre">Nombre</label>
           </span>
-        <span class="p-float-label m-2">
+        <span class="p-float-label mt-4">
             <input pInputText id="primerAp" type="text" [readonly]="true" class="w-full" aria-describedby="primerAp-ayuda" formControlName="primerAp">
             <label htmlFor="primerAp">Primer Apellido</label>
           </span>
-        <span class="p-float-label m-2">
+        <span class="p-float-label mt-4">
             <input pInputText id="segundoAp" type="text" [readonly]="true" class="w-full" aria-describedby="segundoAp-ayuda" formControlName="segundoAp">
             <label htmlFor="segundoAp">Segundo Apellido</label>
           </span>
@@ -24,16 +24,16 @@
 
       <div class="field col-12 md:col-4">
         <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="fa-solid fa-phone"></i>  Datos de contacto</p>
-        <span class="p-float-label m-2">
+        <span class="p-float-label mt-4">
             <input pInputText id="provincia" type="text" [readonly]="true" class="w-full" aria-describedby="provincia-ayuda" formControlName="provincia">
             <label htmlFor="provincia">Provincia</label>
           </span>
-        <span class="p-float-label m-2">
+        <span class="p-float-label mt-4">
             <input pInputText id="email" type="email" [readonly]="true" class="w-full" aria-describedby="email-ayuda" formControlName="email">
             <label htmlFor="email">Email</label>
           </span>
-        <span class="p-float-label m-2">
-            <input pInputText id="telefono" type="tel" class="w-full" aria-describedby="telefono-ayuda" formControlName="telefono">
+        <span class="p-float-label mt-4">
+            <input pInputText id="telefono" type="tel" autofocus class="w-full" maxlength="9" aria-describedby="telefono-ayuda" formControlName="telefono">
             <label htmlFor="telefono">Teléfono de contacto</label>
         </span>
       </div>
@@ -41,13 +41,15 @@
       <div class="field col-12 md:col-4">
         <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="pi pi-filter"></i> Opciones</p>
         <div class="gap-2">
-          <span class="p-float-label m-2">
-              <input pInputText id="descripcion" type="text" class="w-full" aria-describedby="descripcion-ayuda" formControlName="descripcion">
+          <span class="p-float-label mt-4">
+              <input pInputText id="descripcion" type="text" maxlength="20" class="w-full" aria-describedby="descripcion-ayuda" (keyup.enter)="marcarTodosLosCampos()" formControlName="descripcion">
               <label htmlFor="descripcion">Título</label>
+              <small *ngIf="esCampoInvalido('descripcion')" style="color: #e24c4c" id="descripcion-ayuda">Introduzca el título</small>
           </span>
-          <span class="p-float-label m-2">
-              <input pInputText id="Foto" type="text" class="w-full" aria-describedby="foto-ayuda" formControlName="foto">
+          <span class="p-float-label my-4">
+              <input pInputText id="foto" type="text" class="w-full" aria-describedby="foto-ayuda" (keyup.enter)="marcarTodosLosCampos()" formControlName="foto">
               <label htmlFor="foto">Foto</label>
+              <small *ngIf="esCampoInvalido('foto')" style="color: #e24c4c" id="foto-ayuda">Introduzca una foto</small>
           </span>
           <label>
             <p-checkbox class="ml-2" formControlName="fumar" [binary]="true" inputId="fumar"></p-checkbox>
@@ -74,25 +76,33 @@
           </div>
         </div>
       </div>
-      <div class="flex justify-content-end mb-2 p-3 gap-2">
-        <p-toast position="top-center"></p-toast>
-        <p-button
-          (click)="salir()"
-          icon="pi pi-sign-out"
-          label="Salir"
-        ></p-button>
-        <p-button
-          (click)="borrarFormulario()"
-          icon="pi pi-trash"
-          label="Borrar"
-        ></p-button>
-        <p-button
-          (click)="mensajeGuardado()"
-          icon="pi pi-save"
-          label="Guardar"
-          type="submit"
-        ></p-button>
-      </div>
+      <p-toast position= "top-center"></p-toast>
     </div>
+      <div class="flex justify-content-end flex-wrap p-3 gap-2">
+        <div class="flex align-items-center justify-content-center">
+          <p-button
+            (click)="borrarFormulario()"
+            icon="fa-solid fa-trash"
+            label="Borrar"
+          ></p-button>
+        </div>
+        <div class="flex align-items-center justify-content-center">
+          <p-button
+            (click)="marcarTodosLosCampos()"
+            icon="fa-solid fa-eye"
+            label="Verificar"
+            [styleClass]="'p-button-info'"
+          ></p-button>
+        </div>
+        <div class="flex align-items-center justify-content-center">
+          <p-button
+            icon="fa-solid fa-save"
+            label="Guardar"
+            type="submit"
+            [styleClass]="formFavor.valid ? 'p-button-success': 'p-button-danger'"
+            [disabled]="formFavor.invalid || formFavor.pristine"
+          ></p-button>
+        </div>
+      </div>
   </form>
 </p-card>

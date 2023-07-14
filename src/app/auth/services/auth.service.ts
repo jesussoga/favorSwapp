@@ -9,7 +9,6 @@ import {Router} from "@angular/router";
 })
 export class AuthService {
 
-
   private _usuarioActivo: Usuario | undefined;
 
   constructor(
@@ -60,4 +59,6 @@ export class AuthService {
     localStorage.removeItem("usuarioActivo");
     this.router.navigate(["/auth"]);
   }
+
+
 }

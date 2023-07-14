@@ -1,26 +1,24 @@
-<div class="footer">
-  <div >
-    <img class="logo" src="assets/img/logo.png" alt="Imagen de icono del proyecto">
-  </div>
-  <!--Boton primero de dirección de la izquierda-->
-  <div class="col">
-    <div class="text-center border-round-sm font-bold">
+<div class="footer grid">
+
+  <div class="col-12 md:col-6 lg:col-3">
+    <div class=" border-round-sm ">
       <!--Dirección-->
       <p-button (click)="ubicacion()" styleClass="p-button-text" label="&copy; RoomSwapp '23"></p-button>
     </div>
   </div>
+
   <!--Los Tres botones centrales -->
-  <div class="col">
-    <div class="text-center border-round-sm font-bold">
+  <div class="col-12 lg:col-6 hidden-sm hidden-md">
+    <div class="text-center">
       <!--Redes Sociales-->
       <div class="align-content-center">
-        <p-button styleClass="p-button-text" (click)="facebook()">
+        <p-button styleClass="p-button-rounded p-button-info p-button-text p-button-raised" (click)="facebook()">
           <i class="pi pi-facebook"></i>
         </p-button>
-        <p-button styleClass="p-button-text" (click)="twitter()">
+        <p-button styleClass="p-button-rounded p-button-text p-button-raised" (click)="twitter()">
           <i class="pi pi-twitter"></i>
         </p-button>
-        <p-button styleClass="p-button-text" (click)="instagram()">
+        <p-button styleClass="p-button-rounded p-button-danger p-button-text p-button-raised" (click)="instagram()">
           <i class="pi pi-instagram"></i>
         </p-button>
       </div>
@@ -28,24 +26,25 @@
   </div>
 
   <!--Tres boton de la derecha-->
-  <div class="col">
+  <div class="col-12 md:col-6 lg:col-3 hidden-sm">
     <div class="text-center border-round-sm font-bold">
-      <div class="flex-1 flex align-items-center justify-content-center font-bold border-round">
+      <div class="flex-1 flex align-items-center justify-content-end font-bold border-round">
         <!--Botón de Política de privacidad-->
         <p-button label="Privacidad" (click)="abrirPoliticaDePrivacidad()"
-                  styleClass="p-button-rounded"></p-button>
+                  styleClass="p-button-text"></p-button>
         <!--Botón de Condiciones de uso-->
         <p-button label="Términos" (click)="abrirDialogoTerminosYCondiciones()"
-                  styleClass="p-button-rounded"></p-button>
+                  styleClass="p-button-text"></p-button>
         <!--Botón de Política de Cookies-->
         <p-button label="Cookies" (click)="abrirPoliticaDeCookies()"
-                  styleClass="p-button-rounded"></p-button>
+                  styleClass="p-button-text"></p-button>
       </div>
     </div>
   </div>
 </div>
 
-<!--Texto de los botones de las Cookies, terminos y condiciones de use y privacidad-->
+<!--Texto que aparece al pulsar el botón Privacidad-->
+
 <p-dialog [(visible)]="visiblePrivacidad" [modal]="true" [resizable]="true" [maximizable]="true"
           header="Política de Privacidad">
 
@@ -116,7 +115,7 @@
   </ng-template>
 </p-dialog>
 
-
+<!--Texto que aparece al pulsar el botón Términos-->
 <p-dialog [(visible)]="visibleTerminos" [modal]="true" [resizable]="true" [maximizable]="true"
           header="Política de Términos de Uso">
   <h1>Condiciones de Uso</h1>
@@ -149,83 +148,26 @@
 
   <p>
     Los artículos que se ofrecen a través de este Sitio Web estarán únicamente disponibles en España Península y
-    Baleares. No hacemos envíos fuera de esas áreas.
+    Baleares.
   </p>
   <br/>
   <hr/>
   <h3>Disponibilidad de los productos</h3>
 
   <p>
-    Todos los pedidos de productos están sujetos a la disponibilidad de los mismos y, en este sentido, si se producen
+    Todos los RoomSwapp's de productos están sujetos a la disponibilidad de los mismos y, en este sentido, si se producen
     dificultades en cuanto a su suministro, o si no quedan artículos en stock, te facilitaremos información acerca de
     productos sustitutivos que puedes encargar. Si no deseas esos productos sustitutivos, te reembolsaremos cualquier
     cantidad que pudieras haber abonado.
   </p>
   <br/>
   <hr/>
-  <h3>Gastos de envío</h3>
 
   <p>
-    Los envíos se realizan a todo el territorio Nacional Peninsular y a Baleares mediante TNT, CORREOS, SEUR, DHL,
-    CELERIS.
-  </p>
-
-  <p>
-    Los gastos de envío incluyen en todos los casos el Impuesto sobre el Valor Añadido (IVA) pero ningún otro
-    impuesto,
-    tasa, arancel o recargo.
-  </p>
-
-  <p>A. Envíos a España Península:</p>
-
-  <p>Los gastos de envío dependerán de la opción de envío escogida:</p>
-
-  <p>
-    1. Envío mediante las empresas mencionadas anteriormente. El cliente recibirá el pedido en la dirección que nos
-    proporcione.En ese momento el cliente tendrá 5 días para hacer una reclamación o devolución.
-    En todos los casos los gastos de envío a Península son: 5,45 euros
-  </p>
-
-  <br/>
-  <hr/>
-  <h3>Plazos de entrega</h3>
-
-  <p>
-    El plazo de entrega de los pedidos serán notificados antes de hacer el pago.
-  </p>
-
-  <br/>
-  <hr/>
-  <h3>Demoras / errores en la entrega</h3>
-
-  <p>
-    RoomSwapp no se hace responsable de las demoras o problemas ocasionados por la empresa de mensajería. De todos
-    modos
-    te agradecemos que contactes con nosotros si hay un retraso en la entrega, para poder informar a nuestro comercial
-    así
-    como ayudarte a localizar tu envío y conocer la posible causa de demora.
-  </p>
-
-  <p>
-    RoomSwapp se hará responsable de posibles errores ocasionados en la entrega sólo cuando estos sean debidos a un
-    error por nuestra parte. Si un pedido es devuelto por un error nuestro, asumiremos los costes y lo enviaremos de
-    nuevo
-    sin cargo adicional.
-  </p>
-
-  <p>
-    RoomSwapp, no se hará responsable de los errores causados en la entrega cuando falten datos en la dirección de
-    envío
-    o la dirección de entrega introducida por el usuario en el formulario no sea la correcta (es muy importante que no
-    haya errores en el código postal), haciéndose cargo el cliente de los gastos de envío que puedan ocasionar
-    enviarlo de
-    nuevo.
-  </p>
-
-  <p>
-    Si el pedido no es recogido en un plazo de 5 días, por que la empresa no localiza a una persona en la dirección de
-    entrega ,la empresa de envíos nos lo reenviará de vuelta. El cliente deberá abonar de nuevo los gastos de envío si
-    quiere que se lo volvamos a enviar.
+    RoomSwapp, no se hará responsable de los errores causados en los pisos casas etc.. falten objetos de valor, o algo
+    parecido y en caso de incendio o inundación o la dirección no se hara publica la mantendremos en nuestros servidores
+    introducida por el usuario en el formulario no sea la correcta (es muy importante que no haya errores en el
+    código postal) o otro campo.
   </p>
 
   <p>Forma de pago</p>
@@ -256,72 +198,17 @@
     envíanos el justificante de entrega a info@roomswapp.es con tu número de pedido.
   </p>
 
-  <br/>
-  <hr/>
-  <h3>Política de cambios / Devoluciones</h3>
   <p>
-    A partir de la recepción del pedido, tienes un plazo máximo de 5 días para devolver el producto siempre y cuando
-    lo
-    notifiques anteriormente por correo electrónico a pedidos@roomswapp.es. El cliente podrá devolver cualquier
-    artículo
-    que haya comprado en RoomSwapp*, estando este en su embalaje original y en buen estado (Sin utilizar).
-  </p>
-
-  <p>
-    En el momento en que lo recibamos y comprobemos su buen estado, FavorSwapp devolverá el importe correspondiente al
-    coste del producto mediante una transferencia bancaria a la cuenta indicada por el cliente.
-  </p>
-
-  <p>
-    No se devolverán los gastos de envío, excepto si la devolución se debe a un fallo por nuestra parte, y el pedido
-    estaba compuesto únicamente del artículo que quiere devolverse.
-  </p>
-
-  <p>
-    En caso de pagos por Paypal, no se devolverá la comisión que se cobra por el pago por paypal, excepto si la
-    devolución se debe a un fallo por nuestra parte.
-  </p>
-
-  <p>
-    Será el cliente quien corra con los gastos de devolución, excepto si la devolución se debe a un fallo por nuestra
-    parte, en cuyo caso asumiremos a priori los costes de devolución; no obstante debes contactar antes con nosotros
-    para que te lo confirmemos.
-  </p>
-
-  <p>
-    *Quedan exentos de devolución aquellos productos que han sido personalizados o hechos a medida para el cliente,
-    que no se podrán devolver.
-  </p>
-
-  <p>
-    En caso de impresiones erróneas, manchas en impresión o gráfica que no es, se repondrá el producto sin ningún
-    coste
-    para el cliente si hay tiempo suficiente para su entrega o se devolverá el dinero (con la entrega de una foto de
-    producto doblado o cortado al correo pedidos@roomswapp.es).
+    FavorSwapp: intercambio de favores como tal, usted presta la casa y el 'inquilino' se hace responsable con la limpieza
+    abstenerse a la política de la empresa.
   </p>
 
   <br/>
   <hr/>
-  <h3>Precios</h3>
-  <p>
-    Los productos se venderán al precio que se indica, siendo vigente el que se recoge en el momento de la
-    confirmación del pedido por parte del cliente.
-    FavorSwapp se reserva el derecho a modificar precios, artículos, ofertas y otras condiciones comerciales sin
-    previo aviso.
-  </p>
 
   <br/>
   <hr/>
-  <h3>Transmisión de riesgo y la propiedad</h3>
-  <p>
-    Los riesgos de los Productos serán a tu cargo a partir del momento de su entrega. Adquiridlas la propiedad de los
-    productos cuando recibamos el pago completo de todas las cantidades debidas en relación con los mismos, incluidos
-    los
-    gastos de envío, o bien en el momento de la entrega, si ésta tuviese lugar en un momento posterior.
-  </p>
 
-  <br/>
-  <hr/>
   <h3>Propiedad Intelectual</h3>
 
   <p>Reconoces y consientes que todo copyright, marca registrada y demás derechos de propiedad intelectual sobre los
@@ -393,7 +280,8 @@
   </h3>
   <p>
     Tenemos derecho de revisar y modificar los presentes Condiciones en cualquier momento. Estarás sujeto a las
-    políticas y Condiciones vigentes en el momento en que efectúes cada pedido, salvo que por ley o decisión de organismos
+    políticas y Condiciones vigentes en el momento en que efectúes cada pedido, salvo que por ley o decisión de
+    organismos
     gubernamentales debamos hacer cambios en dichas políticas, Condiciones o Política de Privacidad, en cuyo caso, los
     posibles cambios afectarán también a los pedidos que hubieras hecho previamente.
   </p>
@@ -417,7 +305,7 @@
   </ng-template>
 </p-dialog>
 
-
+<!--Texto que aparece al pulsar el botón Cookies-->
 <p-dialog [(visible)]="visibleCookies" [modal]="true" [resizable]="true" [maximizable]="true"
           header="Política de Cookies">
   <h1>Política de Cookies</h1>

@@ -5,7 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import {PrimengModule} from "../primeng/primeng.module";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 
 
@@ -19,7 +19,8 @@ import {HttpClientModule} from "@angular/common/http";
     AuthRoutingModule,
     PrimengModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule { }

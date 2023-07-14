@@ -30,8 +30,34 @@ export class NavComponent implements OnInit{
       {label: 'Inicio', icon: 'fa-solid fa-home', routerLink: "/"},
       {label: 'Buscar Favor', icon: 'fa-solid fa-search', routerLink: "filtros"},
       {label: 'Publicar Favor', icon: 'fa-regular fa-paper-plane', routerLink: "insertar-favor"},
-      {label: 'Login', icon: 'fa-solid fa-user', routerLink: "auth/login"},
-      {label: 'Logout', icon: 'fa-regular fa-user', command: ()=>{this.logout()}}
+      {label: 'Configuración', icon: 'fa-solid fa-wrench',items:[
+          {
+            label: 'Tema',
+            icon: 'fa-solid fa-palette',
+            items: [
+              {
+                label: 'Oscuro',
+                icon: 'fa-solid fa-moon'
+              },
+              {
+                label: 'Claro',
+                icon: 'fa-regular fa-sun'
+              },
+            ]
+          },
+          {
+            label: 'Idioma',
+            icon: 'fa-solid fa-language',
+            items: [
+              {label: 'Español'},
+              {label: 'Inglés'},
+            ]
+          }
+        ]
+      },
+      {label: 'Iniciar sesión', icon: 'fa-solid fa-user', routerLink: "auth/login"},
+      {label: 'Cerrar sesión', icon: 'fa-regular fa-user', command: ()=>{this.logout()}}
+
     ];
   }
 
