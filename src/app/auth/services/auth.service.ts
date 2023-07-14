@@ -9,7 +9,6 @@ import {Router} from "@angular/router";
 })
 export class AuthService {
 
-  public url : string = "http://192.168.0.15:8080/api/v1/usuarios";
   private _usuarioActivo: Usuario | undefined;
 
   constructor(
@@ -61,7 +60,5 @@ export class AuthService {
     this.router.navigate(["/auth"]);
   }
 
-  public guardarUsuario(usuario: Usuario): Observable<Usuario> {
-    return this.httpClient.post<Usuario>(this.url , usuario);
-  }
+
 }
