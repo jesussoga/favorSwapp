@@ -29,7 +29,7 @@ export class RegistroComponent implements OnInit{
   ){
     this.provincias = [];
     this.idProvinciaElegida = "29";
-    this.pruebasDesarrollo = true;
+    this.pruebasDesarrollo = false;
     this.clave = "";
     this.usuarioClave2 = "";
   }

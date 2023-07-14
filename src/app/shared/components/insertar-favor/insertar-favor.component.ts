@@ -5,6 +5,7 @@ import {FavorSwappService} from "../../services/favor-swapp.service";
 import {AuthService} from "../../../auth/services/auth.service";
 import {MessageService} from "primeng/api";
 import {Router} from "@angular/router";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-insertar-favor',
@@ -59,8 +60,12 @@ export class InsertarFavorComponent implements OnInit{
   public guardaFavor(favor: Favor) {
     // console.log(favor);
     this.favorService.guardarFavor(favor).subscribe({
-      next : () => {},
-      error : () => {}
+      next : () => {
+        this.messageService.add({ severity: 'success', summary: 'Favor guardado correctamente' });
+      },
+      error : (datos: HttpErrorResponse) => {
+        this.messageService.add({ severity: 'error', summary: datos.message });
+      }
     });
     this.borrarFormulario();
   }
@@ -74,9 +79,6 @@ export class InsertarFavorComponent implements OnInit{
     return this._authService;
   }
 
-  public mensajeGuardado() {
-    this.messageService.add({ severity: 'success', summary: 'Favor guardado correctamente' });
-  }
 
   public salir() {
     this.router.navigate(["/"])
