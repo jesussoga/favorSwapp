@@ -34,8 +34,8 @@ export class InsertarFavorComponent implements OnInit{
   public inicializarFormulario(){
     this.formFavor = this.formBuilder.group({
       id                              : [0, []],
-      foto                            : ["", [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
-      descripcion                     : ["", [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+      foto                            : ["", [Validators.required]],
+      descripcion                     : ["", [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       provincia                       : [this.usuarioActivo.usuarioActivo?.direccion.provincia.nombre],
       usuario                         : [this.usuarioActivo.usuarioActivo],
       nombre                          : [this.usuarioActivo.usuarioActivo?.nombre],

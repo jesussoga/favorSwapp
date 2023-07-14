@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProvinciasService} from "../../../shared/services/provincias.service";
 import {HttpErrorResponse} from "@angular/common/http";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MessageService} from "primeng/api";
 import {Direccion, Provincia, Usuario} from "../../../shared/models/usuario.models";
 import {UsuarioService} from "../../../shared/services/usuario.service";
@@ -53,16 +53,17 @@ export class RegistroComponent implements OnInit{
   public inicializarFormularioRegistro(){
     this.formRegistroUsuario = this.formBuilder.group({
       id                              : [0],
-      nombre                          : [""],
-      apellido1                       : [""],
-      apellido2                       : [""],
-      telefono                        : [""],
-      fechaNacimiento                 : [""],
+      nombre                          : ["", [Validators.required]],
+      apellido1                       : ["", [Validators.required]],
+      apellido2                       : ["", [Validators.required]],
+      telefono                        : ["", [Validators.required]],
+      fechaNacimiento                 : ["", [Validators.required]],
       idDireccion                     : [0],
-      direccion                       : [""],
-      idProvincia                     : [""],
-      email                           : [""],
-      clave                           : [""],
+      direccion                       : ["", [Validators.required]],
+      idProvincia                     : ["", [Validators.required]],
+      email                           : ["", [Validators.required]],
+      clave                           : ["", [Validators.required]],
+      usuarioClave2                   : ["", [Validators.required]],
     });
   }
 
@@ -116,4 +117,19 @@ export class RegistroComponent implements OnInit{
     return this.provincias.find(provincia => provincia.id === id)
   }
 
+  public esCampoInvalido(campo: string) : boolean {
+    return this.formRegistroUsuario.controls[campo].invalid && this.formRegistroUsuario.controls[campo].touched;
+  }
+
+  public marcarTodosLosCampos() {
+    this.formRegistroUsuario.markAllAsTouched();
+  }
+
+  public comprobarClave(): boolean{
+    return this.clave === this.usuarioClave2;
+  }
+
+  public borrarFormulario() {
+    this.formRegistroUsuario.reset();
+  }
 }
