@@ -3,6 +3,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {FavorSwappService} from "../../services/favor-swapp.service";
 import {Favor, Provincia} from "../../models/favor.models";
 import {ProvinciasService} from "../../services/provincias.service";
+import {PrimeIcons} from "primeng/api";
 
 
 @Component({
@@ -32,9 +33,9 @@ export class FiltrosComponent implements OnInit{
     this.favoresOriginal = [];
     this.favoresFiltrados = [];
     this.filtros = [
-      { nombre: 'Provincia',icon: 'fa-solid fa-location-dot', valor: false, funcion: this.filtroProvincia},
+      // { nombre: 'Provincia',icon: 'fa-solid fa-location-dot', valor: false, funcion: this.filtroProvincia},
       { nombre: 'Fumar', icon: 'fa-solid fa-smoking', valor: false, funcion: this.filtroFumar},
-      { nombre: 'Internet', icon: 'pi pi-wifi', valor: false, funcion: this.filtroInternet},
+      { nombre: 'Internet', icon: 'fa-solid fa-wifi', valor: false, funcion: this.filtroInternet},
       { nombre: 'Mascota', icon: 'fa-solid fa-paw', valor: false, funcion: this.filtroMascota},
       { nombre: 'Climatización', icon: 'fa-solid fa-temperature-low', valor: false, funcion: this.filtroClimatizado},
       { nombre: 'Movilidad reducida',icon: 'fa-solid fa-wheelchair', valor: false, funcion: this.filtroAdaptadoMovilidadReducida},
@@ -111,16 +112,16 @@ export class FiltrosComponent implements OnInit{
   }
 
   public filtroProvincia(favor: Favor, idProvincia: string): boolean {
-    if (idProvincia =="00"){
+    if (idProvincia == "00"){
       return true;
-    }else {
+    } else {
       return idProvincia === favor.usuario.direccion.provincia.id;
     }
   }
   //endregion
 
   public cambiarProvincia() {
-    //this.filtrosSeleccionados = [];
+    // this.filtrosSeleccionados = [];
     if (this.idProvinciaElegida){
       this.filtrosSeleccionados.push( { nombre: 'Provincia', valor: false, funcion: this.filtroProvincia});
       this.aplicarFiltros();

@@ -24,7 +24,7 @@
         <div class="p-message p-message-error p-3">No hay ningún resultado</div>
       </div>
       <div *ngIf="favoresOriginal.length > 0" class="flex justify-content-center flex-wrap">
-        <p-card *ngFor="let favor of favoresFiltrados" [header]="favor.descripcion" [style]="{ width: '300px' }" class="m-3">
+        <p-card *ngFor="let favor of favoresFiltrados" [header]="favor.descripcion" [subheader]="favor.usuario.direccion.provincia.nombre" [style]="{ width: '340px' }" class="m-3">
           <ng-template pTemplate="header">
             <img *ngIf="favor.foto != null && favor.foto != ''" class="h-13rem p-2 shadow-1" alt="Imagen de {{favor.descripcion}}"
                  [src]="favor.foto"/>
@@ -33,15 +33,17 @@
           </ng-template>
           <ng-template pTemplate="content">
             <div [style]="{ height: '40px' }">
-              <p-tag class="m-1" *ngIf="favor.fumar" value="Fumar" [rounded]="true"></p-tag>
-              <p-tag class="m-1" *ngIf="favor.internet" value="Internet" [rounded]="true"></p-tag>
-              <p-tag class="m-1" *ngIf="favor.mascota" value="Mascota" [rounded]="true"></p-tag>
-              <p-tag class="m-1" *ngIf="favor.climatizacion" value="Climatización" [rounded]="true"></p-tag>
-              <p-tag class="m-1" *ngIf="favor.adaptadoMovilidadReducida" value="Adaptado movilidad reducida" [rounded]="true"></p-tag>
+              <p-tag styleClass="m-1 p-3" tooltipPosition="top" pTooltip="Se permite fumar" severity="success" *ngIf="favor.fumar" [rounded]="true"><i class="fa-solid fa-smoking fa-xl"></i></p-tag>
+              <p-tag styleClass="m-1 p-3" tooltipPosition="top" pTooltip="Acceso a internet" severity="success" *ngIf="favor.internet" [rounded]="true"><i class="fa-solid fa-wifi fa-xl"></i></p-tag>
+              <p-tag styleClass="m-1 p-3" tooltipPosition="top" pTooltip="Se permiten mascotas" severity="success" *ngIf="favor.mascota" [rounded]="true"><i class="fa-solid fa-paw fa-xl"></i></p-tag>
+              <p-tag styleClass="m-1 p-3" tooltipPosition="top" pTooltip="Dispone de climatiación" severity="success" *ngIf="favor.climatizacion" [rounded]="true"><i class="fa-solid fa-temperature-low fa-xl"></i></p-tag>
+              <p-tag styleClass="m-1 p-3" tooltipPosition="top" pTooltip="Adaptado para movilidad reducida" severity="success" *ngIf="favor.adaptadoMovilidadReducida" [rounded]="true"><i class="fa-solid fa-wheelchair fa-xl"></i></p-tag>
             </div>
           </ng-template>
           <ng-template pTemplate="footer">
-            <p-button class="w-1" styleClass="mt-2 p-button-sm p-button-raised" (click)="abrirDialogoContacto(favor)" label="Contactar"></p-button>
+            <div class="flex justify-content-end mt-2">
+              <p-button styleClass="p-button-sm p-button-raised p-button-secondary" (click)="abrirDialogoContacto(favor)" label="Contactar"></p-button>
+            </div>
             <p-dialog [header]="favorDialogo?.descripcion" [maximizable]="true" [(visible)]="dialogoContactar" [style]="{width: '50vw'}" >
               <div *ngIf="favorDialogo != null">
                 <p>Nombre: {{favorDialogo.usuario.nombre}}</p>
