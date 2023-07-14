@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {map, Observable, of, tap} from "rxjs";
 import {Usuario} from "../../shared/models/favor.models";
 import {Router} from "@angular/router";
+import {BackService} from "../../service/back.service";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class AuthService {
 
   constructor(
     private httpClient: HttpClient,
-    private router: Router
+    private router: Router,
+    private back: BackService
   ) { }
 
   get usuarioActivo(): Usuario | undefined {
@@ -21,7 +23,7 @@ export class AuthService {
   }
 
   public autorizar(correo: string, clave: string): Observable<Usuario>{
-    const peticion: string =`http://192.168.0.15:8080/api/v1/usuarios/${correo}/${clave}` ;
+    const peticion: string =`${this.back.url}/api/v1/usuarios/${correo}/${clave}` ;
     return this.httpClient.get<Usuario>(peticion)
       .pipe(
         tap((datos: Usuario)=>{
@@ -32,7 +34,7 @@ export class AuthService {
   }
   public autorizarPorId(id: number): Observable<Usuario>
   {
-    const peticion: string =`http://192.168.0.15:8080/api/v1/usuarios/${id}` ;
+    const peticion: string =`${this.back.url}/api/v1/usuarios/${id}`;
 
     return this.httpClient.get<Usuario>(peticion);
   }

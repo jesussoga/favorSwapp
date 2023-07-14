@@ -2,19 +2,20 @@ import { Injectable } from '@angular/core';
 import {Usuario} from "../models/favor.models";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {BackService} from "../../service/back.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  public url : string = "http://192.168.0.15:8080/api/v1/usuarios";
-
-
+  public url: string;
   constructor(
     private httpClient: HttpClient,
-  ) {
-
+    private back: BackService
+  )
+  {
+    this.url =`${back.url}/api/v1/usuarios`;
   }
 
   public guardarUsuario(usuario: Usuario): Observable<Usuario> {
