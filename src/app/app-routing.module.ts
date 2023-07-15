@@ -9,7 +9,7 @@ import {authInicioGuard} from "./auth/guards/authInicio.guard";
 const routes: Routes = [
   //{path: "", redirectTo: "auth", pathMatch: "full"},
   {path: "", component: InicioComponent, canActivate: [authInicioGuard],pathMatch: "full"},
-  {path: "filtros", component: FiltrosComponent},
+  {path: "filtros", component: FiltrosComponent, canActivate: [authInicioGuard]},
   {path: "insertar-favor", component: InsertarFavorComponent, canActivate: [authGuard]},
   {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
   {path: "**", redirectTo: ""}

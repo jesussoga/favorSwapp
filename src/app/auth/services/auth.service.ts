@@ -4,6 +4,7 @@ import {map, Observable, of, tap} from "rxjs";
 import {Usuario} from "../../shared/models/favor.models";
 import {Router} from "@angular/router";
 import {BackService} from "../../service/back.service";
+import {ThemeService} from "../../shared/services/theme.service";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class AuthService {
   constructor(
     private httpClient: HttpClient,
     private router: Router,
-    private back: BackService
+    private back: BackService,
+    private tema: ThemeService
   ) { }
 
   get usuarioActivo(): Usuario | undefined {
@@ -44,6 +46,11 @@ export class AuthService {
   public verificarLocalStorage(): Observable<boolean> {
     const idUsuarioActivoLocalStorage: string | null = localStorage.getItem("usuarioActivo");
 
+    const tema: string | null = localStorage.getItem("tema"); // Para leer y aplicar tema si está guardado
+    if (tema != null){
+      this.tema.cambiarTema(tema);
+    }
+
     if (idUsuarioActivoLocalStorage == null) {
       //Esto es que no existe
       return of(false); // --> retornaría un Observable<boolean> con el valor false
@@ -61,6 +68,11 @@ export class AuthService {
   }
   public guardInicio(): Observable<boolean> {
     const idUsuarioActivoLocalStorage: string | null = localStorage.getItem("usuarioActivo");
+
+    const tema: string | null = localStorage.getItem("tema"); // Para leer y aplicar tema si está guardado
+    if (tema != null){
+      this.tema.cambiarTema(tema);
+    }
 
     if (idUsuarioActivoLocalStorage == null) {
       //Esto es que no existe

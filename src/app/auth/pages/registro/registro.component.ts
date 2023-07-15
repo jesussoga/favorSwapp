@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {MessageService} from "primeng/api";
 import {Direccion, Provincia, Usuario} from "../../../shared/models/usuario.models";
 import {UsuarioService} from "../../../shared/services/usuario.service";
+import {ThemeService} from "../../../shared/services/theme.service";
 
 @Component({
   selector: 'app-registro',
@@ -26,6 +27,7 @@ export class RegistroComponent implements OnInit{
     private formBuilder: FormBuilder,
     private messageService: MessageService,
     private usuarioService: UsuarioService,
+    private tema: ThemeService,
   ){
     this.provincias = [];
     this.idProvinciaElegida = "29";
@@ -35,6 +37,10 @@ export class RegistroComponent implements OnInit{
   }
 
   ngOnInit() {
+    const tema: string | null = localStorage.getItem("tema"); // Para leer y aplicar tema si está guardado
+    if (tema != null){
+      this.tema.cambiarTema(tema);
+    }
     // Aquí obtenemos todas las provincias
     this.provinciasService.obtenerTodasProvincias().subscribe(
       {

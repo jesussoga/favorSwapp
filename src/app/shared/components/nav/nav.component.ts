@@ -70,6 +70,7 @@ export class NavComponent implements OnInit{
   //Método por el cual llamamos al ThemeService para cambiar el tema de forma dinámica
   public cambiarTema(tema: string){
     this.themeService.cambiarTema(tema);
+    localStorage.setItem("tema", tema);
   }
 
   private logout() {
