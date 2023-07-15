@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MenuItem, PrimeIcons} from "primeng/api";
 import {AuthService} from "../../../auth/services/auth.service";
 import {Router} from "@angular/router";
+import {ThemeService} from "../../services/theme.service";
 
 @Component({
   selector: 'app-nav',
@@ -15,7 +16,9 @@ export class NavComponent implements OnInit{
 
   constructor(
     private _authService: AuthService,
-    private router: Router) {
+    private router: Router,
+    private themeService: ThemeService
+    ) {
     this.items = [];
     this.activeItem = {};
   }
@@ -37,11 +40,13 @@ export class NavComponent implements OnInit{
             items: [
               {
                 label: 'Oscuro',
-                icon: 'fa-solid fa-moon'
+                icon: 'fa-solid fa-moon',
+                command: ()=>{this.cambiarTema('lara-dark-teal')}
               },
               {
                 label: 'Claro',
-                icon: 'fa-regular fa-sun'
+                icon: 'fa-regular fa-sun',
+                command: ()=>{this.cambiarTema('lara-light-teal')}
               },
             ]
           },
@@ -59,6 +64,13 @@ export class NavComponent implements OnInit{
       {label: 'Cerrar sesión', icon: 'fa-regular fa-user', command: ()=>{this.logout()}}
 
     ];
+  }
+
+
+
+  //Método por el cual llamamos al ThemeService para cambiar el tema de forma dinámica
+  public cambiarTema(tema: string){
+    this.themeService.cambiarTema(tema);
   }
 
   private logout() {
