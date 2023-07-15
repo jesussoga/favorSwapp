@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MenuItem, PrimeIcons} from "primeng/api";
 import {AuthService} from "../../../auth/services/auth.service";
 import {Router} from "@angular/router";
+import {Usuario} from "../../models/favor.models";
 
 @Component({
   selector: 'app-nav',
@@ -21,8 +22,8 @@ export class NavComponent implements OnInit{
   }
 
 
-  get usuarioActivo(): AuthService {
-    return this._authService;
+  get usuarioActivo(): Usuario | undefined {
+    return this._authService.usuarioActivo;
   }
 
   ngOnInit() {

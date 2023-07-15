@@ -6,8 +6,8 @@
 
   <!--Opciones de navegación-->
   <ng-template pTemplate="end">
-        <div *ngIf="usuarioActivo.usuarioActivo?.nombre != '' && usuarioActivo.usuarioActivo?.nombre != undefined">
-          <p-tag styleClass="p-2" [rounded]="true">{{"Bienvenido, " + this.usuarioActivo.usuarioActivo?.nombre}}</p-tag>
+        <div *ngIf="usuarioActivo?.nombre != '' && usuarioActivo?.nombre != undefined">
+          <p-tag styleClass="p-2" [rounded]="true">{{"Bienvenido, " + this.usuarioActivo?.nombre}}</p-tag>
         </div>
   </ng-template>
 </p-menubar>
