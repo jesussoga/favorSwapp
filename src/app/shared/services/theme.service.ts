@@ -17,5 +17,11 @@ export class ThemeService {
       themeLink.href = tema + '.css';
     }
   }
+  public temaInicio(){
+    const tema: string | null = localStorage.getItem("tema"); // Para leer y aplicar tema si está guardado
+    if (tema != null){
+      this.cambiarTema(tema);
+    }
+  }
 
 }

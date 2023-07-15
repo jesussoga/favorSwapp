@@ -46,10 +46,7 @@ export class AuthService {
   public verificarLocalStorage(): Observable<boolean> {
     const idUsuarioActivoLocalStorage: string | null = localStorage.getItem("usuarioActivo");
 
-    const tema: string | null = localStorage.getItem("tema"); // Para leer y aplicar tema si está guardado
-    if (tema != null){
-      this.tema.cambiarTema(tema);
-    }
+    this.tema.temaInicio(); // Carga el tema que haya guardado en el navegador, si existe.
 
     if (idUsuarioActivoLocalStorage == null) {
       //Esto es que no existe
@@ -69,10 +66,7 @@ export class AuthService {
   public guardInicio(): Observable<boolean> {
     const idUsuarioActivoLocalStorage: string | null = localStorage.getItem("usuarioActivo");
 
-    const tema: string | null = localStorage.getItem("tema"); // Para leer y aplicar tema si está guardado
-    if (tema != null){
-      this.tema.cambiarTema(tema);
-    }
+    this.tema.temaInicio(); // Carga el tema que haya guardado en el navegador, si existe.
 
     if (idUsuarioActivoLocalStorage == null) {
       //Esto es que no existe

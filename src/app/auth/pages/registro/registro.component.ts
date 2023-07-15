@@ -37,10 +37,8 @@ export class RegistroComponent implements OnInit{
   }
 
   ngOnInit() {
-    const tema: string | null = localStorage.getItem("tema"); // Para leer y aplicar tema si está guardado
-    if (tema != null){
-      this.tema.cambiarTema(tema);
-    }
+    this.tema.temaInicio(); // Carga el tema que haya guardado en el navegador, si existe.
+
     // Aquí obtenemos todas las provincias
     this.provinciasService.obtenerTodasProvincias().subscribe(
       {
