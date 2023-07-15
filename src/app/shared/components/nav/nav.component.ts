@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MenuItem, PrimeIcons} from "primeng/api";
+import {MenuItem,} from "primeng/api";
 import {AuthService} from "../../../auth/services/auth.service";
 import {Router} from "@angular/router";
 import {Usuario} from "../../models/favor.models";
