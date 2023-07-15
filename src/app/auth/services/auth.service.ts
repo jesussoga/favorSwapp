@@ -19,7 +19,10 @@ export class AuthService {
   ) { }
 
   get usuarioActivo(): Usuario | undefined {
-    return {...this._usuarioActivo!};
+    return this._usuarioActivo;
+  }
+  get isUserActive(): boolean{
+    return this._usuarioActivo != undefined;
   }
 
   public autorizar(correo: string, clave: string): Observable<Usuario>{
@@ -44,6 +47,24 @@ export class AuthService {
     if (idUsuarioActivoLocalStorage == null) {
       //Esto es que no existe
       return of(false); // --> retornaría un Observable<boolean> con el valor false
+    } else {
+      //Esto es que si existe, y vamos a verificar que esa id exista
+      return this.autorizarPorId(Number(idUsuarioActivoLocalStorage))
+        .pipe(
+          map((datos: Usuario) => {
+              this._usuarioActivo = datos; // Guardamos en el servicio el usuario activo
+              return true;
+            }
+          )
+        );
+    }
+  }
+  public guardInicio(): Observable<boolean> {
+    const idUsuarioActivoLocalStorage: string | null = localStorage.getItem("usuarioActivo");
+
+    if (idUsuarioActivoLocalStorage == null) {
+      //Esto es que no existe
+      return of(true); // --> retornaría un Observable<boolean> con el valor true
     } else {
       //Esto es que si existe, y vamos a verificar que esa id exista
       return this.autorizarPorId(Number(idUsuarioActivoLocalStorage))
