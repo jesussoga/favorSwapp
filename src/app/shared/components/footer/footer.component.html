@@ -1,46 +1,113 @@
-<div class="footer grid">
+<div class="footer grid border-round">
 
-  <div class="col-12 md:col-6 lg:col-3">
-    <div class=" border-round-sm ">
-      <!--Dirección-->
-      <p-button (click)="ubicacion()" styleClass="p-button-text" label="&copy; RoomSwapp '23"></p-button>
-    </div>
-  </div>
-
-  <!--Los Tres botones centrales -->
-  <div class="col-12 lg:col-6 hidden-sm hidden-md">
-    <div class="text-center">
-      <!--Redes Sociales-->
-      <div class="align-content-center">
-        <p-button styleClass="p-button-rounded p-button-info p-button-text p-button-raised" (click)="facebook()">
-          <i class="pi pi-facebook"></i>
-        </p-button>
-        <p-button styleClass="p-button-rounded p-button-text p-button-raised" (click)="twitter()">
-          <i class="pi pi-twitter"></i>
-        </p-button>
-        <p-button styleClass="p-button-rounded p-button-danger p-button-text p-button-raised" (click)="instagram()">
-          <i class="pi pi-instagram"></i>
-        </p-button>
+      <!-- Botón copyright, dirección-->
+      <!-- Resolución normal y media-->
+      <div *ngIf="resMax || resMed" class="col-4">
+        <div class=" border-round-sm ">
+          <p-button  (click)="ubicacion()" styleClass="p-button-text p-button-sm" label="&copy; RoomSwapp '23"></p-button>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <!--Tres boton de la derecha-->
-  <div class="col-12 md:col-6 lg:col-3 hidden-sm">
+      <!-- Resolución baja -->
+      <div *ngIf="resMin" class="col-2">
+        <div class=" border-round-sm ">
+          <p-button (click)="ubicacion()" styleClass="p-button-text p-button-sm" label="&copy;RS'23"></p-button>
+        </div>
+      </div>
+
+
+      <!--Los Tres botones centrales -->
+      <!-- Resolución normal y media-->
+      <div *ngIf="resMax || resMed" class="col-4">
+        <div class="text-center">
+          <!--Redes Sociales-->
+          <div class="align-content-center">
+            <p-button styleClass="p-button-rounded p-button-info p-button-text p-button-sm" (click)="facebook()">
+              <i class="pi pi-facebook"></i>
+            </p-button>
+            <p-button styleClass="p-button-rounded p-button-text p-button-sm" (click)="twitter()">
+              <i class="pi pi-twitter"></i>
+            </p-button>
+            <p-button styleClass="p-button-rounded p-button-danger p-button-text p-button-sm" (click)="instagram()">
+              <i class="pi pi-instagram"></i>
+            </p-button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Baja resolución-->
+      <div *ngIf="resMin" class="col-6">
+        <div class="text-center">
+          <!--Redes Sociales-->
+          <div class="align-content-center">
+            <p-button styleClass="p-button-rounded p-button-info p-button-text  p-button-sm" (click)="facebook()">
+              <i class="pi pi-facebook"></i>
+            </p-button>
+            <p-button styleClass="p-button-rounded p-button-text  p-button-sm" (click)="twitter()">
+              <i class="pi pi-twitter"></i>
+            </p-button>
+            <p-button styleClass="p-button-rounded p-button-danger p-button-text  p-button-sm" (click)="instagram()">
+              <i class="pi pi-instagram"></i>
+            </p-button>
+          </div>
+        </div>
+      </div>
+
+
+      <!--Tres boton de la derecha-->
+      <!-- Resolucion normal -->
+      <div *ngIf="resMax" class="col-4">
+        <div class="text-center border-round-sm font-bold">
+          <div class="flex-1 flex align-items-center justify-content-end font-bold border-round">
+            <!--Botón de Política de privacidad-->
+            <p-button label="Privacidad" (click)="abrirPoliticaDePrivacidad()"
+                      styleClass="p-button-text p-button-sm"></p-button>
+            <!--Botón de Condiciones de uso-->
+            <p-button label="Términos" (click)="abrirDialogoTerminosYCondiciones()"
+                      styleClass="p-button-text p-button-sm"></p-button>
+            <!--Botón de Política de Cookies-->
+            <p-button label="Cookies" (click)="abrirPoliticaDeCookies()"
+                      styleClass="p-button-text p-button-sm"></p-button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resolucion media -->
+      <div *ngIf="resMed" class="col-4">
+        <div class="text-center border-round-sm font-bold">
+          <div class="flex-1 flex align-items-center justify-content-end font-bold border-round">
+            <!--Botón de Política de privacidad-->
+            <p-button icon="fa-solid fa-key" (click)="abrirPoliticaDePrivacidad()"
+                      styleClass="p-button-text p-button-sm"></p-button>
+            <!--Botón de Condiciones de uso-->
+            <p-button icon="fa-solid fa-asterisk" (click)="abrirDialogoTerminosYCondiciones()"
+                      styleClass="p-button-text p-button-sm"></p-button>
+            <!--Botón de Política de Cookies-->
+            <p-button icon="fa-solid fa-cookie" (click)="abrirPoliticaDeCookies()"
+                      styleClass="p-button-text p-button-sm"></p-button>
+          </div>
+        </div>
+      </div>
+
+  <!-- Resolucion baja -->
+  <div *ngIf="resMin" class="col-4">
     <div class="text-center border-round-sm font-bold">
       <div class="flex-1 flex align-items-center justify-content-end font-bold border-round">
         <!--Botón de Política de privacidad-->
-        <p-button label="Privacidad" (click)="abrirPoliticaDePrivacidad()"
-                  styleClass="p-button-text"></p-button>
+        <p-button icon="fa-solid fa-key" (click)="abrirPoliticaDePrivacidad()"
+                  styleClass="p-button-text p-button-sm"></p-button>
         <!--Botón de Condiciones de uso-->
-        <p-button label="Términos" (click)="abrirDialogoTerminosYCondiciones()"
-                  styleClass="p-button-text"></p-button>
+        <p-button icon="fa-solid fa-asterisk" (click)="abrirDialogoTerminosYCondiciones()"
+                  styleClass="p-button-text p-button-sm"></p-button>
         <!--Botón de Política de Cookies-->
-        <p-button label="Cookies" (click)="abrirPoliticaDeCookies()"
-                  styleClass="p-button-text"></p-button>
+        <p-button icon="fa-solid fa-cookie" (click)="abrirPoliticaDeCookies()"
+                  styleClass="p-button-text p-button-sm"></p-button>
       </div>
     </div>
   </div>
+
+
+
 </div>
 
 <!--Texto que aparece al pulsar el botón Privacidad-->
