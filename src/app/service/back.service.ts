@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class BackService {
-  private ip: string = "http://192.168.0.172";        //-> Aquí la url del backend
+  private ip: string = "http://192.168.0.15";        //-> Aquí la url del backend
   private puerto: string = ":8080";                   //-> Aquí el puerto
   private _url: string = this.ip + this.puerto;
   constructor() {}
