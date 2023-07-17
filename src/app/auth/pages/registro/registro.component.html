@@ -1,96 +1,138 @@
 <p-card class="m-3">
-    <div *ngIf="pruebasDesarrollo" style="background-color: darkseagreen">
-      <h2>Aquí van las pruebas</h2>
-      <p>Formulario: {{formRegistroUsuario.value | json}}</p>
-      <p>Provincia elegida: {{idProvinciaElegida}}</p>
-      <p>ProvinciaSelect Malaga: {{provincias[29] | json}}</p>
-    </div>
+  <div *ngIf="pruebasDesarrollo" style="background-color: darkseagreen">
+    <h2>Aquí van las pruebas</h2>
+    <p>Formulario: {{formRegistroUsuario.value | json}}</p>
+    <p>Provincia elegida: {{idProvinciaElegida}}</p>
+    <p>ProvinciaSelect Malaga: {{provincias[29] | json}}</p>
+  </div>
   <h2 class="text-center">Registrar Usuario</h2>
   <form [formGroup]="formRegistroUsuario" (ngSubmit)="validarUsuario()" class="mt-4">
     <input type="hidden" formControlName="id"/>
     <div class="formgrid grid">
-      <div class="field col-12 md:col-6 p-4">
+      <div class="field col-12 md:col-6 px-4">
         <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="pi pi-user"></i> Datos personales</p>
         <span class="p-float-label mt-4">
           <input autofocus pInputText id="nombre" type="text" class="w-12 {{esCampoInvalido('nombre') ? 'ng-invalid ng-dirty' : ''}}" aria-describedby="nombre-ayuda" formControlName="nombre">
-          <label htmlFor="nombre">Nombre</label>
+          <label for="nombre">Nombre</label>
         </span>
         <span class="p-float-label mt-4">
           <input pInputText id="apellido1" type="text" class="w-12 {{esCampoInvalido('apellido1') ? 'ng-invalid ng-dirty' : ''}}" aria-describedby="apellido1-ayuda" formControlName="apellido1"/>
-          <label htmlFor="apellido1">Primer Apellido</label>
+          <label for="apellido1">Primer Apellido</label>
         </span>
         <span class="p-float-label mt-4">
            <input pInputText id="apellido2" type="text"  class="w-12 {{esCampoInvalido('apellido2') ? 'ng-invalid ng-dirty' : ''}}" aria-describedby="apellido2-ayuda" formControlName="apellido2"/>
-           <label htmlFor="apellido2">Segundo Apellido</label>
+           <label for="apellido2">Segundo Apellido</label>
         </span>
         <span class="p-float-label mt-4">
           <p-calendar id="fechaNacimiento" styleClass="w-12 " class=" {{esCampoInvalido('fechaNacimiento') ? 'ng-invalid ng-dirty' : ''}}" aria-describedby="fechaNacimiento-ayuda" [showIcon]="true" formControlName="fechaNacimiento"></p-calendar>
-          <label htmlFor="fechaNacimiento">Fecha de nacimiento</label>
+          <label for="fechaNacimiento">Fecha de nacimiento</label>
         </span>
         <span class="p-float-label mt-4">
-        <p-dropdown styleClass="w-12" class=" {{esCampoInvalido('idProvincia') ? 'ng-invalid ng-dirty' : ''}}" aria-describedby="idProvincia-ayuda" inputId="provincias" appendTo="body" formControlName="idProvincia" optionValue="id"
+        <p-dropdown styleClass="w-12"  aria-describedby="idProvincia-ayuda" inputId="provincias" appendTo="body" formControlName="idProvincia" optionValue="id"
                     [(ngModel)]="idProvinciaElegida" [options]="provincias" optionLabel="nombre"></p-dropdown>
           <label htmlFor="idProvincia">Provincia</label>
         </span>
         <input type="hidden" formControlName="idDireccion"/>
         <span class="p-float-label mt-4">
           <input pInputText id="direccion" type="text" class="w-12 {{esCampoInvalido('direccion') ? 'ng-invalid ng-dirty' : ''}}" aria-describedby="direccion-ayuda" formControlName="direccion">
-          <label htmlFor="direccion">Dirección completa</label>
+          <label for="direccion">Dirección completa</label>
         </span>
       </div>
 
-      <div class="field col-12 md:col-6 p-4">
+      <div class="field col-12 md:col-6 px-4">
         <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="pi pi-phone"></i> Datos de contactos</p>
 
         <span class="p-float-label mt-4">
           <input pInputText id="email" type="email" class="w-12 {{esCampoInvalido('email') ? 'ng-invalid ng-dirty' : ''}}" aria-describedby="email-ayuda" formControlName="email">
-          <label htmlFor="email">Correo electrónico</label>
+          <label for="email">Correo electrónico</label>
         </span>
         <span class="p-float-label mt-4">
-          <input pInputText id="telefono" type="tel" maxlength="9" class="w-12 {{esCampoInvalido('telefono') ? 'ng-invalid ng-dirty' : ''}}" aria-describedby="telefono-ayuda" formControlName="telefono">
-          <label htmlFor="telefono">Teléfono de contacto</label>
+          <input pInputText id="telefono" type="tel"  class="w-12 {{esCampoInvalido('telefono') ? 'ng-invalid ng-dirty' : ''}}" aria-describedby="telefono-ayuda" formControlName="telefono">
+          <label for="telefono">Teléfono de contacto</label>
         </span>
         <span class="p-float-label mt-4">
-          <p-password placeholder="Contraseña" class=" {{esCampoInvalido('clave') ? 'ng-invalid ng-dirty' : ''}}" aria-describedby="clave-ayuda" [feedback]="false" [(ngModel)]="clave" [toggleMask]="true" formControlName="clave"></p-password>
-          <label htmlFor="clave">Contraseña</label>
+          <p-password
+            id="clave"
+            promptLabel="Sugerencias"
+            weakLabel="Débil"
+            mediumLabel="Media"
+            strongLabel="Fuerte"
+            [class]="esCampoInvalido('clave') ? 'ng-invalid ng-dirty' : ''"
+            aria-describedby="clave-ayuda"
+            [feedback]="true"
+            [(ngModel)]="clave"
+            [toggleMask]="true"
+            formControlName="clave">
+            <ng-template pTemplate="footer">
+                <ul class="text-sm">
+                  <li>Al menos una minúscula</li>
+                  <li>Al menos una mayúscula</li>
+                  <li>Al menos un número</li>
+                  <li>Al menos 8 caracteres</li>
+                </ul>
+              </ng-template>
+
+          </p-password>
+          <label for="clave">Contraseña</label>
           <br>
           <small *ngIf="!comprobarClave()" style="color: #e24c4c" id="clave-ayuda">La contraseña no coinciden</small>
         </span>
-        <span class="p-float-label mt-4">
-          <p-password  placeholder="Repite la contraseña" class=" {{esCampoInvalido('usuarioClave2') ? 'ng-invalid ng-dirty' : ''}}" aria-describedby="usuarioClave2-ayuda" [feedback]="false" [(ngModel)]="usuarioClave2" [toggleMask]="true" formControlName="usuarioClave2"></p-password>
-          <label htmlFor="usuarioClave2">Repite la contraseña</label>
-          <br>
-          <small *ngIf="!comprobarClave()" style="color: #e24c4c" id="usuarioClave2-ayuda">La contraseña no coinciden</small>
+        <span class="p-float-label my-4">
+          <p-password
+            id="usuarioClave2"
+            promptLabel="Sugerencias"
+            weakLabel="Débil"
+            mediumLabel="Media"
+            strongLabel="Fuerte"
+            [class]="esCampoInvalido('usuarioClave2') ? 'ng-invalid ng-dirty' : ''"
+            aria-describedby="usuarioClave2-ayuda"
+            [feedback]="true"
+            [(ngModel)]="usuarioClave2"
+            [toggleMask]="true"
+            formControlName="usuarioClave2">
+            <ng-template pTemplate="footer">
+                <ul class="text-sm">
+                  <li>Al menos una minúscula</li>
+                  <li>Al menos una mayúscula</li>
+                  <li>Al menos un número</li>
+                  <li>Al menos 8 caracteres</li>
+                </ul>
+              </ng-template>
+          </p-password>
+            <label for="usuarioClave2">Repite la contraseña</label>
+            <br>
+            <small *ngIf="!comprobarClave()" style="color: #e24c4c" id="usuarioClave2-ayuda">La contraseña no coinciden</small>
         </span>
+        <div class="flex justify-content-end flex-wrap p-3 gap-2 mt-8">
+          <p-toast position="top-center"></p-toast>
+          <div class="flex align-items-center justify-content-center">
+            <p-button
+              (click)="borrarFormulario()"
+              icon="fa-solid fa-trash"
+              label="Borrar"
+            ></p-button>
+          </div>
+          <div class="flex align-items-center justify-content-center">
+            <p-button
+              (click)="marcarTodosLosCampos()"
+              icon="fa-solid fa-eye"
+              label="Verificar"
+              [styleClass]="'p-button-info'"
+            ></p-button>
+          </div>
+          <div class="flex align-items-center justify-content-center">
+            <p-button
+              icon="fa-solid fa-save"
+              label="Guardar"
+              type="submit"
+              [styleClass]="formRegistroUsuario.valid ? 'p-button-success': 'p-button-danger'"
+              [disabled]="formRegistroUsuario.invalid || formRegistroUsuario.pristine"
+            ></p-button>
+          </div>
+        </div>
       </div>
 
     </div>
-      <div class="flex justify-content-end flex-wrap p-3 gap-2">
-        <p-toast position="top-center"></p-toast>
-        <div class="flex align-items-center justify-content-center">
-          <p-button
-            (click)="borrarFormulario()"
-            icon="fa-solid fa-trash"
-            label="Borrar"
-          ></p-button>
-        </div>
-        <div class="flex align-items-center justify-content-center">
-          <p-button
-            (click)="marcarTodosLosCampos()"
-            icon="fa-solid fa-eye"
-            label="Verificar"
-            [styleClass]="'p-button-info'"
-          ></p-button>
-        </div>
-        <div class="flex align-items-center justify-content-center">
-          <p-button
-            icon="fa-solid fa-save"
-            label="Guardar"
-            type="submit"
-            [styleClass]="formRegistroUsuario.valid ? 'p-button-success': 'p-button-danger'"
-            [disabled]="formRegistroUsuario.invalid || formRegistroUsuario.pristine"
-          ></p-button>
-        </div>
-      </div>
+
   </form>
 </p-card>

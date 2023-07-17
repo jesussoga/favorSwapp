@@ -24,7 +24,9 @@
         <div class="p-message p-message-error p-3">No hay ningún resultado</div>
       </div>
       <div *ngIf="favoresOriginal.length > 0" class="flex justify-content-center flex-wrap">
-        <p-card *ngFor="let favor of favoresFiltrados" [header]="favor.descripcion" [subheader]="favor.usuario.direccion.provincia.nombre" [style]="{ width: '340px' }" class="m-3">
+        <p-card *ngFor="let favor of favoresFiltrados" [header]="favor.descripcion"
+                [subheader]="favor.usuario.direccion.direccion + ' (' + favor.usuario.direccion.provincia.nombre + ')'"
+                [style]="{ width: '340px' }" class="m-3">
           <ng-template pTemplate="header">
             <img *ngIf="favor.foto != null && favor.foto != ''" class="h-13rem p-2 shadow-1" alt="Imágen de {{favor.descripcion}}"
                  [src]="favor.foto"/>

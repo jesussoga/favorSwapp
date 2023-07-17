@@ -34,7 +34,7 @@ export class InsertarFavorComponent implements OnInit{
   public inicializarFormulario(){
     this.formFavor = this.formBuilder.group({
       id                              : [0, []],
-      foto                            : ["", [Validators.required]],
+      foto                            : ["", [Validators.maxLength(200)]],
       descripcion                     : ["", [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       provincia                       : [this.usuarioActivo.usuarioActivo?.direccion.provincia.nombre],
       usuario                         : [this.usuarioActivo.usuarioActivo],
@@ -54,6 +54,9 @@ export class InsertarFavorComponent implements OnInit{
 
   public validarFavor(){
     let favor: Favor = this.formFavor.value;
+    if (favor.foto.length <= 6){
+      favor.foto = "";
+    }
     this.guardaFavor(favor);
   }
 
@@ -92,5 +95,7 @@ export class InsertarFavorComponent implements OnInit{
     //Al ponerlos todos como marcados, me mostrará directamente todos los errores
     this.formFavor.markAllAsTouched();
   }
+
+
 }
 

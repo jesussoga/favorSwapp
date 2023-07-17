@@ -2,7 +2,7 @@
   <div *ngIf="pruebasDesarrollo" style="background-color: darkseagreen">
     <p>{{formFavor.value | json}}</p>
   </div>
-  <h2>Crear un Favor</h2>
+  <h2 class="text-center">Crear un Favor</h2>
   <form [formGroup]="formFavor" (ngSubmit)="validarFavor()" class="mt-4">
     <input type="hidden" formControlName="id"/>
     <div class="formgrid grid">
@@ -10,15 +10,15 @@
         <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="fa-solid fa-user"></i> Datos personales</p>
         <span class="p-float-label mt-4">
             <input pInputText id="nombre" type="text" [readonly]="true" class="w-full" aria-describedby="nombre-ayuda" formControlName="nombre">
-            <label htmlFor="nombre">Nombre</label>
+            <label for="nombre">Nombre</label>
           </span>
         <span class="p-float-label mt-4">
             <input pInputText id="primerAp" type="text" [readonly]="true" class="w-full" aria-describedby="primerAp-ayuda" formControlName="primerAp">
-            <label htmlFor="primerAp">Primer Apellido</label>
+            <label for="primerAp">Primer Apellido</label>
           </span>
         <span class="p-float-label mt-4">
             <input pInputText id="segundoAp" type="text" [readonly]="true" class="w-full" aria-describedby="segundoAp-ayuda" formControlName="segundoAp">
-            <label htmlFor="segundoAp">Segundo Apellido</label>
+            <label for="segundoAp">Segundo Apellido</label>
           </span>
       </div>
 
@@ -26,15 +26,15 @@
         <p class="bg-gray-200 font-bold p-2 border-round-md"><i class="fa-solid fa-phone"></i>  Datos de contacto</p>
         <span class="p-float-label mt-4">
             <input pInputText id="provincia" type="text" [readonly]="true" class="w-full" aria-describedby="provincia-ayuda" formControlName="provincia">
-            <label htmlFor="provincia">Provincia</label>
+            <label for="provincia">Provincia</label>
           </span>
         <span class="p-float-label mt-4">
             <input pInputText id="email" type="email" [readonly]="true" class="w-full" aria-describedby="email-ayuda" formControlName="email">
-            <label htmlFor="email">Email</label>
+            <label for="email">Email</label>
           </span>
         <span class="p-float-label mt-4">
             <input pInputText id="telefono" type="tel" autofocus class="w-full" maxlength="9" aria-describedby="telefono-ayuda" formControlName="telefono">
-            <label htmlFor="telefono">Teléfono de contacto</label>
+            <label for="telefono">Teléfono de contacto</label>
         </span>
       </div>
 
@@ -43,12 +43,12 @@
         <div class="gap-2">
           <span class="p-float-label mt-4">
               <input pInputText id="descripcion" type="text" maxlength="20" class="w-full" aria-describedby="descripcion-ayuda" (keyup.enter)="marcarTodosLosCampos()" formControlName="descripcion">
-              <label htmlFor="descripcion">Título</label>
+              <label for="descripcion">Título</label>
               <small *ngIf="esCampoInvalido('descripcion')" style="color: #e24c4c" id="descripcion-ayuda">Introduzca el título</small>
           </span>
           <span class="p-float-label my-4">
               <input pInputText id="foto" type="text" class="w-full" aria-describedby="foto-ayuda" (keyup.enter)="marcarTodosLosCampos()" formControlName="foto">
-              <label htmlFor="foto">Foto</label>
+              <label for="foto">Foto opcional</label>
               <small *ngIf="esCampoInvalido('foto')" style="color: #e24c4c" id="foto-ayuda">Introduzca una foto</small>
           </span>
           <label>

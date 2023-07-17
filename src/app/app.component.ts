@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PrimeNGConfig} from "primeng/api";
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,8 +10,12 @@ import {PrimeNGConfig} from "primeng/api";
 export class AppComponent implements OnInit{
   title = 'favorSwapp';
 
-  constructor(private primengConfig: PrimeNGConfig) {
-  }
+  constructor(
+    private primengConfig: PrimeNGConfig,
+
+  ) {}
+
+
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;

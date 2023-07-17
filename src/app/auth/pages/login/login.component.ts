@@ -1,15 +1,16 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Usuario} from "../../../shared/models/favor.models";
+import {ThemeService} from "../../../shared/services/theme.service";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   public usuarioCorreo: string;
   public usuarioClave: string;
 
@@ -20,7 +21,8 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private tema: ThemeService
 
   ) {
     this.usuarioCorreo = "";
@@ -60,5 +62,9 @@ export class LoginComponent {
   public cerrarDialogo(){
     this.cerrarDialogoLogin = false;
     this.router.navigate(['/'])
+  }
+
+  ngOnInit(): void {
+    this.tema.temaInicio(); // Carga el tema que haya guardado en el navegador, si existe.
   }
 }

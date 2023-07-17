@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -10,7 +10,13 @@ export class FooterComponent {
   public visibleTerminos: boolean = false;
   public visiblePrivacidad: boolean = false;
   public visibleCookies: boolean = false;
+  resolucionMaxima: number = 800;   // Resolución mínima en pixeles de pantallas normales
+  resolucionMedia: number = 610;    // Resolición mínima en pixeles de pantallas medias
+  resMax: boolean = false;
+  resMed: boolean = false;
+  resMin: boolean = false;
   constructor() {
+    this.updateResolucion();
   }
   public abrirPoliticaDePrivacidad() {
     this.visiblePrivacidad = true;
@@ -45,6 +51,16 @@ export class FooterComponent {
   }
   public instagram() {
     window.open('https://www.instagram.com/', '_blank')
+  }
+
+  private updateResolucion() {
+    this.resMax = window.innerWidth > this.resolucionMaxima;
+    this.resMed = window.innerWidth > this.resolucionMedia && window.innerWidth <= this.resolucionMaxima;
+    this.resMin = !this.resMax && !this.resMed;
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.updateResolucion();
   }
 }
 
