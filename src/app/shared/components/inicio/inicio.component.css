@@ -11,7 +11,14 @@
     width: 100%;
     max-width: 6rem;
   }
+
 }
 .color {
   background-color: var(--surface-a);
+}
+
+.margenes {
+  margin-top: 11rem;
+  margin-left: 7rem;
+  margin-right: 7rem;
 }

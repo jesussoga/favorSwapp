@@ -127,6 +127,18 @@ export class FiltrosComponent implements OnInit{
       this.aplicarFiltros();
     }
   }
+
+  public mostrarMapa(direccion: string) {
+    window.open('https://www.google.es/maps/search/' + direccion, '_blank');
+  }
+
+  public contactarEmail(email: string) {
+    window.open('mailto:' + email, '_blank');
+  }
+
+  public contactarTelefono(telefono: string) {
+    window.open('tel:' + telefono, '_blank');
+  }
 }
 
 

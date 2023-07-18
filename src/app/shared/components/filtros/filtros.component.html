@@ -50,11 +50,67 @@
         </p-card>
             <p-dialog [modal]="true" [header]="favorDialogo?.descripcion" [maximizable]="true" [(visible)]="dialogoContactar" [style]="{width: '50vw'}" >
               <div *ngIf="favorDialogo != null">
-                <p>Nombre: {{favorDialogo.usuario.nombre}}</p>
-                <p>Provincia: {{favorDialogo.usuario.direccion.provincia.nombre}}</p>
-                <p>Dirección: {{favorDialogo.usuario.direccion.direccion}}</p>
-                <p>Email: {{favorDialogo.usuario.email}}</p>
-                <p>Telefono: {{favorDialogo.telefono}}</p>
+                <p-divider></p-divider>
+                <div class="flex gap-2">
+                  <div class="col-1">
+                    <i class="fa-solid fa-id-card"></i>
+                  </div>
+                  <div class="col-2">
+                    <span class="font-bold">Nombre</span>
+                  </div>
+                  <div class="col-5">
+                    {{favorDialogo.usuario.nombre}}
+                  </div>
+                  <div class="col-4">
+
+                  </div>
+                </div>
+                <p-divider></p-divider>
+                <div class="flex gap-2">
+                  <div class="col-1">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div class="col-2">
+                    <span class="font-bold">Dirección</span>
+                  </div>
+                  <div class="col-5">
+                    <span>{{favorDialogo.usuario.direccion.direccion}}. {{favorDialogo.usuario.direccion.provincia.nombre}}</span>
+                  </div>
+                  <div class="col-4">
+                    <p-button (click)="mostrarMapa(favorDialogo.usuario.direccion.direccion + ', ' + favorDialogo.usuario.direccion.provincia.nombre)" label="Mapa" icon="fa-solid fa-location-dot"></p-button>
+                  </div>
+                </div>
+                <p-divider></p-divider>
+                <div class="flex gap-2">
+                  <div class="col-1">
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                  <div class="col-2">
+                    <span class="font-bold">Email</span>
+                  </div>
+                  <div class="col-5">
+                    <span>{{favorDialogo.usuario.email}}</span>
+                  </div>
+                  <div class="col-4">
+                    <p-button (click)="contactarEmail(favorDialogo.usuario.email)" label="Enviar" icon="fa-solid fa-paper-plane"></p-button>
+                  </div>
+                </div>
+                <p-divider></p-divider>
+                <div class="flex gap-2">
+                  <div class="col-1">
+                    <i class="fa-solid fa-phone"></i>
+                  </div>
+                  <div class="col-2">
+                    <span class="font-bold">Teléfono</span>
+                  </div>
+                  <div class="col-5">
+                    <span>{{favorDialogo.telefono}}</span>
+                  </div>
+                  <div class="col-4">
+                    <p-button (click)="contactarTelefono(favorDialogo.telefono)" label="Llamar" icon="fa-solid fa-phone-volume"></p-button>
+                  </div>
+                </div>
+                <p-divider></p-divider>
               </div>
             </p-dialog>
       </div>

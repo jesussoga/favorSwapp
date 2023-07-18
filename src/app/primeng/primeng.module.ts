@@ -16,6 +16,7 @@ import {ToastModule} from "primeng/toast";
 import {TooltipModule} from "primeng/tooltip";
 import {CalendarModule} from "primeng/calendar";
 import {KeyFilterModule} from "primeng/keyfilter";
+import {DividerModule} from "primeng/divider";
 
 
 
@@ -30,6 +31,7 @@ import {KeyFilterModule} from "primeng/keyfilter";
     CardModule,
     CheckboxModule,
     DialogModule,
+    DividerModule,
     DropdownModule,
     InputSwitchModule,
     InputTextModule,
