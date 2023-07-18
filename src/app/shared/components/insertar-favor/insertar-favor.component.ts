@@ -17,6 +17,7 @@ export class InsertarFavorComponent implements OnInit{
 
   public pruebasDesarrollo: boolean;
   public formFavor!: FormGroup;
+  public titulos: string[];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,16 +27,24 @@ export class InsertarFavorComponent implements OnInit{
     private router: Router,
   ) {
     this.pruebasDesarrollo = false;
+    this.titulos = [
+      "Habitación de 1 cama",
+      "Habitación de 2 camas",
+      "Habitación exterior",
+      "Habitación interior",
+      "Habitación con terraza",
+    ];
   }
   ngOnInit(): void {
     this.inicializarFormulario();
+
   }
 
   public inicializarFormulario(){
     this.formFavor = this.formBuilder.group({
       id                              : [0, []],
       foto                            : ["", [Validators.maxLength(200)]],
-      descripcion                     : ["", [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
+      descripcion                     : ["", [Validators.required,]],
       provincia                       : [this.usuarioActivo.usuarioActivo?.direccion.provincia.nombre],
       usuario                         : [this.usuarioActivo.usuarioActivo],
       nombre                          : [this.usuarioActivo.usuarioActivo?.nombre],

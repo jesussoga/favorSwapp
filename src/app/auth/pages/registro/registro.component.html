@@ -47,7 +47,7 @@
           <label for="email">Correo electrónico</label>
         </span>
         <span class="p-float-label mt-4">
-          <input pInputText id="telefono" type="tel"  class="w-12 {{esCampoInvalido('telefono') ? 'ng-invalid ng-dirty' : ''}}" aria-describedby="telefono-ayuda" formControlName="telefono">
+          <input pInputText id="telefono" type="tel" pKeyFilter="num" class="w-12 {{esCampoInvalido('telefono') ? 'ng-invalid ng-dirty' : ''}}" aria-describedby="telefono-ayuda" formControlName="telefono">
           <label for="telefono">Teléfono de contacto</label>
         </span>
         <span class="p-float-label mt-4">
@@ -105,6 +105,13 @@
         </span>
         <div class="flex justify-content-end flex-wrap p-3 gap-2 mt-8">
           <p-toast position="top-center"></p-toast>
+          <div class="flex align-items-center justify-content-center">
+            <p-button
+              icon="fa-solid fa-arrow-left"
+              label="Salir"
+              routerLink="/"
+            ></p-button>
+          </div>
           <div class="flex align-items-center justify-content-center">
             <p-button
               (click)="borrarFormulario()"

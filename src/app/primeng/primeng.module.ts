@@ -15,6 +15,7 @@ import {TagModule} from "primeng/tag";
 import {ToastModule} from "primeng/toast";
 import {TooltipModule} from "primeng/tooltip";
 import {CalendarModule} from "primeng/calendar";
+import {KeyFilterModule} from "primeng/keyfilter";
 
 
 
@@ -32,6 +33,7 @@ import {CalendarModule} from "primeng/calendar";
     DropdownModule,
     InputSwitchModule,
     InputTextModule,
+    KeyFilterModule,
     MenubarModule,
     PasswordModule,
     RippleModule,
